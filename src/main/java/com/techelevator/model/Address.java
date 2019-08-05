@@ -1,10 +1,15 @@
 package com.techelevator.model;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Address {
 
 	private long id;
+	@NotBlank
 	private int zipCode;
+	@NotBlank
 	private String city;
+	@NotBlank
 	private String addressLine1;
 	private String addressLine2;
 	
