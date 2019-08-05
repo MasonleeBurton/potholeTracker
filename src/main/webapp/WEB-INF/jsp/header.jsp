@@ -17,6 +17,9 @@
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 
+<c:url var="footerCss" value="/css/footer.css" />
+<link rel="stylesheet" type="text/css" href="${footerCss}">
+
 <script src="${jQueryJs}"></script>
 <script src="${jqValidateJs}"></script>
 <script src="${jqvAddMethJs}"></script>
