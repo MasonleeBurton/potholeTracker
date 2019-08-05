@@ -8,4 +8,6 @@ public interface PotholeDAO {
 	
 	public List<Pothole> getAll();
 
+	public void create(Pothole pothole);
+
 }
