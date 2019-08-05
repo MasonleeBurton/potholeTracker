@@ -58,8 +58,10 @@
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
 			<ul class="navbar-nav mr-auto">
-				<c:url var="homePageHref" value="/" />
+				<c:url var="homePageHref" value="/index" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
+				<c:url var="submitHref" value="/submitPothole" />
+				<li class="nav-item"><a class="nav-link" href="${submitHref}">Submit Pothole</a></li>
 
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
