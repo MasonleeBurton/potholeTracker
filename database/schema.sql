@@ -19,10 +19,10 @@ CREATE TABLE app_user (
 
 CREATE TABLE pothole (
   id SERIAL PRIMARY KEY,
-  address_id long NOT NULL,
+  address_id int NOT NULL,
   size varchar(32) NOT NULL,
   description varchar(32),
-  created_on date(255) NOT NULL,
+  created_on date NOT NULL,
   latitude varchar (255) NOT NULL,
   longitude varchar (255) NOT NULL
 );
