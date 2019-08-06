@@ -1,7 +1,7 @@
 <h2>Homepage</h2>
 <div class="homePageOfPotholes">
 
-	<c:forEach items="${potholeList}" var="pothole">
+	<c:forEach item="${potholes}" var="pothole">
 
 		<span> Address:</span>
 		<c:out value="${pothole.address.addressLine1}" />
