@@ -12,7 +12,7 @@ DROP TABLE IF EXISTS address;
 CREATE TABLE app_user (
   id SERIAL PRIMARY KEY,
   user_name varchar(32) NOT NULL UNIQUE,
-  password varchar(32) NOT NULL,
+  password varchar(255) NOT NULL,
   role varchar(32),
   salt varchar(255) NOT NULL
 );
@@ -20,9 +20,9 @@ CREATE TABLE app_user (
 CREATE TABLE address (
   address_id SERIAL PRIMARY KEY,
   zip_code int NOT NULL,
-  city varchar(32) NOT NULL,
+  city varchar(255) NOT NULL,
   address_line_1 varchar (255) NOT NULL,
-  address_line_2 varchar (255) NOT NULL
+  address_line_2 varchar (255) 
 
   
 
@@ -32,7 +32,7 @@ CREATE TABLE pothole (
   id SERIAL PRIMARY KEY,
   address_id int NOT NULL,
   size varchar(32) NOT NULL,
-  description varchar(32),
+  description varchar(255),
   created_on date NOT NULL,
   latitude varchar (255) NOT NULL,
   longitude varchar (255) NOT NULL,

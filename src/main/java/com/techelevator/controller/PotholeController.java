@@ -29,22 +29,22 @@ public class PotholeController {
 
 	@GetMapping("/submit")
 	public String showSurveyResult(ModelMap map) {
-		if (!map.containsAttribute("user")) {
-			map.put("user", new User());
+		if (!map.containsAttribute("pothole")) {
+			map.put("pothole", new Pothole());
 		}
 
 		return "submitPothole";
 	}
 
-//	@PostMapping("/submit")
-//	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
-//		
-//		if (result.hasErrors()) {
-//            return "redirect:/submit";
-//		}
-//		potholeDao.create(pothole);
-//
-//		return "redirect:/";
-//	}
+	@PostMapping("/submit")
+	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
+		
+		if (result.hasErrors()) {
+            return "redirect:/submit";
+		}
+		potholeDao.create(pothole);
+
+		return "redirect:/";
+	}
 
 }
