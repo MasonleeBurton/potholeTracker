@@ -10,49 +10,47 @@
 
 	<c:url value="/submit" var="submitURL" />
 
-
+<div class = "form">
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole">
 
-		<label for="size">Size</label>
-		<form:input path="size" />
-		<form:errors path="size" cssClass="error" />
+		<label for="size">Size <span>*</span></label>
+		<form:input path="size" required="required"/>
+		
 
 		<label for="description">Description</label>
 		<form:input path="description" />
 		
 		<h3>Location</h3>
 		
-		<label for="latitude">Latitude</label>
-		<form:input path="latitude" />
-		<form:errors path="latitude" cssClass="error" />
+		<label for="latitude">Latitude <span>*</span></label>
+		<form:input path="latitude" required="required"/>
+		
 
-		<label for="longitude">Longitude</label>
-		<form:input path="longitude" />
-		<form:errors path="longitude" cssClass="error" />
+		<label for="longitude">Longitude <span>*</span></label>
+		<form:input path="longitude" required="required"/>
 
  		<h4>Address</h4>
-		<label for="address.addressLine1">Address Line 1</label>
-		<form:input path="address.addressLine1" />
-		<form:errors path="address.addressLine1" cssClass="error" />
+		<label for="address.addressLine1">Address Line 1 <span>*</span></label>
+		<form:input path="address.addressLine1" required="required"/>
+		
 
 		<label for="address.addressLine2">Address Line 2</label>
 		<form:input path="address.addressLine2" />
-		<form:errors path="address.addressLine2" cssClass="error" />
+		
 
-		<label for="address.city">City</label>
-		<form:input path="address.city" />
-		<form:errors path="address.city" cssClass="error" />
+		<label for="address.city">City *</label>
+		<form:input path="address.city" required="required"/>
+		
 
-		<label for="address.zipCode">Zip Code</label>
+		<label for="address.zipCode">Zip Code *</label>
 
-		<form:input path="address.zipCode" />
-		<form:errors path="address.zipCode" cssClass="error" />
-
-
+		<form:input path="address.zipCode" required="required"/>
+		
 		<input type="submit" value="Submit" />
 
 	</form:form>
 
+</div>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
