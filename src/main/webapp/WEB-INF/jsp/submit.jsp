@@ -25,7 +25,7 @@
 		<label for="longitude">Longitude</label>
 		<form:input path="longitude" />
 
-		<p>Address</p>
+ 		<p>Address</p>
 		<label for="address.addressLine1">Address Line 1</label>
 		<form:input path="address.addressLine1" />
 
@@ -36,7 +36,7 @@
 		<form:input path="address.city" />
 
 		<label for="address.zipCode">Zip Code</label>
-		<form:input path="address.zipCode" />
+		<form:input path="address.zipCode" /> 
 
 		<input type="submit" value="Submit" />
 
