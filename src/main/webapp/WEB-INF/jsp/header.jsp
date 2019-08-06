@@ -6,6 +6,7 @@
 <title>Critter</title>
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
 <c:url var="siteCss" value="/css/site.css" />
+<c:url var="headerCss" value="/css/header.css" />
 <c:url var="footerCss" value="/css/footer.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
@@ -18,6 +19,7 @@
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 <link rel="stylesheet" type="text/css" href="${footerCss}">
+<link rel="stylesheet" type="text/css" href="${headerCss}">
 
 <script src="${jQueryJs}"></script>
 <script src="${jqValidateJs}"></script>
@@ -43,7 +45,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-light bg-light">
+	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
 		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
 				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
 			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
