@@ -15,28 +15,40 @@
 
 		<label for="size">Size</label>
 		<form:input path="size" />
+		<form:errors path="size" cssClass="error" />
 
 		<label for="description">Description</label>
 		<form:input path="description" />
+		<form:errors path="description" cssClass="error" />
 
 		<label for="latitude">Latitude</label>
 		<form:input path="latitude" />
+		<form:errors path="latitude" cssClass="error" />
 
 		<label for="longitude">Longitude</label>
 		<form:input path="longitude" />
+		<form:errors path="longitude" cssClass="error" />
 
  		<p>Address</p>
 		<label for="address.addressLine1">Address Line 1</label>
 		<form:input path="address.addressLine1" />
+		<form:errors path="address.addressLine1" cssClass="error" />
 
 		<label for="address.addressLine2">Address Line 2</label>
 		<form:input path="address.addressLine2" />
+		<form:errors path="address.addressLine2" cssClass="error" />
 
 		<label for="address.city">City</label>
 		<form:input path="address.city" />
+		<form:errors path="address.city" cssClass="error" />
 
 		<label for="address.zipCode">Zip Code</label>
+<<<<<<< HEAD
 		<form:input path="address.zipCode" /> 
+=======
+		<form:input path="address.zipCode" />
+		<form:errors path="address.zipCode" cssClass="error" />
+>>>>>>> cc65aadac24e361cf6cf3dca41d73c5a7ed2e164
 
 		<input type="submit" value="Submit" />
 

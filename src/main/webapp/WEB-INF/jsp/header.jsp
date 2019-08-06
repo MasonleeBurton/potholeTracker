@@ -6,6 +6,7 @@
 <title>Critter</title>
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
 <c:url var="siteCss" value="/css/site.css" />
+<c:url var="footerCss" value="/css/footer.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
@@ -16,6 +17,7 @@
 
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
+<link rel="stylesheet" type="text/css" href="${footerCss}">
 
 <script src="${jQueryJs}"></script>
 <script src="${jqValidateJs}"></script>
