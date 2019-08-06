@@ -24,6 +24,7 @@
 		<span> Created On:</span>
 		<c:out value="${pothole.createdOn}" />
 		<br>
+		
 	</c:forEach>
 	
 </div>
