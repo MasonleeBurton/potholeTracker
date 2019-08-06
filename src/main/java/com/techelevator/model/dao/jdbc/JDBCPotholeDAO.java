@@ -43,12 +43,12 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	private Pothole mapRowToPothole(SqlRowSet results) {
 		Pothole p = new Pothole();
 
-		p.setId(results.getLong("p.id"));
-		p.setCreatedOn(results.getDate("p.created_on").toLocalDate());
-		p.setDescription(results.getString("p.description"));
-		p.setLatitude(results.getString("p.latitude"));
-		p.setLongitude(results.getString("p.longitude"));
-		p.setSize(results.getString("p.size"));
+		p.setId(results.getLong("id"));
+		p.setCreatedOn(results.getDate("created_on").toLocalDate());
+		p.setDescription(results.getString("description"));
+		p.setLatitude(results.getString("latitude"));
+		p.setLongitude(results.getString("longitude"));
+		p.setSize(results.getString("size"));
 		p.setAddress(mapRowToAddress(results));
 
 		return p;
@@ -57,11 +57,11 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	private Address mapRowToAddress(SqlRowSet results) {
 		Address a = new Address();
 
-		a.setId(results.getLong("a.address_id"));
-		a.setAddressLine1(results.getString("a.address_line_1"));
-		a.setAddressLine2(results.getString("a.address_line_2"));
-		a.setZipCode(results.getInt("a.zip_code"));
-		a.setCity(results.getString("a.city"));
+		a.setId(results.getLong("address_id"));
+		a.setAddressLine1(results.getString("address_line_1"));
+		a.setAddressLine2(results.getString("address_line_2"));
+		a.setZipCode(results.getInt("zip_code"));
+		a.setCity(results.getString("city"));
 
 		return a;
 	}
