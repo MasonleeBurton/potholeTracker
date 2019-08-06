@@ -2,20 +2,23 @@ package com.techelevator.model;
 
 import java.time.LocalDate;
 
+import javax.validation.Valid;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Pothole {
 
 	private long id;
 	
+	@Valid
 	private Address address;
 	@NotBlank(message = "Must have size.")
 	private String size;
 	private String description;
 	private LocalDate createdOn;
-	@NotBlank
+	@NotBlank(message = "Must have a longitude.")
 	private String longitude;
-	@NotBlank
+	@NotBlank(message = "Must have a latitude.")
 	private String latitude;
 
 	// getters and setters

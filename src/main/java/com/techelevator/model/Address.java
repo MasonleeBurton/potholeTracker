@@ -7,11 +7,11 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Address {
 
 	private long id;
-	@NotNull
+	@NotNull(message = "Must have zip code.")
 	private int zipCode;
-	@NotBlank
+	@NotBlank(message = "Must have a city.")
 	private String city;
-	@NotBlank
+	@NotBlank(message = "Must have a street address.")
 	private String addressLine1;
 	private String addressLine2 = "";
 	
