@@ -26,8 +26,8 @@ VALUES (default, 2, 'medium', 'whoa doggy', '8/6/2019', 123457, 1234568 );
 
 
 SELECT * FROM address;
-INSERT INTO address (address_id, zip_code, city, address_line_1  )
-VALUES (3, 43229, 'Columbus', '1234 Street St' );
+INSERT INTO address (address_id, zip_code, city, address_line_1, address_line_2  )
+VALUES (3, 43229, 'Columbus', '1234 Street St', 'asd' );
 
 SELECT * FROM pothole;
 INSERT INTO pothole(id, address_id, size, description, created_on, longitude, latitude )
