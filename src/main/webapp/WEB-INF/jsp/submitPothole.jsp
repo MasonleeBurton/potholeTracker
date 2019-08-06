@@ -13,7 +13,7 @@
 
 <form:form action="${submitURL}" method = "POST" modelAttribute="pothole">
 
-<label for="size">Size</label>
+<label for="size">Size</label> 
 <form:input path="size"/>
 <form:errors path="size" cssClass="error" />
 
@@ -45,6 +45,8 @@
 <label for="address.zipCode">Zip Code</label>
 <form:input path="address.zipCode"/>
 <form:errors path="address.zipCode" cssClass="error" />
+
+<input type="submit" value="Submit"/>
 
 </form:form>
 
