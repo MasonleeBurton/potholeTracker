@@ -19,8 +19,8 @@
 
 		<label for="description">Description</label>
 		<form:input path="description" />
-		<form:errors path="description" cssClass="error" />
-
+		
+		
 		<label for="latitude">Latitude</label>
 		<form:input path="latitude" />
 		<form:errors path="latitude" cssClass="error" />
@@ -43,12 +43,10 @@
 		<form:errors path="address.city" cssClass="error" />
 
 		<label for="address.zipCode">Zip Code</label>
-<<<<<<< HEAD
-		<form:input path="address.zipCode" /> 
-=======
+
 		<form:input path="address.zipCode" />
 		<form:errors path="address.zipCode" cssClass="error" />
->>>>>>> cc65aadac24e361cf6cf3dca41d73c5a7ed2e164
+
 
 		<input type="submit" value="Submit" />
 

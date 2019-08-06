@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 
+import com.techelevator.model.Address;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.User;
 import com.techelevator.model.dao.PotholeDAO;

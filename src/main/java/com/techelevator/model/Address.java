@@ -1,11 +1,13 @@
 package com.techelevator.model;
 
+import javax.validation.constraints.NotNull;
+
 import org.hibernate.validator.constraints.NotBlank;
 
 public class Address {
 
 	private long id;
-	@NotBlank
+	@NotNull
 	private int zipCode;
 	@NotBlank
 	private String city;

@@ -7,7 +7,7 @@ import org.hibernate.validator.constraints.NotBlank;
 public class Pothole {
 
 	private long id;
-	@NotBlank
+	
 	private Address address;
 	@NotBlank
 	private String size;
