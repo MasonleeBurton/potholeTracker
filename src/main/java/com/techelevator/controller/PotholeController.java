@@ -33,18 +33,18 @@ public class PotholeController {
 			map.put("user", new User());
 		}
 
-		return "surveyResult";
+		return "submitPothole";
 	}
 
-	@PostMapping("/submit")
-	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
-		
-		if (result.hasErrors()) {
-            return "redirect:/submit";
-		}
-		potholeDao.create(pothole);
-
-		return "redirect:/";
-	}
+//	@PostMapping("/submit")
+//	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
+//		
+//		if (result.hasErrors()) {
+//            return "redirect:/submit";
+//		}
+//		potholeDao.create(pothole);
+//
+//		return "redirect:/";
+//	}
 
 }
