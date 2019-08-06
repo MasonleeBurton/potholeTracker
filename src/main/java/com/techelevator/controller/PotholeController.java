@@ -29,8 +29,8 @@ public class PotholeController {
 
 	@GetMapping("/submit")
 	public String showSurveyResult(ModelMap map) {
-		if (!map.containsAttribute("user")) {
-			map.put("user", new User());
+		if (!map.containsAttribute("pothole")) {
+			map.put("pothole", new Pothole());
 		}
 
 		return "submitPothole";
