@@ -4,10 +4,8 @@
 <html>
 <head>
 <title>Critter</title>
-
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
-
- <c:url var="siteCss" value="/css/site.css" />
+<c:url var="siteCss" value="/css/site.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
@@ -18,9 +16,6 @@
 
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
-
-<c:url var="footerCss" value="/css/footer.css" />
-<link rel="stylesheet" type="text/css" href="${footerCss}">
 
 <script src="${jQueryJs}"></script>
 <script src="${jqValidateJs}"></script>
@@ -45,48 +40,48 @@
 
 </head>
 <body>
+
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
-		<a class="navbar-brand" href="#"> 
-			<c:url var="homePageHref" value="/index" />
-			<c:url var="imgSrc" value="/img/ohioPothole.jpg" /> 
-			<a href="${homePageHref}"><img src="${imgSrc}" class="img-fluid" style="height: 50px;" /></a>
+		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
+				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
+			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
+				style="height: 50px;" /></a>
 		</a>
-		
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
-			data-target="#navbarSupportedContent"
-			aria-controls="navbarSupportedContent" aria-expanded="false"
-			aria-label="Toggle navigation">
-			<span class="navbar-toggler-icon"></span>
-		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-mainNav">
-				<c:url var="homePageHref" value="/index" />
+			<ul class="navbar-nav mr-auto">
+				<c:url var="homePageHref" value="/" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
-				<c:url var="submitHref" value="/submitPothole" />
-				<li class="nav-item"><a class="nav-link" href="${submitHref}">Submit Pothole</a></li>
+				<c:url var="submitPotholePageHref" value="/submit" />
+				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
 
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
-					<li class="nav-item"><a class="nav-link" href="${dashboardHref}">Private Messages</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${dashboardHref}">Private Messages</a></li>
 					<c:url var="newMessageHref"
 						value="/users/${currentUser}/messages/new" />
-					<li class="nav-item"><a class="nav-link" href="${newMessageHref}">New Message</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${newMessageHref}">New Message</a></li>
 					<c:url var="sentMessagesHref"
 						value="/users/${currentUser}/messages" />
-					<li class="nav-item"><a class="nav-link" href="${sentMessagesHref}">Sent Messages</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${sentMessagesHref}">Sent Messages</a></li>
 					<c:url var="changePasswordHref"
 						value="/users/${currentUser}/changePassword" />
-					<li class="nav-item"><a class="nav-link" href="${changePasswordHref}">Change Password</a></li>
+					<li class="nav-item"><a class="nav-link"
+						href="${changePasswordHref}">Change Password</a></li>
 				</c:if>
 			</ul>
-			<ul class="navbar-userNav">
+<%-- 			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/users/new" />
-						<li class="nav-item"><a class="nav-link" href="${newUserHref}">Sign Up</a></li>
+						<li class="nav-item"><a class="nav-link"
+							href="${newUserHref}">Sign Up</a></li>
 						<c:url var="loginHref" value="/login" />
-						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log In</a></li>
+						<li class="nav-item"><a class="nav-link" href="${loginHref}">Log
+								In</a></li>
 					</c:when>
 					<c:otherwise>
 						<c:url var="logoutAction" value="/logout" />
@@ -96,10 +91,11 @@
 						<li class="nav-item"><a id="logoutLink" href="#">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
-			</ul>
+			</ul> --%>
 		</div>
 	</nav>
 
 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>
 	</c:if>
+	<div class="container">
