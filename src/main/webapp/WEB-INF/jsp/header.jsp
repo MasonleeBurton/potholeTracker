@@ -18,8 +18,9 @@
 
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
-<link rel="stylesheet" type="text/css" href="${footerCss}">
 <link rel="stylesheet" type="text/css" href="${headerCss}">
+<link rel="stylesheet" type="text/css" href="${footerCss}">
+
 
 <script src="${jQueryJs}"></script>
 <script src="${jqValidateJs}"></script>
@@ -45,7 +46,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+	<nav class="navbar navbar-expand-lg navbar-dark">
 		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
 				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
 			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
