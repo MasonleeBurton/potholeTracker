@@ -1,0 +1,22 @@
+#navbarSupportedContent{
+	display: flex;
+	flex-direction: row;
+}
+.navbar-mainNav {
+	background-color: #474a56;
+	color: #d3d5fd;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+
+.navbar-userNav{
+	background-color: #474a56;
+	color: #d3d5fd;
+	display: flex;
+	justify-content: space-between;
+	flex-direction: row;
+}
+.nav-item{
+	
+}

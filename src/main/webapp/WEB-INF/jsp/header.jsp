@@ -4,8 +4,10 @@
 <html>
 <head>
 <title>Critter</title>
+
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
-<c:url var="siteCss" value="/css/site.css" />
+
+ <c:url var="siteCss" value="/css/site.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
@@ -45,10 +47,11 @@
 <body>
 	<nav class="navbar navbar-expand-lg navbar-light bg-light">
 		<a class="navbar-brand" href="#"> 
-			<c:url var="homePageHref" value="/" />
-			<c:url var="imgSrc" value="/img/placeholder.png" /> 
+			<c:url var="homePageHref" value="/index" />
+			<c:url var="imgSrc" value="/img/ohioPothole.jpg" /> 
 			<a href="${homePageHref}"><img src="${imgSrc}" class="img-fluid" style="height: 50px;" /></a>
 		</a>
+		
 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
@@ -57,7 +60,7 @@
 		</button>
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">
-			<ul class="navbar-nav mr-auto">
+			<ul class="navbar-mainNav">
 				<c:url var="homePageHref" value="/index" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<c:url var="submitHref" value="/submitPothole" />
@@ -77,7 +80,7 @@
 					<li class="nav-item"><a class="nav-link" href="${changePasswordHref}">Change Password</a></li>
 				</c:if>
 			</ul>
-			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-userNav">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/users/new" />
@@ -100,4 +103,3 @@
 	<c:if test="${not empty currentUser}">
 		<p id="currentUser">Current User: ${currentUser}</p>
 	</c:if>
-	<div class="container">
