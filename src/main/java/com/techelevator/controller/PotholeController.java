@@ -33,7 +33,7 @@ public class PotholeController {
 			map.put("pothole", new Pothole());
 		}
 
-		return "submitPothole";
+		return "submit";
 	}
 
 	@PostMapping("/submit")

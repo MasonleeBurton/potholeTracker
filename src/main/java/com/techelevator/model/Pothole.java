@@ -74,5 +74,4 @@ public class Pothole {
 	public void setId(long id) {
 		this.id = id;
 	}
-
 }
