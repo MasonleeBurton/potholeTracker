@@ -52,14 +52,14 @@
 			<a href="${homePageHref}"><img src="${imgSrc}" class="img-fluid" style="height: 50px;" /></a>
 		</a>
 		
-		<button class="navbar-toggler" type="button" data-toggle="collapse"
+<!-- 		<button class="navbar-toggler" type="button" data-toggle="collapse"
 			data-target="#navbarSupportedContent"
 			aria-controls="navbarSupportedContent" aria-expanded="false"
 			aria-label="Toggle navigation">
 			<span class="navbar-toggler-icon"></span>
-		</button>
+		</button> -->
 
-		<div class="collapse navbar-collapse" id="navbarSupportedContent">
+		<div class="d-flex flex-row" id="navbarSupportedContent">
 			<ul class="navbar-mainNav">
 				<c:url var="homePageHref" value="/index" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
