@@ -9,7 +9,7 @@ public class Pothole {
 	private long id;
 	
 	private Address address;
-	@NotBlank
+	@NotBlank(message = "Must have size.")
 	private String size;
 	private String description;
 	private LocalDate createdOn;

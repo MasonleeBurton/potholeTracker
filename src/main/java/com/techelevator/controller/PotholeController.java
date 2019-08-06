@@ -41,7 +41,7 @@ public class PotholeController {
 	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
 		
 		if (result.hasErrors()) {
-            return "redirect:/submit";
+            return "submit";
 		}
 		potholeDao.create(pothole);
 

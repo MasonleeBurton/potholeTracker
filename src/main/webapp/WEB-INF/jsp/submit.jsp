@@ -20,6 +20,7 @@
 		<label for="description">Description</label>
 		<form:input path="description" />
 		
+		<h3>Location</h3>
 		
 		<label for="latitude">Latitude</label>
 		<form:input path="latitude" />
@@ -29,7 +30,7 @@
 		<form:input path="longitude" />
 		<form:errors path="longitude" cssClass="error" />
 
- 		<p>Address</p>
+ 		<h4>Address</h4>
 		<label for="address.addressLine1">Address Line 1</label>
 		<form:input path="address.addressLine1" />
 		<form:errors path="address.addressLine1" cssClass="error" />
