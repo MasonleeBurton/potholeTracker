@@ -11,7 +11,7 @@ public class Address {
 	private String city;
 	@NotBlank
 	private String addressLine1;
-	private String addressLine2;
+	private String addressLine2 = "";
 	
 	// getters and setters
 	public int getZipCode() {

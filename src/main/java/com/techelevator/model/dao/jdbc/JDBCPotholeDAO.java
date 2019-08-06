@@ -1,5 +1,6 @@
 package com.techelevator.model.dao.jdbc;
 
+import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
 
@@ -40,6 +41,25 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		return potholes;
 	}
 
+	@Override
+	public void create(Pothole pothole) {
+		String addressSql = "INSERT INTO address (address_id, address_line_1, address_line_2, zip_code, city) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?) " + "RETURNING address_id";
+		Address address = pothole.getAddress();
+		SqlRowSet addressResults = jdbcTemplate.queryForRowSet(addressSql, address.getAddressLine1(),
+				address.getAddressLine2(), address.getZipCode(), address.getCity());
+		addressResults.next();
+		address.setId(addressResults.getLong("address_id"));
+
+		String potholeSql = "INSERT INTO pothole (id, address_id, created_on, description, latitude, longitude, size) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
+
+		SqlRowSet potholeResults = jdbcTemplate.queryForRowSet(potholeSql, pothole.getAddress().getId(), LocalDateTime.now(),
+				pothole.getDescription(), pothole.getLatitude(), pothole.getLongitude(), pothole.getSize());
+		potholeResults.next();
+		pothole.setId(potholeResults.getLong("id"));
+	}
+
 	private Pothole mapRowToPothole(SqlRowSet results) {
 		Pothole p = new Pothole();
 
@@ -65,16 +85,4 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		return a;
 	}
-
-	@Override
-	public void create(Pothole pothole) {
-		String sql = "INSERT INTO pothole (id, created_on, description, latitude, longitude, size) "
-				+ "VALUES (DEFAULT, DEFAULT, ?, ?, ?, ?) " + "RETURNING id";
-		
-		SqlRowSet results = jdbcTemplate.queryForRowSet(sql, pothole.getDescription(), pothole.getLatitude(), pothole.getLongitude(),
-				pothole.getSize());
-		
-		pothole.setId(results.getLong("id"));
-	}
-
 }
