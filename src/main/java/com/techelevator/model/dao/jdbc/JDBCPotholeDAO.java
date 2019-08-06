@@ -58,8 +58,8 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		Address a = new Address();
 
 		a.setId(results.getLong("a.address_id"));
-		a.setAddressLine1(results.getString("a.address_line1"));
-		a.setAddressLine2(results.getString("a.address_line2"));
+		a.setAddressLine1(results.getString("a.address_line_1"));
+		a.setAddressLine2(results.getString("a.address_line_2"));
 		a.setZipCode(results.getInt("a.zip_code"));
 		a.setCity(results.getString("a.city"));
 
