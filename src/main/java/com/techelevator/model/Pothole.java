@@ -2,14 +2,20 @@ package com.techelevator.model;
 
 import java.time.LocalDate;
 
+import org.hibernate.validator.constraints.NotBlank;
+
 public class Pothole {
 
 	private long id;
+	@NotBlank
 	private Address address;
+	@NotBlank
 	private String size;
 	private String description;
 	private LocalDate createdOn;
+	@NotBlank
 	private String longitude;
+	@NotBlank
 	private String latitude;
 
 	// getters and setters
