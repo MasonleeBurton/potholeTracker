@@ -9,6 +9,7 @@
 <c:url var="headerCss" value="/css/header.css" />
 <c:url var="footerCss" value="/css/footer.css" />
 <c:url var="formCss" value="/css/form.css" />
+<c:url var="menuCss" value="/css/hiddenMenu.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
@@ -16,13 +17,14 @@
 <c:url var="jqTimeagoJs" value="/js/jquery.timeago.js" />
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
+<c:url var="adminJs" value="/js/adminMenu.js" />
 
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 <link rel="stylesheet" type="text/css" href="${headerCss}">
 
 <link rel="stylesheet" type="text/css" href="${formCss}">
-
+<link rel="stylesheet" type="text/css" href="${menuCss}">
 <link rel="stylesheet" type="text/css" href="${footerCss}">
 
 
@@ -32,6 +34,7 @@
 <script src="${jqTimeagoJs}"></script>
 <script src="${popperJs}"></script>
 <script src="${bootstrapJs}"></script>
+<script src="${adminJs}"></script>
 
 <script type="text/javascript">
 	$(document).ready(function() {
