@@ -47,5 +47,4 @@ public class PotholeController {
 
 		return "redirect:/";
 	}
-
 }

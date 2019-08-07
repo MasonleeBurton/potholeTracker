@@ -4,35 +4,27 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h2>Homepage</h2>
+<h2 class="my-3 text-center">All Potholes</h2>
 <div class="row card-columns">
 
 
 	<c:forEach items="${potholes}" var="pothole">
-		<div class="col-12 col-md-6 col-lg-4">
+		<div class="col-12 col-md-6 col-lg-4 card-col">
 			<div class="card">
 				<div class="card-body">
 					<p class="card-text">
-					<p class="bold">Description:</p>
-					<c:out value="${pothole.description}" />
-					</p>
-				</div>
-				<ul class="list-group list-group-flush">
-
-					<li class="list-group-item"><p class="bold">Address:</p> <c:out
+					<p class="bold">Address:</p> <c:out
 							value="${pothole.address.addressLine1}" />, <c:if
 							test="${not empty pothole.address.addressLine2}">
 							 <c:out value="${pothole.address.addressLine2}" />,
 						</c:if>
 						 <c:out value="${pothole.address.city}" />, 
-						 <c:out value="${pothole.address.zipCode}" /></li>
+						 <c:out value="${pothole.address.zipCode}" />
+				</div>
+				<ul class="list-group list-group-flush">
 
- 					<li class="list-group-item"><p class="bold">ZipCode:</p> <c:out
-							value="${pothole.address.zipCode}" /></li>
-
-
-					<li class="list-group-item"><p class="bold">City:</p> <c:out
-							value="${pothole.address.city}" /></li>
+					<li class="list-group-item"><p class="bold">Description:</p>
+					<c:out value="${pothole.description}" /></li>
 
 					<li class="list-group-item"><p class="bold">Size:</p> <c:out
 							value="${pothole.size}" /></li>
@@ -42,32 +34,6 @@
 				</ul>
 			</div>
 		</div>
-
-		<%-- 
-		Address:
-		<c:out value="${pothole.address.addressLine1}" />
-
-
-		Address Line 2:
-		<c:out value="${pothole.address.addressLine2}" />
-	
-	
-		ZipCode:
-		<c:out value="${pothole.address.zipCode}" />
-		
-		City:
-		<c:out value="${pothole.address.city}" />
-		
-		 Size:
-		<c:out value="${pothole.size}" />
-
-		Description:
-		<c:out value="${pothole.description}" />
-
-		Created On:
-		<c:out value="${pothole.createdOn}" />
- --%>
-
 	</c:forEach>
 
 </div>

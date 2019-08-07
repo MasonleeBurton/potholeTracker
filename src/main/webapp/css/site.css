@@ -1,3 +1,7 @@
-.bold{
+.bold {
 	font-weight: bold;
+}
+
+.card, .card .list-group-item {
+	background-color: lightgray;
 }
