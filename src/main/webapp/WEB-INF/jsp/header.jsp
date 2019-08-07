@@ -50,7 +50,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand navbar-dark pl-5">
 		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
 				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
 			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
