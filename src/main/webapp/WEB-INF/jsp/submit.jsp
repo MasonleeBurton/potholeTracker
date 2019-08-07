@@ -5,7 +5,6 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 
-
 <div>
 
 	<c:url value="/submit" var="submitURL" />
