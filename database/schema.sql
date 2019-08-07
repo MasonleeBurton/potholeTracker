@@ -29,6 +29,15 @@ CREATE TABLE address (
 
   );
 
+  CREATE TABLE status (
+  status_id serial primary key,
+  reported_on date,
+  inspected_on date,
+  repaired_on date,
+  rank varchar(255)
+
+  );
+
 CREATE TABLE pothole (
   id SERIAL PRIMARY KEY,
   address_id int NOT NULL,
@@ -37,20 +46,13 @@ CREATE TABLE pothole (
   created_on date NOT NULL,
   latitude varchar (255) NOT NULL,
   longitude varchar (255) NOT NULL,
+  status_id int NOT NULL,
 
- CONSTRAINT fk_pothole_address_id foreign key (address_id) references address(address_id)
-
-);
-
-CREATE TABLE status (
-  pothole_id int NOT NULL,
-  reported_on date,
-  inspected_on date,
-  repaired_on date,
-  rank varchar(255),
-
-   CONSTRAINT fk_pothole__id foreign key (pothole_id) references pothole(id)
+ CONSTRAINT fk_pothole_address_id foreign key (address_id) references address(address_id),
+ CONSTRAINT fk_status_id foreign key (status_id) references status(status_id)
 
 );
+
+
 
 COMMIT;
