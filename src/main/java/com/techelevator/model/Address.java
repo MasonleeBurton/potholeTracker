@@ -11,9 +11,21 @@ public class Address {
 	private int zipCode;
 	@NotBlank(message = "Must have a city.")
 	private String city;
+	@NotBlank(message = "Must have a state.")
+	private String state;
+	
 	@NotBlank(message = "Must have a street address.")
 	private String addressLine1;
 	private String addressLine2 = "";
+	
+	public String getState() {
+		return state;
+	}
+
+	public void setState(String state) {
+		this.state = state;
+	}
+
 	
 	// getters and setters
 	public int getZipCode() {

@@ -43,11 +43,11 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	@Override
 	public void create(Pothole pothole) {
-		String addressSql = "INSERT INTO address (address_id, address_line_1, address_line_2, zip_code, city) "
-				+ "VALUES (DEFAULT, ?, ?, ?, ?) " + "RETURNING address_id";
+		String addressSql = "INSERT INTO address (address_id, address_line_1, address_line_2, zip_code, city, state) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?) " + "RETURNING address_id";
 		Address address = pothole.getAddress();
 		SqlRowSet addressResults = jdbcTemplate.queryForRowSet(addressSql, address.getAddressLine1(),
-				address.getAddressLine2(), address.getZipCode(), address.getCity());
+				address.getAddressLine2(), address.getZipCode(), address.getCity(), address.getState());
 		addressResults.next();
 		address.setId(addressResults.getLong("address_id"));
 
@@ -70,6 +70,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		p.setLongitude(results.getString("longitude"));
 		p.setSize(results.getString("size"));
 		p.setAddress(mapRowToAddress(results));
+		
 
 		return p;
 	}
@@ -82,7 +83,9 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		a.setAddressLine2(results.getString("address_line_2"));
 		a.setZipCode(results.getInt("zip_code"));
 		a.setCity(results.getString("city"));
+		a.setState(results.getString("state"));
 
 		return a;
 	}
+	
 }

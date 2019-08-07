@@ -72,6 +72,11 @@
 						<label for="address.city">City <span>*</span></label>
 						<form:input path="address.city" required="required" />
 					</div>
+					
+					<div>
+						<label for="address.state">State <span>*</span></label>
+						<form:input path="address.state" required="required" />
+					</div>
 					<div>
 						<label for="address.zipCode">Zip Code <span>*<span></label>
 
