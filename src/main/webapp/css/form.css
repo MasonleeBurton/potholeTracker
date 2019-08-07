@@ -8,9 +8,33 @@
 
 .form p {
 	margin: 0px;
+	display: block;
+	font-weight: bold;
 }
 
 .form {
-	margin-top: 10px;
+	margin: 10px 0px 15px 0px;
 	display: flex;
+	flex-direction: column;
+	width: 800px;
+}
+
+
+.size {
+	border: none;
+	display: flex;
+	flex-direction: row;
+	justify-content: space-between;
+	break-before: always;
+	margin: 0 0 0 0;
+	width: 500px;
+}
+
+.size label {
+    display: block;
+
+}
+
+.radioBlock {
+	margin: 0 1.81em 0 0;
 }
