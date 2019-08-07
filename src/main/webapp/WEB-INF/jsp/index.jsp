@@ -5,8 +5,9 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <h2>Homepage</h2>
-<div class="homePageOfPotholes">
 
+<div class="card" style="width: 18rem;">
+	<div class="card-body">
 
 	<c:forEach items="${potholes}" var="potholes">
 
@@ -34,7 +35,7 @@
 		<br>
 		
 	</c:forEach>
-	
+	</div>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
