@@ -4,55 +4,85 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<h2>Submit Pothole</h2>
 
 <div>
 
 	<c:url value="/submit" var="submitURL" />
 
+	<div class="form">
+		<h2>Submit Pothole</h2>
+		<form:form action="${submitURL}" method="POST"
+			modelAttribute="pothole">
 
-	<form:form action="${submitURL}" method="POST" modelAttribute="pothole">
+			<p>
+				<label for="size">What size is the pothole? <span>*</span></label>
+			</p>
+			<div class="size">
 
-		<label for="size">Size</label>
-		<form:input path="size" />
-		<form:errors path="size" cssClass="error" />
+				<div id=radioBlock>
+					<label> <form:radiobutton path="size" value="Small"
+							cssClass="radio" checked="checked"/> Small (0-5 inches) 
+					</label>
+				</div>
 
-		<label for="description">Description</label>
-		<form:input path="description" />
-		
-		<h3>Location</h3>
-		
-		<label for="latitude">Latitude</label>
-		<form:input path="latitude" />
-		<form:errors path="latitude" cssClass="error" />
+				<div id=radioBlock>
+					<label> <form:radiobutton path="size" value="Medium"
+							cssClass="radio" /> Medium (6-10 inches)
+					</label>
+				</div>
 
-		<label for="longitude">Longitude</label>
-		<form:input path="longitude" />
-		<form:errors path="longitude" cssClass="error" />
-
- 		<h4>Address</h4>
-		<label for="address.addressLine1">Address Line 1</label>
-		<form:input path="address.addressLine1" />
-		<form:errors path="address.addressLine1" cssClass="error" />
-
-		<label for="address.addressLine2">Address Line 2</label>
-		<form:input path="address.addressLine2" />
-		<form:errors path="address.addressLine2" cssClass="error" />
-
-		<label for="address.city">City</label>
-		<form:input path="address.city" />
-		<form:errors path="address.city" cssClass="error" />
-
-		<label for="address.zipCode">Zip Code</label>
-
-		<form:input path="address.zipCode" />
-		<form:errors path="address.zipCode" cssClass="error" />
+				<div id=radioBlock>
+					<label> <form:radiobutton path="size" value="Large"
+							cssClass="radio" /> Large (11+ inches)
+					</label>
+				</div>
+			</div>
 
 
-		<input type="submit" value="Submit" />
 
-	</form:form>
+			<div>
+				<p>
+					<label for="description">What does the pothole look like?</label>
+				</p>
+				<form:textarea path="description" rows="2" cols="30" />
+			</div>
 
+			<div>
+				<h3>Location</h3>
+
+				<div>
+					<label for="latitude">Latitude <span>*</span></label>
+					<form:input path="latitude" required="required" />
+
+
+					<label for="longitude">Longitude <span>*</span></label>
+					<form:input path="longitude" required="required" />
+				</div>
+				<div>
+					<p>Address</p>
+					<div>
+						<label for="address.addressLine1">Address Line 1 <span>*</span></label>
+						<form:input path="address.addressLine1" required="required" />
+					</div>
+					<div>
+						<label for="address.addressLine2">Address Line 2</label>
+						<form:input path="address.addressLine2" />
+					</div>
+					<div>
+						<label for="address.city">City <span>*</span></label>
+						<form:input path="address.city" required="required" />
+					</div>
+					<div>
+						<label for="address.zipCode">Zip Code <span>*<span></label>
+
+						<form:input path="address.zipCode" required="required" pattern="[0-9]*" />
+					</div>
+				</div>
+				<input type="submit" value="Submit" />
+			</div>
+		</form:form>
+
+	</div>
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

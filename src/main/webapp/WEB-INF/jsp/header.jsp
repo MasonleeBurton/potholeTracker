@@ -3,11 +3,12 @@
 <!DOCTYPE html>
 <html>
 <head>
-<title>Critter</title>
+<title>Pothole Tracker</title>
 <c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
 <c:url var="siteCss" value="/css/site.css" />
 <c:url var="headerCss" value="/css/header.css" />
 <c:url var="footerCss" value="/css/footer.css" />
+<c:url var="formCss" value="/css/form.css" />
 
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
@@ -19,6 +20,9 @@
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
 <link rel="stylesheet" type="text/css" href="${headerCss}">
+
+<link rel="stylesheet" type="text/css" href="${formCss}">
+
 <link rel="stylesheet" type="text/css" href="${footerCss}">
 
 
@@ -46,7 +50,7 @@
 </head>
 <body>
 
-	<nav class="navbar navbar-expand-lg navbar-dark">
+	<nav class="navbar navbar-expand navbar-dark pl-5">
 		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
 				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
 			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"

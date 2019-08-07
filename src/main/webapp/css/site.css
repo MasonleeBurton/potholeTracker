@@ -1,6 +1,15 @@
+<<<<<<< HEAD
 
 div{
 	
 	display: block;
 	
+=======
+.bold {
+	font-weight: bold;
+}
+
+.card, .card .list-group-item {
+	background-color: lightgray;
+>>>>>>> 07d23c0542023f6091b507f3ffe19298f3cc18ff
 }

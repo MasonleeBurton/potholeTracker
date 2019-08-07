@@ -4,6 +4,7 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+<<<<<<< HEAD
 <h2>Homepage</h2>
 
 <div class="card" style="width: 18rem;">
@@ -36,6 +37,40 @@
 		
 	</c:forEach>
 	</div>
+=======
+<h2 class="my-3 text-center">All Potholes</h2>
+<div class="row card-columns">
+
+
+	<c:forEach items="${potholes}" var="pothole">
+		<div class="col-12 col-md-6 col-lg-4 card-col">
+			<div class="card">
+				<div class="card-body">
+					<p class="card-text">
+					<p class="bold">Address:</p> <c:out
+							value="${pothole.address.addressLine1}" />, <c:if
+							test="${not empty pothole.address.addressLine2}">
+							 <c:out value="${pothole.address.addressLine2}" />,
+						</c:if>
+						 <c:out value="${pothole.address.city}" />, 
+						 <c:out value="${pothole.address.zipCode}" />
+				</div>
+				<ul class="list-group list-group-flush">
+
+					<li class="list-group-item"><p class="bold">Description:</p>
+					<c:out value="${pothole.description}" /></li>
+
+					<li class="list-group-item"><p class="bold">Size:</p> <c:out
+							value="${pothole.size}" /></li>
+
+					<li class="list-group-item"><p class="bold">Created On:</p> <c:out
+							value="${pothole.createdOn}" /></li>
+				</ul>
+			</div>
+		</div>
+	</c:forEach>
+
+>>>>>>> 07d23c0542023f6091b507f3ffe19298f3cc18ff
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
