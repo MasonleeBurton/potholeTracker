@@ -5,9 +5,11 @@
 BEGIN;
 
 -- CREATE statements go here
+
 DROP TABLE IF EXISTS app_user;
 DROP TABLE IF EXISTS pothole;
 DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS status;
 
 CREATE TABLE app_user (
   id SERIAL PRIMARY KEY,
@@ -22,11 +24,10 @@ CREATE TABLE address (
   zip_code int NOT NULL,
   city varchar(255) NOT NULL,
   address_line_1 varchar (255) NOT NULL,
-  address_line_2 varchar (255) 
+  address_line_2 varchar (255), 
+  state varchar(255) NOT NULL
 
-  
-
-);
+  );
 
 CREATE TABLE pothole (
   id SERIAL PRIMARY KEY,
@@ -41,6 +42,15 @@ CREATE TABLE pothole (
 
 );
 
+CREATE TABLE status (
+  pothole_id int NOT NULL,
+  reported_on date,
+  inspected_on date,
+  repaired_on date,
+  rank varchar(255),
 
+   CONSTRAINT fk_pothole__id foreign key (pothole_id) references pothole(id)
+
+);
 
 COMMIT;
