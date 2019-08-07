@@ -13,31 +13,31 @@
 			<div class="card">
 				<div class="card-body">
 					<p class="card-text">
-						Description:
-						<c:out value="${pothole.description}" />
+					<p class="bold">Description:</p>
+					<c:out value="${pothole.description}" />
 					</p>
 				</div>
 				<ul class="list-group list-group-flush">
 
-					<li class="list-group-item">Address: <c:out
-							value="${pothole.address.addressLine1}" /></li>
+					<li class="list-group-item"><p class="bold">Address:</p> <c:out
+							value="${pothole.address.addressLine1}" />, <c:if
+							test="${not empty pothole.address.addressLine2}">
+							 <c:out value="${pothole.address.addressLine2}" />,
+						</c:if>
+						 <c:out value="${pothole.address.city}" />, 
+						 <c:out value="${pothole.address.zipCode}" /></li>
 
-					<c:if test="${not empty pothole.address.addressLine2}">
-						<li class="list-group-item">Address Line 2: <c:out
-								value="${pothole.address.addressLine2}" /></li>
-					</c:if>
-
-					<li class="list-group-item">ZipCode: <c:out
+ 					<li class="list-group-item"><p class="bold">ZipCode:</p> <c:out
 							value="${pothole.address.zipCode}" /></li>
 
 
-					<li class="list-group-item">City: <c:out
+					<li class="list-group-item"><p class="bold">City:</p> <c:out
 							value="${pothole.address.city}" /></li>
 
-					<li class="list-group-item">Size: <c:out
+					<li class="list-group-item"><p class="bold">Size:</p> <c:out
 							value="${pothole.size}" /></li>
 
-					<li class="list-group-item">Created On: <c:out
+					<li class="list-group-item"><p class="bold">Created On:</p> <c:out
 							value="${pothole.createdOn}" /></li>
 				</ul>
 			</div>
