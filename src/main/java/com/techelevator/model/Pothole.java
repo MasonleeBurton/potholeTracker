@@ -10,7 +10,7 @@ public class Pothole {
 
 	private long id;
 	
-	@NotBlank
+	@Valid
 	private Address address;
 	@NotBlank(message = "Must have size.")
 	private String size;
