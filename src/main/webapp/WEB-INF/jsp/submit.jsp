@@ -5,7 +5,6 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 
-
 <div>
 
 	<c:url value="/submit" var="submitURL" />
@@ -76,7 +75,7 @@
 					<div>
 						<label for="address.zipCode">Zip Code <span>*<span></label>
 
-						<form:input path="address.zipCode" required="required" />
+						<form:input path="address.zipCode" required="required" pattern="[0-9]*" />
 					</div>
 				</div>
 				<input type="submit" value="Submit" />
