@@ -6,40 +6,6 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<<<<<<< HEAD
-<h2>Homepage</h2>
-
-<div class="card" style="width: 18rem;">
-	<div class="card-body">
-
-	<c:forEach items="${potholes}" var="potholes">
-
-
-		<span> Address:</span>
-		<c:out value="${potholes.address.addressLine1}" />
-		<br>
-		<span> Address Line 2:</span>
-		<c:out value="${potholes.address.addressLine2}" />
-		<br>
-		<span> ZipCode:</span>
-		<c:out value="${potholes.address.zipCode}" />
-		<br>
-		<span> City:</span>
-		<c:out value="${potholes.address.city}" />
-		<br>
-		<span> Size:</span>
-		<c:out value="${potholes.size}" />
-		<br>
-		<span> Description:</span>
-		<c:out value="${potholes.description}" />
-		<br>
-		<span> Created On:</span>
-		<c:out value="${potholes.createdOn}" />
-		<br>
-		
-	</c:forEach>
-	</div>
-=======
 <h2 class="my-3 text-center">All Potholes</h2>
 <div class="row card-columns">
 
@@ -51,12 +17,12 @@
 					<p class="card-text">
 					<p class="bold">Address:</p>
 					<c:out value="${pothole.address.addressLine1}" />
-					,
+					
 					<c:if test="${not empty pothole.address.addressLine2}">
 						<c:out value="${pothole.address.addressLine2}" />,
 						</c:if>
 					<c:out value="${pothole.address.city}" />
-					,
+					
 					<c:out value="${pothole.address.zipCode}" />
 				</div>
 				<ul class="list-group list-group-flush">
@@ -108,7 +74,6 @@
 		</div>
 	</c:forEach>
 
->>>>>>> 07d23c0542023f6091b507f3ffe19298f3cc18ff
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
