@@ -6,6 +6,10 @@ BEGIN;
 
 -- CREATE statements go here
 
+DROP TABLE IF EXISTS app_user;
+DROP TABLE IF EXISTS pothole;
+DROP TABLE IF EXISTS address;
+DROP TABLE IF EXISTS status;
 
 CREATE TABLE app_user (
   id SERIAL PRIMARY KEY,
