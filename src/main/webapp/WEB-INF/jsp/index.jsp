@@ -15,8 +15,8 @@
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 						<div class="card-text bold">Address:</div> <c:out
-							value="${pothole.address.addressLine1}" /> , 
-							<c:if test="${not empty pothole.address.addressLine2}">
+							value="${pothole.address.addressLine1}" /> , <c:if
+							test="${not empty pothole.address.addressLine2}">
 							<c:out value="${pothole.address.addressLine2}" />,
 						</c:if> <c:out value="${pothole.address.city}" /> , <c:out
 							value="${pothole.address.zipCode}" />
@@ -36,10 +36,42 @@
 					</li>
 
 				</ul>
+				<button class="editButton" id="${pothole.id}">Edit</button>
+
+				<div id="hiddenMenu${pothole.id}" class="displayHidden">
+					<p>Options</p>
+
+					<c:url value="/update" var="updateURL" />
+
+					<form:form action="#" method="POST">
+						<div>
+							<p>Reported on:</p>
+							<input type="text" placeholder="DATE" />
+						</div>
+						<div>
+							<p>Inspected on:</p>
+							<input type="text" placeholder="DATE" />
+						</div>
+						<div>
+							<p>Repaired on:</p>
+							<input type="text" placeholder="DATE" />
+						</div>
+						<div>
+							<p>Rank:</p>
+							<select name="#">
+								<option value="Low">Low</option>
+								<option value="Medium">Medium</option>
+								<option value="High">High</option>
+								<option value="Immediate">Immediate</option>
+							</select>
+							<button type="submit">Submit</button>
+						</div>
+					</form:form>
+				</div>
+
 			</div>
 		</div>
 	</c:forEach>
-
 </div>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />

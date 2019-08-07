@@ -44,7 +44,7 @@
 				<p>
 					<label for="description">What does the pothole look like?</label>
 				</p>
-				<form:textarea path="description" rows="2" cols="30" />
+				<form:textarea path="description" rows="2" cols="40" />
 			</div>
 
 			<div>
@@ -75,7 +75,7 @@
 					<div>
 						<label for="address.zipCode">Zip Code <span>*<span></label>
 
-						<form:input path="address.zipCode" required="required" pattern="[0-9]*" />
+						<form:input path="address.zipCode" required="required" />
 					</div>
 				</div>
 				<input type="submit" value="Submit" />
