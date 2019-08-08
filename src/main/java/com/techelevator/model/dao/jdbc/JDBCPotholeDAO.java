@@ -31,7 +31,8 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		List<Pothole> potholes = new ArrayList<>();
 
-		String sql = "SELECT * FROM pothole p " + "JOIN address a " + "ON a.address_id = p.address_id";
+		String sql = "SELECT * FROM pothole p " + "JOIN address a ON a.address_id = p.address_id "
+				+ "JOIN status s ON s.status_id = p.status_id";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
@@ -41,28 +42,23 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		return potholes;
 	}
-	
+
 	@Override
 	public void updateStatus(Status status, long potholeId) {
-		String sql = "UPDATE status s " + 
-				"SET reported_on = ?, inspected_on = ?, repaired_on = ?, rank = ? " + 
-				"FROM pothole p " + 
-				"WHERE p.status_id = s.status_id " + 
-				"AND p.id = ?";
-		jdbcTemplate.update(sql, status.getReportedOn(),status.getInspectedOn(),status.getRepairedOn(),status.getRank(),potholeId);
+		String sql = "UPDATE status s " + "SET reported_on = ?, inspected_on = ?, repaired_on = ?, rank = ? "
+				+ "FROM pothole p " + "WHERE p.status_id = s.status_id " + "AND p.id = ?";
+		jdbcTemplate.update(sql, status.getReportedOn(), status.getInspectedOn(), status.getRepairedOn(),
+				status.getRank(), potholeId);
 	}
 
 	@Override
 	public void delete(long potholeId) {
 		Pothole p = getPotholeById(potholeId);
-	
-		String statusSql = "DELETE FROM status "
-				+ "WHERE status.status_id = ? ";
-		jdbcTemplate.update(statusSql, p.getStatus().getId());
-		
 
-		String addressSql = "DELETE FROM address "
-				+ "WHERE address.address_id = ? ";
+		String statusSql = "DELETE FROM status " + "WHERE status.status_id = ? ";
+		jdbcTemplate.update(statusSql, p.getStatus().getId());
+
+		String addressSql = "DELETE FROM address " + "WHERE address.address_id = ? ";
 		jdbcTemplate.update(addressSql, p.getAddress().getId());
 	}
 
@@ -81,7 +77,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		potholeResults.next();
 		pothole.setId(potholeResults.getLong("id"));
 	}
-	
+
 	private Pothole getPotholeById(long potholeId) {
 		String sql = "SELECT * FROM pothole p " + "JOIN address a " + "ON a.address_id = p.address_id "
 				+ "WHERE p.id = ?";
@@ -89,7 +85,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 
 		results.next();
-		
+
 		return mapRowToPothole(results);
 	}
 
@@ -136,16 +132,30 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		return a;
 	}
-	
+
 	private Status mapRowToStatus(SqlRowSet results) {
 		Status s = new Status();
-		
+
 		s.setId(results.getLong("status_id"));
-		s.setReportedOn(results.getDate("reported_on").toLocalDate());
-		s.setInspectedOn(results.getDate("inspected_on").toLocalDate());
-		s.setRepairedOn(results.getDate("repaired_on").toLocalDate());
+
+		try {
+			s.setReportedOn(results.getDate("reported_on").toLocalDate());
+		} catch (Exception e) {
+
+		}
+		try {
+			s.setInspectedOn(results.getDate("inspected_on").toLocalDate());
+		} catch (Exception e) {
+
+		}
+		try {
+			s.setRepairedOn(results.getDate("repaired_on").toLocalDate());
+		} catch (Exception e) {
+
+		}
+
 		s.setRank(results.getString("rank"));
-		
+
 		return s;
 	}
 }
