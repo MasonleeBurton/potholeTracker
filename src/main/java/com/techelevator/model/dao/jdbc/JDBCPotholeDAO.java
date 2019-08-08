@@ -141,17 +141,17 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		s.setId(results.getLong("status_id"));
 
 		try {
-			s.setReportedOn(results.getDate("reported_on").toLocalDate());
+			s.setReportedOn(results.getDate("reported_on").toString());
 		} catch (Exception e) {
 
 		}
 		try {
-			s.setInspectedOn(results.getDate("inspected_on").toLocalDate());
+			s.setInspectedOn(results.getDate("inspected_on").toString());
 		} catch (Exception e) {
 
 		}
 		try {
-			s.setRepairedOn(results.getDate("repaired_on").toLocalDate());
+			s.setRepairedOn(results.getDate("repaired_on").toString());
 		} catch (Exception e) {
 
 		}

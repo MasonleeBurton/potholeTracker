@@ -1,9 +1,11 @@
 package com.techelevator.model;
 
 import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
 public class Status {
 
+	private DateTimeFormatter df = DateTimeFormatter.ofPattern("MM/dd/yyyy");
 	private long id;
 	private LocalDate reportedOn;
 	private LocalDate inspectedOn;
@@ -22,24 +24,24 @@ public class Status {
 		return reportedOn;
 	}
 
-	public void setReportedOn(LocalDate reportedOn) {
-		this.reportedOn = reportedOn;
+	public void setReportedOn(String date) {
+		this.reportedOn = LocalDate.parse(date, df);
 	}
 
 	public LocalDate getInspectedOn() {
 		return inspectedOn;
 	}
 
-	public void setInspectedOn(LocalDate inspectedOn) {
-		this.inspectedOn = inspectedOn;
+	public void setInspectedOn(String date) {
+		this.inspectedOn = LocalDate.parse(date, df);
 	}
 
 	public LocalDate getRepairedOn() {
 		return repairedOn;
 	}
 
-	public void setRepairedOn(LocalDate repairedOn) {
-		this.repairedOn = repairedOn;
+	public void setRepairedOn(String date) {
+		this.repairedOn = LocalDate.parse(date, df);
 	}
 
 	public String getRank() {

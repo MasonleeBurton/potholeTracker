@@ -48,15 +48,17 @@
 				<div id="hiddenMenu${pothole.id}" class="displayHidden">
 					<p>Options</p>
 
-					<c:url value="/update" var="updateURL" />
+					<c:url value="/update" var="updateURL"> 
+					<c:param name="potholeId" value="${pothole.id}"></c:param>
+					</c:url>
 
-					<form:form action="#" method="PUT">
+					<form:form action="${updateURL}" method="POST" modelAttribute="status">
 
 						<div>
 							<p>Reported on:</p>
 							<c:choose>
 								<c:when test="${empty pothole.status.reportedOn}">
-									<input type="text" placeholder="DATE" />
+									<form:input path="reportedOn" placeholder="DATE" />
 								</c:when>
 								<c:otherwise>
 									<p>${pothole.status.reportedOn}</p>
@@ -67,7 +69,7 @@
 							<p>Inspected on:</p>
 							<c:choose>
 								<c:when test="${empty pothole.status.inspectedOn}">
-									<input type="text" placeholder="DATE" />
+									<form:input path="inspectedOn" placeholder="DATE" />
 								</c:when>
 								<c:otherwise>
 									<p>${pothole.status.reportedOn}</p>
@@ -78,7 +80,7 @@
 							<p>Repaired on:</p>
 							<c:choose>
 								<c:when test="${empty pothole.status.repairedOn}">
-									<input type="text" placeholder="DATE" />
+									<form:input path="repairedOn" placeholder="DATE" />
 								</c:when>
 								<c:otherwise>
 									<p>${pothole.status.repairedOn}</p>

@@ -7,11 +7,9 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
-import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.techelevator.model.Pothole;
@@ -28,12 +26,16 @@ public class PotholeController {
 	@GetMapping("/")
 	public String homePage(ModelMap map) {
 		map.addAttribute("potholes", potholeDao.getAll());
+		map.addAttribute("status", new Status());
 
 		return "index";
 	}
 	
-	@PutMapping("/")
-	public String updateStatus(@Valid @ModelAttribute("status") Status status, @RequestParam long potholeId) {
+	@PostMapping("/update")
+	public String updateStatus(@Valid @ModelAttribute("status") Status status, @RequestParam long potholeId, BindingResult result) {
+		if (result.hasErrors()) {
+            return "/";
+		}
 		potholeDao.updateStatus(status, potholeId);
 		
 		return "redirect:/";
