@@ -16,7 +16,8 @@
 		<div class="form-element">
 
 			<p>
-				<label for="size">What size is the pothole? <span>*</span>
+				<label for="size">Please describe the location of the
+					pothole<span>*</span>
 				</label>
 			</p>
 
@@ -94,21 +95,11 @@
 		</div>
 
 		<div class="form-element">
-
-			<p>
-				<label class="form-label" for="address.zipCode">Zip Code <span>*</span></label>
-			</p>
-
-			<form:input type="number" id="zipCode" path="address.zipCode"
-				required="required" autocomplete="off" />
-
-		</div>
-		
-				<div class="form-element">
 			<p>
 				<label class="form-label" for="address.state">State <span>*</span></label>
 			</p>
-			<form:select class="state-list form-control" path="address.state" required="true">
+			<form:select class="state-list form-control" path="address.state"
+				required="true">
 				<c:forEach var="state" items="${states}">
 					<form:option value="${state}" class="text-center">
 						<c:out value="${state}" />
@@ -116,7 +107,18 @@
 				</c:forEach>
 			</form:select>
 		</div>
-		
+
+		<div class="form-element">
+
+			<p>
+				<label class="form-label" for="address.zipCode">Zip Code <span>*</span></label>
+			</p>
+
+			<form:input type="number" id="zipCode" path="address.zipCode"
+				required="required" autocomplete="off" min="0" />
+
+		</div>
+
 		<input class="btn btn-primary" id="submit" type="submit"
 			value="Submit" />
 
