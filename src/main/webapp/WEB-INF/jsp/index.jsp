@@ -98,14 +98,15 @@
 					</form:form>
 					
 					<!-- Delete Button -->
-					<form:form method="DELETE" action="/" accept-charset="UTF-8"
-						style="display: inline" value="${pothole.id}">
+					<form method="POST" action="/capstone/delete" accept-charset="UTF-8"
+						style="display: inline" >
+						<input type="hidden"  value = "${pothole.id}" name="potholeId"/>
 						<button class="btn btn-xs btn-danger deleteButton" type="button"
 							data-toggle="modal" data-target="#confirmDelete" data-title=""
 							data-message="Are you sure you want to delete this pothole?">
 							<i class="glyphicon glyphicon-trash"></i> Delete
 						</button>
-					</form:form>
+					</form>
 				</div>
 
 			</div>
