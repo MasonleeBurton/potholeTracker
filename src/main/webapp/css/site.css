@@ -20,3 +20,19 @@
 	display: flex;
 	flex-direction: column;
 }
+
+textarea {
+	resize: none;
+}
+
+.textarea {
+	width: 60%;
+}
+
+.form-element {
+	margin-bottom: 10px;
+}
+
+.state-list {
+	width: 15%;
+}
