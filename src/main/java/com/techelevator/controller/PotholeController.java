@@ -1,5 +1,6 @@
 package com.techelevator.controller;
 
+import javax.servlet.http.HttpServletRequest;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -38,9 +39,11 @@ public class PotholeController {
 		return "redirect:/";
 	}
 	
-	@DeleteMapping("/")
-	public String DeletePothole(@RequestParam long potholeId){
-		potholeDao.delete(potholeId);
+	@PostMapping("/delete")
+	public String DeletePothole(HttpServletRequest req){
+		String potholeId = req.getParameter("potholeId");
+		long longPotholeId = Long.parseLong(potholeId);
+		potholeDao.delete(longPotholeId);
 		
 		return "redirect:/";
 	}
