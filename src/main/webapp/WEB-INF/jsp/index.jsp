@@ -38,25 +38,50 @@
 					</li>
 
 				</ul>
+				
+				<!-- Edit button -->
 				<button class="editButton" id="${pothole.id}">Edit</button>
-
+				
+				<!-- Hidden Menu -->
 				<div id="hiddenMenu${pothole.id}" class="displayHidden">
 					<p>Options</p>
 
 					<c:url value="/update" var="updateURL" />
 
-					<form:form action="#" method="POST">
+					<form:form action="#" method="PUT">
+
 						<div>
 							<p>Reported on:</p>
-							<input type="text" placeholder="DATE" />
+							<c:choose>
+								<c:when test="${empty pothole.status.reportedOn}">
+									<input type="text" placeholder="DATE" />
+								</c:when>
+								<c:otherwise>
+									<p>${pothole.status.reportedOn}</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div>
 							<p>Inspected on:</p>
-							<input type="text" placeholder="DATE" />
+							<c:choose>
+								<c:when test="${empty pothole.status.inspectedOn}">
+									<input type="text" placeholder="DATE" />
+								</c:when>
+								<c:otherwise>
+									<p>${pothole.status.reportedOn}</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div>
 							<p>Repaired on:</p>
-							<input type="text" placeholder="DATE" />
+							<c:choose>
+								<c:when test="${empty pothole.status.repairedOn}">
+									<input type="text" placeholder="DATE" />
+								</c:when>
+								<c:otherwise>
+									<p>${pothole.status.repairedOn}</p>
+								</c:otherwise>
+							</c:choose>
 						</div>
 						<div>
 							<p>Rank:</p>
@@ -69,12 +94,12 @@
 							<button type="submit">Submit</button>
 						</div>
 					</form:form>
-
-					<form method="POST" action="/delete" accept-charset="UTF-8"
+					
+					<!-- Delete Button -->
+					<form method="DELETE" action="/delete" accept-charset="UTF-8"
 						style="display: inline">
 						<button class="btn btn-xs btn-danger" type="button"
-							data-toggle="modal" data-target="#confirmDelete"
-							data-title=""
+							data-toggle="modal" data-target="#confirmDelete" data-title=""
 							data-message="Are you sure you want to delete this pothole?">
 							<i class="glyphicon glyphicon-trash"></i> Delete
 						</button>
