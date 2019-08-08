@@ -5,3 +5,13 @@
 .card, .card .list-group-item {
 	background-color: lightgray;
 }
+
+.longlatBoxed {
+	display: flex;
+	justify-content: space-between;
+}
+
+.longlatHeaders {
+	display: flex;
+	justify-content: space-between;
+}
