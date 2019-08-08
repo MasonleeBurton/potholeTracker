@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
 	pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
@@ -97,14 +98,14 @@
 					</form:form>
 					
 					<!-- Delete Button -->
-					<form method="DELETE" action="/delete" accept-charset="UTF-8"
-						style="display: inline">
-						<button class="btn btn-xs btn-danger" type="button"
+					<form:form method="DELETE" action="/" accept-charset="UTF-8"
+						style="display: inline" value="${pothole.id}">
+						<button class="btn btn-xs btn-danger deleteButton" type="button"
 							data-toggle="modal" data-target="#confirmDelete" data-title=""
 							data-message="Are you sure you want to delete this pothole?">
 							<i class="glyphicon glyphicon-trash"></i> Delete
 						</button>
-					</form>
+					</form:form>
 				</div>
 
 			</div>
