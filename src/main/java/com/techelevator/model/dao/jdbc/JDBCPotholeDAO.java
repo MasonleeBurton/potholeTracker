@@ -13,6 +13,7 @@ import org.springframework.stereotype.Component;
 
 import com.techelevator.model.Address;
 import com.techelevator.model.Pothole;
+import com.techelevator.model.Status;
 import com.techelevator.model.dao.PotholeDAO;
 
 @Component
@@ -43,21 +44,34 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 	@Override
 	public void create(Pothole pothole) {
+		createAddress(pothole.getAddress());
+		pothole.setStatus(new Status());
+		createStatus(pothole.getStatus());
+
+		String potholeSql = "INSERT INTO pothole (id, address_id, status_id, created_on, description, latitude, longitude, size) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
+
+		SqlRowSet potholeResults = jdbcTemplate.queryForRowSet(potholeSql, pothole.getAddress().getId(),
+				pothole.getStatus().getId(), LocalDateTime.now(), pothole.getDescription(), pothole.getLatitude(),
+				pothole.getLongitude(), pothole.getSize());
+		potholeResults.next();
+		pothole.setId(potholeResults.getLong("id"));
+	}
+
+	private void createStatus(Status status) {
+		String statusSql = "INSERT INTO status (status_id) values (DEFAULT) " + "RETURNING status_id";
+		SqlRowSet statusResults = jdbcTemplate.queryForRowSet(statusSql);
+		statusResults.next();
+		status.setId(statusResults.getLong("status_id"));
+	}
+
+	private void createAddress(Address address) {
 		String addressSql = "INSERT INTO address (address_id, address_line_1, address_line_2, zip_code, city, state) "
 				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?) " + "RETURNING address_id";
-		Address address = pothole.getAddress();
 		SqlRowSet addressResults = jdbcTemplate.queryForRowSet(addressSql, address.getAddressLine1(),
 				address.getAddressLine2(), address.getZipCode(), address.getCity(), address.getState());
 		addressResults.next();
 		address.setId(addressResults.getLong("address_id"));
-
-		String potholeSql = "INSERT INTO pothole (id, address_id, created_on, description, latitude, longitude, size) "
-				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
-
-		SqlRowSet potholeResults = jdbcTemplate.queryForRowSet(potholeSql, pothole.getAddress().getId(), LocalDateTime.now(),
-				pothole.getDescription(), pothole.getLatitude(), pothole.getLongitude(), pothole.getSize());
-		potholeResults.next();
-		pothole.setId(potholeResults.getLong("id"));
 	}
 
 	private Pothole mapRowToPothole(SqlRowSet results) {
@@ -70,7 +84,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		p.setLongitude(results.getString("longitude"));
 		p.setSize(results.getString("size"));
 		p.setAddress(mapRowToAddress(results));
-		
 
 		return p;
 	}
@@ -87,5 +100,5 @@ public class JDBCPotholeDAO implements PotholeDAO {
 
 		return a;
 	}
-	
+
 }

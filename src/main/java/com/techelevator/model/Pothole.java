@@ -12,6 +12,7 @@ public class Pothole {
 	
 	@Valid
 	private Address address;
+	private Status status;
 	@NotBlank(message = "Must have size.")
 	private String size;
 	private String description;
@@ -76,5 +77,13 @@ public class Pothole {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Status getStatus() {
+		return status;
+	}
+	
+	public void setStatus(Status status) {
+		this.status = status;
 	}
 }
