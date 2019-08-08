@@ -16,8 +16,9 @@
 						<div class="card-text bold">Address:</div> <c:out
 							value="${pothole.address.addressLine1}" />, <c:if
 							test="${not empty pothole.address.addressLine2}">
-							<c:out value="${pothole.address.addressLine2}" />,
-                    </c:if> <c:out value="${pothole.address.city}" />, <c:out
+							<c:out value="${pothole.address.addressLine2}" />
+                    </c:if><br>
+                    <c:out value="${pothole.address.city}" />, <c:out
 							value="${pothole.address.state}" />, <c:out
 							value="${pothole.address.zipCode}" />
 
@@ -30,10 +31,10 @@
 						<div class="bold">Created On:</div> <c:out
 							value="${pothole.createdOn}" />
 						<div class="longlatBoxed">
-							<div class="longlatHeaders bold">Latitude:</div>
-							<c:out value="${pothole.latitude}" />
-							<div class="longlatHeaders bold">Longitude:</div>
-							<c:out value="${pothole.longitude}" />
+							<div class="latHeaders "><span class="bold">Latitude:</span>
+							<c:out value="${pothole.latitude}" /></div>
+							<div class="longHeaders "><span class="bold">Longitude:</span>
+							<c:out value="${pothole.longitude}" /></div>
 						</div>
 					</li>
 
