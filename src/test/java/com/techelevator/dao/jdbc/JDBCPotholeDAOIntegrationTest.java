@@ -14,6 +14,7 @@ import org.springframework.jdbc.datasource.SingleConnectionDataSource;
 import com.techelevator.DAOIntegrationTest;
 import com.techelevator.model.Address;
 import com.techelevator.model.Pothole;
+import com.techelevator.model.Status;
 import com.techelevator.model.dao.PotholeDAO;
 import com.techelevator.model.dao.jdbc.JDBCPotholeDAO;
 
@@ -62,32 +63,35 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Assert.assertEquals("Database with no potholes returns no potholes", 0, dao.getAll().size());
 		
 		// Add first test pothole
-		Address address1 = createAddress(43200, "fake city", "123 fake st");
-		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1);
+		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
+		Status status1 = new Status();
+		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
 		dao.create(pothole1);
 		// Database with one pothole returns same pothole
 		Assert.assertEquals("one pothole in db should return one pothole", 1, dao.getAll().size());
 		Assert.assertEquals("one pothole in db returns same pothole", pothole1.getId(), dao.getAll().get(0).getId());
 		
 		// Add second test pothole
-		Address address2 = createAddress(99999, "fake city 2", "524 fake st");
-		Pothole pothole2 = createPothole("medium", "pothole", "23.2", "23.1", address2);
+		Address address2 = createAddress(99999, "fake city 2", "524 fake st", "Ohio");
+		Status status2 = new Status();
+		Pothole pothole2 = createPothole("medium", "pothole", "23.2", "23.1", address2, status2);
 		dao.create(pothole2);
 		// Database with two potholes returns two potholes
 		Assert.assertEquals("two potholes in db should return two potholes", 2, dao.getAll().size());
 	}
-	
-	private Address createAddress(int zipCode, String city, String addressLine1) {
+
+	private Address createAddress(int zipCode, String city, String addressLine1, String state) {
 		Address a = new Address();
 		
 		a.setZipCode(zipCode);
 		a.setCity(city);
 		a.setAddressLine1(addressLine1);
+		a.setState(state);
 		
 		return a;
 	}
 
-	private Pothole createPothole(String size, String description, String latitude, String longitude, Address address) {
+	private Pothole createPothole(String size, String description, String latitude, String longitude, Address address, Status status) {
 		Pothole p = new Pothole();
 		
 		p.setSize(size);
@@ -95,6 +99,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		p.setLatitude(latitude);
 		p.setLongitude(longitude);
 		p.setAddress(address);
+		p.setStatus(status);
 		
 		return p;
 	}
