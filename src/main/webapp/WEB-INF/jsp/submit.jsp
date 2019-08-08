@@ -78,12 +78,13 @@
 						<form:input path="address.state" required="required" />
 					</div>
 					<div>
-						<label for="address.zipCode">Zip Code <span>*<span></label>
+						<label for="address.zipCode">Zip Code <span>*</span></label>
 
-						<form:input path="address.zipCode" required="required" />
+						<form:input type="number" id="zipCode" path="address.zipCode" required="required" />
+						
 					</div>
 				</div>
-				<input type="submit" value="Submit" />
+				<input id="submit" type="submit" value="Submit" />
 			</div>
 		</form:form>
 
