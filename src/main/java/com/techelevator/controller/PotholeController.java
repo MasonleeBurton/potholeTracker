@@ -37,7 +37,7 @@ public class PotholeController {
 		return "redirect:/";
 	}
 	
-	@DeleteMapping
+	@DeleteMapping("/")
 	public String DeletePothole(@RequestParam long potholeId){
 		potholeDao.delete(potholeId);
 		
