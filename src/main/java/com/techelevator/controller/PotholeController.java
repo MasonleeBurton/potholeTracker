@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,6 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
+import com.techelevator.model.User;
 import com.techelevator.model.dao.PotholeDAO;
 
 @Controller
@@ -30,24 +32,36 @@ public class PotholeController {
 
 		return "index";
 	}
-	
+
 	@PostMapping("/update")
-	public String updateStatus(@ModelAttribute("status") Status status, @RequestParam long potholeId, BindingResult result) {
-		if (result.hasErrors()) {
-            return "/";
+	public String updateStatus(@ModelAttribute("status") Status status, @RequestParam long potholeId,
+			BindingResult result, HttpSession session) {
+		if (session.getAttribute("currentUser") != null
+				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
+			if (result.hasErrors()) {
+				return "/";
+			}
+
+			potholeDao.updateStatus(status, potholeId);
+			return "redirect:/";
+		} else {
+			return "redirect:/login";
 		}
-		potholeDao.updateStatus(status, potholeId);
-		
-		return "redirect:/";
+
 	}
-	
+
 	@PostMapping("/delete")
-	public String DeletePothole(HttpServletRequest req){
+	public String DeletePothole(HttpServletRequest req, HttpSession session) {
 		String potholeId = req.getParameter("potholeId");
 		long longPotholeId = Long.parseLong(potholeId);
-		potholeDao.delete(longPotholeId);
-		
-		return "redirect:/";
+		if (session.getAttribute("currentUser") != null
+				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
+			potholeDao.delete(longPotholeId);
+
+			return "redirect:/";
+		} else {
+			return "redirect:/login";
+		}
 	}
 
 	@GetMapping("/submit")
@@ -61,9 +75,9 @@ public class PotholeController {
 
 	@PostMapping("/submit")
 	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
-		
+
 		if (result.hasErrors()) {
-            return "submit";
+			return "submit";
 		}
 		potholeDao.create(pothole);
 
