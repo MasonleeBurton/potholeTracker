@@ -66,24 +66,6 @@
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
-
-				<c:if test="${not empty currentUser}">
-					<c:url var="dashboardHref" value="/users/${currentUser}" />
-					<li class="nav-item"><a class="nav-link"
-						href="${dashboardHref}">Private Messages</a></li>
-					<c:url var="newMessageHref"
-						value="/users/${currentUser}/messages/new" />
-					<li class="nav-item"><a class="nav-link"
-						href="${newMessageHref}">New Message</a></li>
-					<c:url var="sentMessagesHref"
-						value="/users/${currentUser}/messages" />
-					<li class="nav-item"><a class="nav-link"
-						href="${sentMessagesHref}">Sent Messages</a></li>
-					<c:url var="changePasswordHref"
-						value="/users/${currentUser}/changePassword" />
-					<li class="nav-item"><a class="nav-link"
-						href="${changePasswordHref}">Change Password</a></li>
-				</c:if>
 			</ul>
 <			<ul class="navbar-nav ml-auto">
 				<c:choose>
@@ -106,8 +88,4 @@
 			</ul> 
 		</div>
 	</nav>
-
-	<c:if test="${not empty currentUser}">
-		<p id="currentUser">Current User: ${currentUser}</p>
-	</c:if>
 	<div class="container">

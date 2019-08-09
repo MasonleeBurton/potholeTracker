@@ -62,8 +62,7 @@
 						<div>
 							<p>Reported on:</p>
 							<c:set var="date" value="${pothole.status.reportedOn}"/>
-							<form:input path="reportedOn"
-								placeholder="${pothole.status.reportedOn}" />
+							<form:input path="reportedOn"/>
 								
 						</div>
 						<div>

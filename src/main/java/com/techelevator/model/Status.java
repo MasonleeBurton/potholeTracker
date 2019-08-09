@@ -21,7 +21,6 @@ public class Status {
 	}
 
 	public LocalDate getReportedOn() {
-		System.out.println(reportedOn);
 		return reportedOn;
 	}
 
