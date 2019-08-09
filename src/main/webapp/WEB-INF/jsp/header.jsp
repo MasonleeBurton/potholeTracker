@@ -85,7 +85,7 @@
 						href="${changePasswordHref}">Change Password</a></li>
 				</c:if>
 			</ul>
-<%-- 			<ul class="navbar-nav ml-auto">
+<			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/users/new" />
@@ -103,7 +103,7 @@
 						<li class="nav-item"><a id="logoutLink" href="#">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
-			</ul> --%>
+			</ul> 
 		</div>
 	</nav>
 
