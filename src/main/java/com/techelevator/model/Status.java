@@ -21,6 +21,7 @@ public class Status {
 	}
 
 	public LocalDate getReportedOn() {
+		System.out.println(reportedOn);
 		return reportedOn;
 	}
 
@@ -28,7 +29,12 @@ public class Status {
 		try {
 			reportedOn = LocalDate.parse(date, df);
 		} catch (Exception e) {
-			reportedOn = null;
+			try {
+				reportedOn = LocalDate.parse(date);
+			} catch (Exception a) {
+				System.out.println(date);
+				reportedOn = null;
+			}
 		}
 	}
 

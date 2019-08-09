@@ -1,5 +1,6 @@
 package com.techelevator.model.dao.jdbc;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -143,7 +144,6 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		try {
 			s.setReportedOn(results.getDate("reported_on").toString());
 		} catch (Exception e) {
-
 		}
 		try {
 			s.setInspectedOn(results.getDate("inspected_on").toString());
