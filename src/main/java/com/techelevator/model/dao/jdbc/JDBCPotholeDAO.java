@@ -1,6 +1,5 @@
 package com.techelevator.model.dao.jdbc;
 
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.List;
@@ -33,7 +32,8 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		List<Pothole> potholes = new ArrayList<>();
 
 		String sql = "SELECT * FROM pothole p " + "JOIN address a ON a.address_id = p.address_id "
-				+ "JOIN status s ON s.status_id = p.status_id";
+				+ "JOIN status s ON s.status_id = p.status_id "
+				+ "ORDER BY created_on DESC";
 
 		SqlRowSet results = jdbcTemplate.queryForRowSet(sql);
 

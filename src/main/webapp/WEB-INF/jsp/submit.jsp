@@ -16,8 +16,7 @@
 		<div class="form-element">
 
 			<p>
-				<label for="size">Please describe the size of the
-					pothole<span>*</span>
+				<label for="size">What size is the pothole? <span>*</span>
 				</label>
 			</p>
 
@@ -44,8 +43,7 @@
 		<div class="form-element">
 
 			<p>
-				<label class="form-label" for="description">What does the
-					pothole look like?</label>
+				<label class="form-label" for="description">Please describe the location of the pothole</label>
 			</p>
 			<div>
 				<form:textarea class="textarea" path="description" rows="5" />

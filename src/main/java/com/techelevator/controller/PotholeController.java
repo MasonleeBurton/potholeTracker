@@ -1,7 +1,5 @@
 package com.techelevator.controller;
 
-import java.text.SimpleDateFormat;
-
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
