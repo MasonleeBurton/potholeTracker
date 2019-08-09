@@ -66,6 +66,8 @@
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
+				<c:url var="loginPageHref" value="/login"/>
+				<li class="nav-item"><a class="nav-link" href="${loginPageHref}">login</a></li>
 
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
