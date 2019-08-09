@@ -65,22 +65,32 @@ public class PotholeController {
 	}
 
 	@GetMapping("/submit")
-	public String showSurveyResult(ModelMap map) {
-		if (!map.containsAttribute("pothole")) {
-			map.put("pothole", new Pothole());
-			map.put("states", StateList.getStateCodes());
+	public String showSurveyResult(ModelMap map, HttpSession session) {
+		if (session.getAttribute("currentUser") != null) {
+
+			if (!map.containsAttribute("pothole")) {
+				map.put("pothole", new Pothole());
+				map.put("states", StateList.getStateCodes());
+			}
+			return "submit";
+		} else {
+			return "redirect:/login";
 		}
-		return "submit";
 	}
 
 	@PostMapping("/submit")
-	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result) {
+	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result,
+			HttpSession session) {
+		if (session.getAttribute("currentUser") != null) {
 
-		if (result.hasErrors()) {
-			return "submit";
+			if (result.hasErrors()) {
+				return "submit";
+			}
+			potholeDao.create(pothole);
+
+			return "redirect:/";
+		} else {
+			return "redirect:/login";
 		}
-		potholeDao.create(pothole);
-
-		return "redirect:/";
 	}
 }
