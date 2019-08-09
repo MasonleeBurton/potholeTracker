@@ -45,7 +45,12 @@ public class Status {
 		try {
 			inspectedOn = LocalDate.parse(date, df);
 		} catch (Exception e) {
-			inspectedOn = null;
+			try {
+				inspectedOn = LocalDate.parse(date);
+			} catch (Exception a) {
+				System.out.println(date);
+				inspectedOn = null;
+			}
 		}
 	}
 
@@ -57,7 +62,12 @@ public class Status {
 		try {
 			repairedOn = LocalDate.parse(date, df);
 		} catch (Exception e) {
-			repairedOn = null;
+			try {
+				repairedOn = LocalDate.parse(date);
+			} catch (Exception a) {
+				System.out.println(date);
+				repairedOn = null;
+			}
 		}
 	}
 

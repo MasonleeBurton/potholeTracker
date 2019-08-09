@@ -55,7 +55,7 @@
 
 	<nav class="navbar navbar-expand navbar-dark pl-5">
 		<a class="navbar-brand" href="#"> <c:url var="homePageHref"
-				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /> <a
+				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /><a
 			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
 				style="height: 50px;" /></a>
 		</a>
@@ -67,7 +67,7 @@
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
 			</ul>
-<			<ul class="navbar-nav ml-auto">
+			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/users/new" />
