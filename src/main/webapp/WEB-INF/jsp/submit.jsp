@@ -16,7 +16,7 @@
 		<div class="form-element">
 
 			<p>
-				<label for="size">Please describe the location of the
+				<label for="size">Please describe the size of the
 					pothole<span>*</span>
 				</label>
 			</p>
