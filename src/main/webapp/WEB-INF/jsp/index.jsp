@@ -47,6 +47,8 @@
 							value="${pothole.status.inspectedOn}" />
 						<div class="bold">Repaired On:</div> <c:out
 							value="${pothole.status.repairedOn}" />
+						<div class="bold">Severity:</div> <c:out
+							value="${pothole.status.rank}" />
 					</li>
 
 				</ul>
