@@ -17,6 +17,7 @@ import com.techelevator.model.dao.UserDAO;
 @Controller
 public class UserController {
 
+	private static final Object EMPLOYEE_CODE = "annieareyouok";
 	private UserDAO userDAO;
 
 	@Autowired
@@ -33,14 +34,18 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/users", method=RequestMethod.POST)
-	public String createUser(@Valid @ModelAttribute User user, BindingResult result, RedirectAttributes flash) {
+	public String createUser(@Valid @ModelAttribute User user, String employeeCode, BindingResult result, RedirectAttributes flash) {
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("user", user);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 			return "redirect:/users/new";
 		}
-		
-		userDAO.saveUser(user.getUserName(), user.getPassword());
+		if (employeeCode.equals(EMPLOYEE_CODE)) {
+			user.setRole("employee");
+		} else {
+			user.setRole("user");
+		}
+		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
 	}
 	
