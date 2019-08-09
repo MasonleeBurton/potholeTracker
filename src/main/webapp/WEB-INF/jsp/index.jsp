@@ -100,7 +100,8 @@
 					</form:form>
 					
 					<!-- Delete Button -->
-					<form method="POST" action="/capstone/delete" accept-charset="UTF-8"
+					<c:url value="/delete" var="deleteURL"/> 
+					<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
 						style="display: inline" >
 						<input type="hidden"  value = "${pothole.id}" name="potholeId"/>
 						<button class="btn btn-xs btn-danger deleteButton" type="button"

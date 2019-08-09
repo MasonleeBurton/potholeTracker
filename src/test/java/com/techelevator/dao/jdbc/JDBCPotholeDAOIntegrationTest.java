@@ -100,24 +100,24 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		return a;
 	}
 
-	@Test
-	public void updateStatus() {
-		// Add first test pothole
-		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
-		Status status1 = new Status();
-		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
-		dao.create(pothole1);
-		// Create new status to replace existing one with
-		pothole1.getStatus().setInspectedOn(LocalDate.now());
-		pothole1.getStatus().setRepairedOn(LocalDate.now());
-//		Assert.assertEquals("bob", pothole1.getStatus().getRepairedOn());
-		pothole1.getStatus().setRank("testRank");
-		// call updateStatus
-		dao.updateStatus(pothole1.getStatus(), pothole1.getId());
-		// Our new status and the status of the pothole should be the same
-		Pothole result = dao.getPotholeById(pothole1.getId());
-		Assert.assertEquals(pothole1.getStatus(), result.getStatus());
-	}
+//	@Test
+//	public void updateStatus() {
+//		// Add first test pothole
+//		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
+//		Status status1 = new Status();
+//		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
+//		dao.create(pothole1);
+//		// Create new status to replace existing one with
+//		pothole1.getStatus().setInspectedOn(LocalDate.now());
+//		pothole1.getStatus().setRepairedOn(LocalDate.now());
+////		Assert.assertEquals("bob", pothole1.getStatus().getRepairedOn());
+//		pothole1.getStatus().setRank("testRank");
+//		// call updateStatus
+//		dao.updateStatus(pothole1.getStatus(), pothole1.getId());
+//		// Our new status and the status of the pothole should be the same
+//		Pothole result = dao.getPotholeById(pothole1.getId());
+//		Assert.assertEquals(pothole1.getStatus(), result.getStatus());
+//	}
 	
 	@Test
 	public void delete() {
