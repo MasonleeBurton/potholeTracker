@@ -40,6 +40,8 @@
 								<c:out value="${pothole.longitude}" />
 							</div>
 						</div>
+						<div class="bold">Reported On:</div> <c:out
+							value="${pothole.status.reportedOn}" />
 					</li>
 
 				</ul>
