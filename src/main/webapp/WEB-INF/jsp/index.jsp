@@ -18,8 +18,7 @@
 							value="${pothole.address.addressLine1}" />, <c:if
 							test="${not empty pothole.address.addressLine2}">
 							<c:out value="${pothole.address.addressLine2}" />
-                    </c:if><br>
-                    <c:out value="${pothole.address.city}" />, <c:out
+						</c:if><br> <c:out value="${pothole.address.city}" />, <c:out
 							value="${pothole.address.state}" />, <c:out
 							value="${pothole.address.zipCode}" />
 
@@ -32,77 +31,69 @@
 						<div class="bold">Created On:</div> <c:out
 							value="${pothole.createdOn}" />
 						<div class="longlatBoxed">
-							<div class="latHeaders "><span class="bold">Latitude:</span>
-							<c:out value="${pothole.latitude}" /></div>
-							<div class="longHeaders "><span class="bold">Longitude:</span>
-							<c:out value="${pothole.longitude}" /></div>
+							<div class="latHeaders ">
+								<span class="bold">Latitude:</span>
+								<c:out value="${pothole.latitude}" />
+							</div>
+							<div class="longHeaders ">
+								<span class="bold">Longitude:</span>
+								<c:out value="${pothole.longitude}" />
+							</div>
 						</div>
 					</li>
 
 				</ul>
-				
+
 				<!-- Edit button -->
 				<button class="editButton" id="${pothole.id}">Edit</button>
-				
+
 				<!-- Hidden Menu -->
 				<div id="hiddenMenu${pothole.id}" class="displayHidden">
+				${pothole.status.reportedOn}
 					<p>Options</p>
 
-					<c:url value="/update" var="updateURL"> 
-					<c:param name="potholeId" value="${pothole.id}"></c:param>
+					<c:url value="/update" var="updateURL">
+						<c:param name="potholeId" value="${pothole.id}"></c:param>
 					</c:url>
 
-					<form:form action="${updateURL}" method="POST" modelAttribute="status">
+					<form:form action="${updateURL}" method="POST"
+						modelAttribute="status">
 
 						<div>
 							<p>Reported on:</p>
-							<c:choose>
-								<c:when test="${empty pothole.status.reportedOn}">
-									<form:input path="reportedOn" placeholder="DATE" />
-								</c:when>
-								<c:otherwise>
-									<p>${pothole.status.reportedOn}</p>
-								</c:otherwise>
-							</c:choose>
+							<c:set var="date" value="${pothole.status.reportedOn}"/>
+							<form:input path="reportedOn"/>
+								
 						</div>
 						<div>
 							<p>Inspected on:</p>
-							<c:choose>
-								<c:when test="${empty pothole.status.inspectedOn}">
-									<form:input path="inspectedOn" placeholder="DATE" />
-								</c:when>
-								<c:otherwise>
-									<p>${pothole.status.reportedOn}</p>
-								</c:otherwise>
-							</c:choose>
+
+							<form:input path="inspectedOn" placeholder="${pothole.status.inspectedOn}"
+								value="${pothole.status.inspectedOn}" />
+
 						</div>
 						<div>
 							<p>Repaired on:</p>
-							<c:choose>
-								<c:when test="${empty pothole.status.repairedOn}">
-									<form:input path="repairedOn" placeholder="DATE" />
-								</c:when>
-								<c:otherwise>
-									<p>${pothole.status.repairedOn}</p>
-								</c:otherwise>
-							</c:choose>
+							<form:input path="repairedOn" placeholder="${pothole.status.repairedOn}"
+								value="${pothole.status.repairedOn}" />
 						</div>
 						<div>
 							<p>Rank:</p>
-							<select name="#">
+							<form:select path="rank">
 								<option value="Low">Low</option>
 								<option value="Medium">Medium</option>
 								<option value="High">High</option>
 								<option value="Immediate">Immediate</option>
-							</select>
+							</form:select>
 							<button type="submit">Submit</button>
 						</div>
 					</form:form>
-					
+
 					<!-- Delete Button -->
-					<form method="POST" action="/capstone/delete" accept-charset="UTF-8"
-						style="display: inline" >
-						<input type="hidden"  value = "${pothole.id}" name="potholeId"/>
+					<c:url value="/delete" var="deleteURL" />
+					<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
+						style="display: inline">
+						<input type="hidden" value="${pothole.id}" name="potholeId" />
 						<button class="btn btn-xs btn-danger deleteButton" type="button"
 							data-toggle="modal" data-target="#confirmDelete" data-title=""
 							data-message="Are you sure you want to delete this pothole?">

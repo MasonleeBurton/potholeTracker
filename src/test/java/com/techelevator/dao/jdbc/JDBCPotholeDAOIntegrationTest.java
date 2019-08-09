@@ -118,6 +118,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Pothole result = dao.getPotholeById(pothole1.getId());
 		Assert.assertEquals(pothole1.getStatus(), result.getStatus());
 	}
+
 	
 	@Test
 	public void delete() {

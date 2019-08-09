@@ -38,7 +38,7 @@ public class UserController {
 		if(result.hasErrors()) {
 			flash.addFlashAttribute("user", user);
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
-			return "redirect:/users/new";
+			return "redirect:/";
 		}
 		if (employeeCode.equals(EMPLOYEE_CODE)) {
 			user.setRole("employee");
