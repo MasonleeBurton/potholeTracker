@@ -110,6 +110,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		// Create new status to replace existing one with
 		pothole1.getStatus().setInspectedOn(LocalDate.now());
 		pothole1.getStatus().setRepairedOn(LocalDate.now());
+//		Assert.assertEquals("bob", pothole1.getStatus().getRepairedOn());
 		pothole1.getStatus().setRank("testRank");
 		// call updateStatus
 		dao.updateStatus(pothole1.getStatus(), pothole1.getId());

@@ -23,6 +23,10 @@ public class Status {
 	public LocalDate getReportedOn() {
 		return reportedOn;
 	}
+	
+	public void setReportedOn(LocalDate date) {
+		this.reportedOn = date;
+	}
 
 	public void setReportedOn(String date) {
 		this.reportedOn = LocalDate.parse(date, df);
@@ -35,6 +39,10 @@ public class Status {
 	public void setInspectedOn(String date) {
 		this.inspectedOn = LocalDate.parse(date, df);
 	}
+	
+	public void setInspectedOn(LocalDate date) {
+		this.inspectedOn = date;
+	}
 
 	public LocalDate getRepairedOn() {
 		return repairedOn;
@@ -42,6 +50,10 @@ public class Status {
 
 	public void setRepairedOn(String date) {
 		this.repairedOn = LocalDate.parse(date, df);
+	}
+	
+	public void setRepairedOn(LocalDate date) {
+		this.repairedOn = date;
 	}
 
 	public String getRank() {
