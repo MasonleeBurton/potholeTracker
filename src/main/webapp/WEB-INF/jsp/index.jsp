@@ -84,7 +84,7 @@
 					test='${not empty currentUser && currentUser.role == "employee"}'>
 					<div class="right">
 						<!-- Edit button -->
-						<button class="editButton btn btn-warning" id="${pothole.id}">Edit</button>
+						<button class="editButton btn btn-success" id="${pothole.id}">Edit</button>
 						<!-- Delete Button -->
 						<c:url value="/delete" var="deleteURL" />
 						<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
@@ -174,7 +174,7 @@
 						<p>Are you sure about this?</p>
 					</div>
 					<div class="modal-footer">
-						<button type="button" class="btn btn-default" data-dismiss="modal">Cancel</button>
+						<button type="button" class="btn btn-primary" data-dismiss="modal">Cancel</button>
 						<button type="button" class="btn btn-danger" id="confirm">Delete</button>
 					</div>
 				</div>
