@@ -43,6 +43,10 @@
 						</div>
 						<div class="bold">Reported On:</div> <c:out
 							value="${pothole.status.reportedOn}" />
+						<div class="bold">Inspected On:</div> <c:out
+							value="${pothole.status.inspectedOn}" />
+						<div class="bold">Repaired On:</div> <c:out
+							value="${pothole.status.repairedOn}" />
 					</li>
 
 				</ul>
