@@ -6,12 +6,29 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
+
+
 <h2 class="my-3 text-center">All Potholes</h2>
 <div class="row card-columns">
 
 	<c:forEach items="${potholes}" var="pothole">
 		<div class="col-12 col-md-6 col-lg-4 card-col">
 			<div class="card card-body">
+
+				<fmt:parseDate value="${ pothole.status.reportedOn }"
+					pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+				<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
+					value="${ parsedDateTime }" />
+
+				<fmt:parseDate value="${ pothole.status.inspectedOn }"
+					pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+				<fmt:formatDate pattern="MM/dd/yyyy" var="inspected"
+					value="${ parsedDateTime }" />
+
+				<fmt:parseDate value="${ pothole.status.repairedOn }"
+					pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+				<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
+					value="${ parsedDateTime }" />
 
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
@@ -40,22 +57,40 @@
 								<span class="bold">Longitude:</span>
 								<c:out value="${pothole.longitude}" />
 							</div>
-						</div>
-						<div class="bold">Reported On:</div> <c:out
-							value="${pothole.status.reportedOn}" />
-						<div class="bold">Inspected On:</div> <c:out
-							value="${pothole.status.inspectedOn}" />
-						<div class="bold">Repaired On:</div> <c:out
-							value="${pothole.status.repairedOn}" />
-						<div class="bold">Severity:</div> <c:out
-							value="${pothole.status.rank}" />
+						</div> <c:if test="${not empty reported}">
+							<div class="bold">Reported On:</div>
+							<c:out value="${reported}" />
+						</c:if> <c:if test="${not empty inspected}">
+
+							<div class="bold">Inspected On:</div>
+							<c:out value="${inspected}" />
+						</c:if> <c:if test="${not empty repaired}">
+
+							<div class="bold">Repaired On:</div>
+							<c:out value="${repaired}" />
+						</c:if> <c:if test="${not empty pothole.status.rank}">
+
+							<div class="bold">Severity:</div>
+							<c:out value="${pothole.status.rank}" />
+						</c:if>
 					</li>
 
 				</ul>
 				<c:if
 					test='${not empty currentUser && currentUser.role == "employee"}'>
 					<!-- Edit button -->
-					<button class="editButton" id="${pothole.id}">Edit</button>
+					<button class="editButton btn btn-warning" id="${pothole.id}">Edit</button>
+					<!-- Delete Button -->
+					<c:url value="/delete" var="deleteURL" />
+					<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
+						style="display: inline">
+						<input type="hidden" value="${pothole.id}" name="potholeId" />
+						<button class="btn btn-xs btn-danger deleteButton" type="button"
+							data-toggle="modal" data-target="#confirmDelete" data-title=""
+							data-message="Are you sure you want to delete this pothole?">
+							<i class="glyphicon glyphicon-trash"></i> Delete
+						</button>
+					</form>
 
 					<!-- Hidden Menu -->
 					<div id="hiddenMenu${pothole.id}" class="displayHidden">
@@ -68,10 +103,12 @@
 						<form:form action="${updateURL}" method="POST"
 							modelAttribute="status">
 
+
 							<fmt:parseDate value="${ pothole.status.reportedOn }"
 								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
 							<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
 								value="${ parsedDateTime }" />
+
 
 							<div>
 								<p>Reported on:</p>
@@ -111,21 +148,9 @@
 									<option value="High">High</option>
 									<option value="Immediate">Immediate</option>
 								</form:select>
-								<button type="submit">Submit</button>
+								<button class="btn btn-primary" type="submit">Submit</button>
 							</div>
 						</form:form>
-
-						<!-- Delete Button -->
-						<c:url value="/delete" var="deleteURL" />
-						<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
-							style="display: inline">
-							<input type="hidden" value="${pothole.id}" name="potholeId" />
-							<button class="btn btn-xs btn-danger deleteButton" type="button"
-								data-toggle="modal" data-target="#confirmDelete" data-title=""
-								data-message="Are you sure you want to delete this pothole?">
-								<i class="glyphicon glyphicon-trash"></i> Delete
-							</button>
-						</form>
 					</div>
 				</c:if>
 			</div>
