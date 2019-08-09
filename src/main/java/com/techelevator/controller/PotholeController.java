@@ -32,7 +32,7 @@ public class PotholeController {
 	}
 	
 	@PostMapping("/update")
-	public String updateStatus(@Valid @ModelAttribute("status") Status status, @RequestParam long potholeId, BindingResult result) {
+	public String updateStatus(@ModelAttribute("status") Status status, @RequestParam long potholeId, BindingResult result) {
 		if (result.hasErrors()) {
             return "/";
 		}

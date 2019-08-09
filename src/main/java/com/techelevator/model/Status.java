@@ -24,10 +24,6 @@ public class Status {
 		return reportedOn;
 	}
 
-	public void setReportedOn(LocalDate date) {
-		this.reportedOn = date;
-	}
-
 	public void setReportedOn(String date) {
 		try {
 			reportedOn = LocalDate.parse(date, df);
@@ -48,10 +44,6 @@ public class Status {
 		}
 	}
 
-	public void setInspectedOn(LocalDate date) {
-		this.inspectedOn = date;
-	}
-
 	public LocalDate getRepairedOn() {
 		return repairedOn;
 	}
@@ -62,10 +54,6 @@ public class Status {
 		} catch (Exception e) {
 			repairedOn = null;
 		}
-	}
-
-	public void setRepairedOn(LocalDate date) {
-		this.repairedOn = date;
 	}
 
 	public String getRank() {
