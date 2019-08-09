@@ -66,8 +66,6 @@
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
-				<c:url var="loginPageHref" value="/login"/>
-				<li class="nav-item"><a class="nav-link" href="${loginPageHref}">login</a></li>
 
 				<c:if test="${not empty currentUser}">
 					<c:url var="dashboardHref" value="/users/${currentUser}" />
@@ -87,7 +85,7 @@
 						href="${changePasswordHref}">Change Password</a></li>
 				</c:if>
 			</ul>
-<%-- 			<ul class="navbar-nav ml-auto">
+<			<ul class="navbar-nav ml-auto">
 				<c:choose>
 					<c:when test="${empty currentUser}">
 						<c:url var="newUserHref" value="/users/new" />
@@ -105,7 +103,7 @@
 						<li class="nav-item"><a id="logoutLink" href="#">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
-			</ul> --%>
+			</ul> 
 		</div>
 	</nav>
 
