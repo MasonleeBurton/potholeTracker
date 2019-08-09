@@ -58,3 +58,20 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 		column-count: 3;
 	}
 }
+
+.right {
+	display: flex;
+	justify-content: flex-end;
+}
+
+.right button {
+	margin: 5px 0 0 5px;
+}
+
+.card-body {
+	padding: 4px;
+}
+
+.login {
+	padding: 10px;
+}

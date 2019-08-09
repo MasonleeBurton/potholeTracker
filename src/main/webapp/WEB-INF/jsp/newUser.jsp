@@ -40,7 +40,7 @@
 <c:url var="formAction" value="/users" />
 <form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
-	<div class="row">
+	<div class="row login">
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
@@ -57,7 +57,7 @@
 			</div>
 			
 			<div class="form-group">
-				<label for="employeeCode">Employee Code: </label>
+				<label for="employeeCode">Employee Code (Optional): </label>
 				<input type="employeeCode" id="employeeCode" name="employeeCode" placeHolder="Employee Code" class="form-control" />	
 			</div>
 			

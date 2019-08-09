@@ -25,7 +25,7 @@
 	});
 </script>
 
-<div class="row">
+<div class="row login">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">
 		<c:url var="formAction" value="/login" />

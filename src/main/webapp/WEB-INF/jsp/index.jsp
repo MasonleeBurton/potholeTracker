@@ -30,6 +30,11 @@
 				<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
 					value="${ parsedDateTime }" />
 
+				<fmt:parseDate value="${ pothole.createdOn }" pattern="yyyy-MM-dd"
+					var="parsedDateTime" type="both" />
+				<fmt:formatDate pattern="MM/dd/yyyy" var="created"
+					value="${ parsedDateTime }" />
+
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 						<div class="card-text bold">Address:</div> <c:out
@@ -46,8 +51,7 @@
 
 						<div class="bold">Size:</div> <c:out value="${pothole.size}" />
 
-						<div class="bold">Created On:</div> <c:out
-							value="${pothole.createdOn}" />
+						<div class="bold">Created On:</div> <c:out value="${created}" />
 						<div class="longlatBoxed">
 							<div class="latHeaders ">
 								<span class="bold">Latitude:</span>
@@ -78,20 +82,21 @@
 				</ul>
 				<c:if
 					test='${not empty currentUser && currentUser.role == "employee"}'>
-					<!-- Edit button -->
-					<button class="editButton btn btn-warning" id="${pothole.id}">Edit</button>
-					<!-- Delete Button -->
-					<c:url value="/delete" var="deleteURL" />
-					<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
-						style="display: inline">
-						<input type="hidden" value="${pothole.id}" name="potholeId" />
-						<button class="btn btn-xs btn-danger deleteButton" type="button"
-							data-toggle="modal" data-target="#confirmDelete" data-title=""
-							data-message="Are you sure you want to delete this pothole?">
-							<i class="glyphicon glyphicon-trash"></i> Delete
-						</button>
-					</form>
-
+					<div class="right">
+						<!-- Edit button -->
+						<button class="editButton btn btn-warning" id="${pothole.id}">Edit</button>
+						<!-- Delete Button -->
+						<c:url value="/delete" var="deleteURL" />
+						<form method="POST" action="${deleteURL}" accept-charset="UTF-8"
+							style="display: inline">
+							<input type="hidden" value="${pothole.id}" name="potholeId" />
+							<button class="btn btn-xs btn-danger deleteButton" type="button"
+								data-toggle="modal" data-target="#confirmDelete" data-title=""
+								data-message="Are you sure you want to delete this pothole?">
+								<i class="glyphicon glyphicon-trash"></i> Delete
+							</button>
+						</form>
+					</div>
 					<!-- Hidden Menu -->
 					<div id="hiddenMenu${pothole.id}" class="displayHidden">
 						<p>Options</p>
