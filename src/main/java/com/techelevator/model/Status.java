@@ -23,13 +23,17 @@ public class Status {
 	public LocalDate getReportedOn() {
 		return reportedOn;
 	}
-	
+
 	public void setReportedOn(LocalDate date) {
 		this.reportedOn = date;
 	}
 
 	public void setReportedOn(String date) {
-		this.reportedOn = LocalDate.parse(date, df);
+		try {
+			reportedOn = LocalDate.parse(date, df);
+		} catch (Exception e) {
+			reportedOn = null;
+		}
 	}
 
 	public LocalDate getInspectedOn() {
@@ -37,9 +41,13 @@ public class Status {
 	}
 
 	public void setInspectedOn(String date) {
-		this.inspectedOn = LocalDate.parse(date, df);
+		try {
+			inspectedOn = LocalDate.parse(date, df);
+		} catch (Exception e) {
+			inspectedOn = null;
+		}
 	}
-	
+
 	public void setInspectedOn(LocalDate date) {
 		this.inspectedOn = date;
 	}
@@ -49,9 +57,13 @@ public class Status {
 	}
 
 	public void setRepairedOn(String date) {
-		this.repairedOn = LocalDate.parse(date, df);
+		try {
+			repairedOn = LocalDate.parse(date, df);
+		} catch (Exception e) {
+			repairedOn = null;
+		}
 	}
-	
+
 	public void setRepairedOn(LocalDate date) {
 		this.repairedOn = date;
 	}
