@@ -9,11 +9,11 @@
 
 
 <h2 class="my-3 text-center">All Potholes</h2>
-<div class="row card-columns">
+<div class="card-columns">
 
 	<c:forEach items="${potholes}" var="pothole">
-		<div class="col-12 col-md-6 col-lg-4 card-col">
-			<div class="card card-body">
+		<div class="card">
+			<div class="card-body">
 
 				<fmt:parseDate value="${ pothole.status.reportedOn }"
 					pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
