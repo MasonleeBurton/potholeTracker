@@ -24,9 +24,19 @@ public class PotholeController {
 
 	@Autowired
 	PotholeDAO potholeDao;
-
+	
+	
 	@GetMapping("/")
-	public String homePage(ModelMap map) {
+	public String mapPage(ModelMap map) {
+		map.addAttribute("potholes", potholeDao.getAll());
+		map.addAttribute("status", new Status());
+
+		return "potholeMap";
+	}
+	
+
+	@GetMapping("/list")
+	public String listPage(ModelMap map) {
 		map.addAttribute("potholes", potholeDao.getAll());
 		map.addAttribute("status", new Status());
 
@@ -49,6 +59,7 @@ public class PotholeController {
 		}
 
 	}
+	
 
 	@PostMapping("/delete")
 	public String DeletePothole(HttpServletRequest req, HttpSession session) {
