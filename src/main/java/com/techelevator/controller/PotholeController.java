@@ -1,5 +1,12 @@
 package com.techelevator.controller;
 
+import java.io.BufferedOutputStream;
+import java.io.File;
+import java.io.FileNotFoundException;
+import java.io.FileOutputStream;
+import java.io.IOException;
+
+import javax.servlet.ServletContext;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
@@ -12,6 +19,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.multipart.MultipartFile;
 
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
@@ -24,6 +32,9 @@ public class PotholeController {
 
 	@Autowired
 	PotholeDAO potholeDao;
+	
+	@Autowired
+	ServletContext servletContext;
 	
 	
 	@GetMapping("/")
@@ -90,7 +101,7 @@ public class PotholeController {
 	}
 
 	@PostMapping("/submit")
-	public String processSurveyInput(@Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result,
+	public String processSurveyInput(@RequestParam("file") MultipartFile file, ModelMap map, @Valid @ModelAttribute("pothole") Pothole pothole, BindingResult result,
 			HttpSession session) {
 		if (session.getAttribute("currentUser") != null) {
 
@@ -98,10 +109,48 @@ public class PotholeController {
 				return "submit";
 			}
 			potholeDao.create(pothole);
+			
+			File imagePath = getImageFilePath();
+			String imageName = imagePath + File.separator + pothole.getId();
+			
+			if (file.isEmpty()) {
+				map.addAttribute("message", "File Object empty");
+			} else {
+				createImage(file, imageName);
+			}
+			map.addAttribute("message", "uploaded to: " + imageName);
 
 			return "redirect:/";
 		} else {
 			return "redirect:/login";
 		}
 	}
+	
+	private File getImageFilePath() {
+		String serverPath = getServerContextPath();
+		File filePath = new File(serverPath);
+		if (!filePath.exists()) {
+			filePath.mkdirs();
+		}
+		return filePath;
+	}
+	
+	private String getServerContextPath() {
+		return servletContext.getRealPath("/") + "uploads";
+	}
+	
+	private void createImage(MultipartFile file, String name) {
+		File image = new File(name);
+		try (BufferedOutputStream stream = new BufferedOutputStream(new FileOutputStream(image))) {
+	
+			stream.write(file.getBytes());
+		
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+}
 }
