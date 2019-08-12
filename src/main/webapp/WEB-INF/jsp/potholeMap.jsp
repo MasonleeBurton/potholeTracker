@@ -16,12 +16,35 @@
 <script>
 var map;
 function initialize() {
-  var mapOptions = {
+  const mapOptions = {
     zoom: 10,
     center: new google.maps.LatLng(`${columbusLatitude}`, `${columbusLongitude}`)
   };
   map = new google.maps.Map(document.getElementById('map-canvas'),
       mapOptions);
+  
+  const potholes = `{$potholes}`;
+  
+  <c:forEach var="pothole" items="${potholes}">
+  	const potholePosition = {lat: ${pothole.latitude}, lng: ${pothole.longitude}};
+  
+      let contentString = `
+          <strong>${pothole.description}</strong>
+          <h1>${pothole.address.addressLine1}</h1>
+          `;
+          let infowindow = new google.maps.InfoWindow({
+            content: contentString
+          });
+          let marker = new google.maps.Marker({
+            position: potholePosition,
+            map: map
+          });
+          marker.addListener('click', function() {
+            infowindow.open(map, marker);
+          });
+  </c:forEach>
+  
+  
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
