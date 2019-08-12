@@ -6,13 +6,13 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<c:set var="columbusLatitude" value="39.9612"/>
-<c:set var="columbusLongitude" value="-82.9988"/>
+<c:set var="columbusLatitude" value="39.9612" />
+<c:set var="columbusLongitude" value="-82.9988" />
 
- <div id="map-canvas" style="height:300px; width:500px"></div>
- 
- <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
+<div id="map-canvas" style="height: 300px; width: 500px"></div>
+
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
 <script>
 var map;
 function initialize() {
@@ -26,6 +26,7 @@ function initialize() {
   const potholes = `{$potholes}`;
   
   <c:forEach var="pothole" items="${potholes}">
+  try {
   	const potholePosition = {lat: ${pothole.latitude}, lng: ${pothole.longitude}};
   
       let contentString = `
@@ -42,6 +43,9 @@ function initialize() {
           marker.addListener('click', function() {
             infowindow.open(map, marker);
           });
+  } catch(error) {
+	  console.error(error);
+  }
   </c:forEach>
   
   
@@ -49,5 +53,5 @@ function initialize() {
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
- 
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />
