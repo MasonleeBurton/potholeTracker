@@ -9,12 +9,14 @@
 <c:set var="columbusLatitude" value="39.9612" />
 <c:set var="columbusLongitude" value="-82.9988" />
 
-<div id="map-canvas" style="height: 300px; width: 500px"></div>
+<div id="map-canvas"></div>
 
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
 <script>
-var map;
+let map;
+let infowindow;
+
 function initialize() {
   const mapOptions = {
     zoom: 10,
@@ -31,24 +33,26 @@ function initialize() {
   
       let contentString = `
           <strong>${pothole.description}</strong>
-          <h1>${pothole.address.addressLine1}</h1>
-          `;
-          let infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
+          <h1>${pothole.address.addressLine1}</h1>`;
+          
           let marker = new google.maps.Marker({
             position: potholePosition,
             map: map
           });
+          
           marker.addListener('click', function() {
+        	if (infowindow) {
+      	        infowindow.close();
+      	    }
+       	  	infowindow = new google.maps.InfoWindow({
+            	content: contentString
+            });
             infowindow.open(map, marker);
           });
   } catch(error) {
 	  console.error(error);
   }
   </c:forEach>
-  
-  
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
