@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -98,13 +100,20 @@ public class PotholeController {
 	
 
 	@PostMapping("/delete")
-	public String DeletePothole(HttpServletRequest req, HttpSession session) {
+	public String DeletePothole(HttpServletRequest req, HttpSession session) throws IOException {
 		String potholeId = req.getParameter("potholeId");
 		long longPotholeId = Long.parseLong(potholeId);
 		if (session.getAttribute("currentUser") != null
 				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
 			potholeDao.delete(longPotholeId);
 
+			String imagePath = getServerContextPath() + File.separator + longPotholeId;
+			FileUtils.touch(new File(imagePath));
+			 
+		    FileUtils.forceDelete(FileUtils.getFile(imagePath));
+		 
+		    
+			
 			return "redirect:/";
 		} else {
 			return "redirect:/login";
