@@ -64,6 +64,8 @@
 			<ul class="navbar-nav mr-auto">
 				<c:url var="homePageHref" value="/" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
+				<c:url var="potholeListHref" value="/list" />
+				<li class="nav-item"><a class="nav-link" href="${potholeListHref}">Pothole List</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
 			</ul>
