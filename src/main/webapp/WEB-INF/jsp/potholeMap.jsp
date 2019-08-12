@@ -6,15 +6,18 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<c:set var="columbusLatitude" value="39.9612"/>
-<c:set var="columbusLongitude" value="-82.9988"/>
+<c:set var="columbusLatitude" value="39.9612" />
+<c:set var="columbusLongitude" value="-82.9988" />
 
- <div id="map-canvas" style="height:300px; width:500px"></div>
- 
- <script
-    src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
+<div id="map-canvas"></div>
+
+<script
+	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
 <script>
-var map;
+let map;
+let infowindow;
+let potholeContent;
+
 function initialize() {
   const mapOptions = {
     zoom: 10,
@@ -26,28 +29,90 @@ function initialize() {
   const potholes = `{$potholes}`;
   
   <c:forEach var="pothole" items="${potholes}">
-  	const potholePosition = {lat: ${pothole.latitude}, lng: ${pothole.longitude}};
   
-      let contentString = `
-          <strong>${pothole.description}</strong>
-          <h1>${pothole.address.addressLine1}</h1>
-          `;
-          let infowindow = new google.maps.InfoWindow({
-            content: contentString
-          });
-          let marker = new google.maps.Marker({
-            position: potholePosition,
-            map: map
-          });
-          marker.addListener('click', function() {
-            infowindow.open(map, marker);
-          });
+  
+  
+  
+  try {
+ 		const potholePosition = {lat: ${pothole.latitude}, lng: ${pothole.longitude}};
+            
+	   let marker = new google.maps.Marker({
+	     position: potholePosition,
+	     map: map
+	   });
+	   
+	   marker.addListener('click', function() {
+	 	if (infowindow) {
+	        infowindow.close();
+	    }
+	 	<fmt:parseDate value="${ pothole.status.reportedOn }"
+			pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+		<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
+			value="${ parsedDateTime }" />
+
+		<fmt:parseDate value="${ pothole.status.inspectedOn }"
+			pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+		<fmt:formatDate pattern="MM/dd/yyyy" var="inspected"
+			value="${ parsedDateTime }" />
+
+		<fmt:parseDate value="${ pothole.status.repairedOn }"
+			pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
+		<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
+			value="${ parsedDateTime }" />
+
+		<fmt:parseDate value="${ pothole.createdOn }" pattern="yyyy-MM-dd"
+			var="parsedDateTime" type="both" />
+		<fmt:formatDate pattern="MM/dd/yyyy" var="created"
+			value="${ parsedDateTime }" />
+	  
+	  potholeContent = `<div class="card-text bold">Address:</div> <c:out
+			value="${pothole.address.addressLine1}" />, <c:if
+			test="${not empty pothole.address.addressLine2}">
+			<c:out value="${pothole.address.addressLine2}" />
+		</c:if><br> <c:out value="${pothole.address.city}" />, <c:out
+			value="${pothole.address.state}" />, <c:out
+			value="${pothole.address.zipCode}" />
+
+
+		<div class="bold">Description:</div> <c:out
+			value="${pothole.description}" />
+
+		<div class="bold">Size:</div> <c:out value="${pothole.size}" />
+
+		<div class="bold">Created On:</div> <c:out value="${created}" />
+		<div class="longlatBoxed">
+		</div> <c:if test="${not empty reported}">
+			<div class="bold">Reported On:</div>
+			<c:out value="${reported}" />
+		</c:if> <c:if test="${not empty inspected}">
+
+			<div class="bold">Inspected On:</div>
+			<c:out value="${inspected}" />
+		</c:if> <c:if test="${not empty repaired}">
+
+			<div class="bold">Repaired On:</div>
+			<c:out value="${repaired}" />
+		</c:if> <c:if test="${not empty pothole.status.rank}">
+
+			<div class="bold">Severity:</div>
+			<c:out value="${pothole.status.rank}" />
+		</c:if>`;
+	 	
+	  	infowindow = new google.maps.InfoWindow({
+	  		
+	  		
+	  		
+     	content: potholeContent
+	    });
+	    infowindow.open(map, marker);
+	   });
+  } catch(error) {
+	  console.error(error);
+  }
   </c:forEach>
-  
-  
 }
 
 google.maps.event.addDomListener(window, 'load', initialize);
 </script>
- 
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />
