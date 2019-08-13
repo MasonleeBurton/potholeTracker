@@ -65,7 +65,7 @@ function initialize() {
 		<fmt:formatDate pattern="MM/dd/yyyy" var="created"
 			value="${ parsedDateTime }" />
 	  
-	  potholeContent = `<div class="card-text bold">Address:</div> <c:out
+ 	  potholeContent = `<div class="card-text bold">Address:</div> <c:out
 			value="${pothole.address.addressLine1}" />, <c:if
 			test="${not empty pothole.address.addressLine2}">
 			<c:out value="${pothole.address.addressLine2}" />
@@ -97,7 +97,7 @@ function initialize() {
 			<div class="bold">Severity:</div>
 			<c:out value="${pothole.status.rank}" />
 		</c:if>`;
-	 	
+	  	
 	  	infowindow = new google.maps.InfoWindow({
 	  		
 	  		
