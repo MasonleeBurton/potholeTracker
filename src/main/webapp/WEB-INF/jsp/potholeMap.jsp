@@ -5,6 +5,7 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
+<h2 class="my-3 text-center">Map</h2>
 <div class="map-container">
 <div id="map-canvas"></div>
 </div>

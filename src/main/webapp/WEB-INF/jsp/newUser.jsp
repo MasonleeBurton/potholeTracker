@@ -56,10 +56,10 @@
 				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
 			</div>
 			
-			<div class="form-group">
+			<!-- <div class="form-group">
 				<label for="employeeCode">Employee Code (Optional): </label>
 				<input type="employeeCode" id="employeeCode" name="employeeCode" placeHolder="Employee Code" class="form-control" />	
-			</div>
+			</div> -->
 			
 			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>

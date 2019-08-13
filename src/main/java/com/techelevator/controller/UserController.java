@@ -43,11 +43,9 @@ public class UserController {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 			return "redirect:/";
 		}
-		if (employeeCode.equals(EMPLOYEE_CODE)) {
-			user.setRole("employee");
-		} else {
+		
 			user.setRole("user");
-		}
+	
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
 	}
