@@ -65,12 +65,14 @@
 				<c:url var="homePageHref" value="/" />
 				<li class="nav-item"><a class="nav-link" href="${homePageHref}">Home</a></li>
 				<c:url var="potholeListHref" value="/list" />
-				<li class="nav-item"><a class="nav-link" href="${potholeListHref}">Pothole List</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${potholeListHref}">Pothole List</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
-				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
+				<li class="nav-item"><a class="nav-link"
+					href="${submitPotholePageHref}">Submit Pothole</a></li>
 				<c:if test="${currentUser.role == 'employee'}">
-				<c:url var="adminURL" value="/admin" />
-				<li class="nav-item"><a class="nav-link" href="${adminURL}">Admin</a></li>
+					<c:url var="adminURL" value="/admin" />
+					<li class="nav-item"><a class="nav-link" href="${adminURL}">Admin</a></li>
 				</c:if>
 			</ul>
 			<ul class="navbar-nav ml-auto">
@@ -88,12 +90,17 @@
 						<form id="logoutForm" action="${logoutAction}" method="POST">
 							<input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}" />
 						</form>
-						<li class="nav-item"><a id="logoutLink" class="nav-link" href="#">Log Out</a></li>
+						<li class="nav-item"><a id="logoutLink" class="nav-link"
+							href="#">Log Out</a></li>
 					</c:otherwise>
 				</c:choose>
-			</ul> 
+			</ul>
 		</div>
 	</nav>
 
-	<div class="container">
+	<div class="imgBar">
+		<c:url var="barImgSrc" value="/img/potholebar2.jpg" />
+		<img src="${barImgSrc}" />
+	</div>
 
+	<div class="container">

@@ -51,9 +51,5 @@ public class AuthenticationController {
 		return "redirect:/";
 	}
 	
-	@RequestMapping("/admin")
-	public String admin() {
-		
-		return "admin";
-	}
+	
 }
