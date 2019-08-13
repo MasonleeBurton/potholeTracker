@@ -84,14 +84,16 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	}
 }
 
-html, body, .container {
+.container {
 	width: 100%;
-	height: 100%;
 }
-
+.map-container {
+	display: flex;
+	justify-content: center;
+}
 #map-canvas {
-	height: 80%;
-	width: 100%;
+	height: 80vh;
+	width: 100vh;
 }
 
 .potholeImg object {

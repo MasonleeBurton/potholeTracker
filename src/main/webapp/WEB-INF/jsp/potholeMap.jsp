@@ -5,9 +5,9 @@
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
-
+<div class="map-container">
 <div id="map-canvas"></div>
-
+</div>
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
 
