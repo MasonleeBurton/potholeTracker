@@ -66,7 +66,7 @@ function getFormContent(marker) {
 function formatStates(states) {
 	let listOfStates = "";
 	for (i = 0; i < states.length; i++) {
-		listOfStates += `<option value = "${i + 1}">${states[i]}</option>`
+		listOfStates += `<option value = "${states[i]}">${states[i]}</option>`
 	}
 	return listOfStates;
 }
