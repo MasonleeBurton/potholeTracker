@@ -107,8 +107,9 @@
 						</form>
 					</div>
 					<!-- Hidden Menu -->
-					<div id="hiddenMenu${pothole.id}" class="displayHidden">
-						<ul class="list-group list-group-flush">
+					<div id="hiddenMenu${pothole.id}" class="displayHidden hiddenStyling">
+					
+					<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 					
 						<c:url value="/update" var="updateURL">
@@ -117,12 +118,6 @@
 						
 						<form:form action="${updateURL}" method="POST"
 							modelAttribute="status">
-
-
-							<%-- <fmt:parseDate value="${ pothole.status.reportedOn }"
-								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
-							<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
-								value="${ parsedDateTime }" /> --%>
 
 
 							<div>
@@ -145,10 +140,6 @@
 									value="${ pothole.status.inspectedOn }" />
 							</div>
 
-							<%-- <fmt:parseDate value="${ pothole.status.repairedOn }"
-								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
-							<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
-								value="${ parsedDateTime }" /> --%>
 
 							<div>
 								<p>Repaired on:</p>
