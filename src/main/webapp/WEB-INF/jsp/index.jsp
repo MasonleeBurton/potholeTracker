@@ -108,12 +108,13 @@
 					</div>
 					<!-- Hidden Menu -->
 					<div id="hiddenMenu${pothole.id}" class="displayHidden">
-						<p>Options</p>
-
+						<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+					
 						<c:url value="/update" var="updateURL">
 							<c:param name="potholeId" value="${pothole.id}"></c:param>
 						</c:url>
-
+						
 						<form:form action="${updateURL}" method="POST"
 							modelAttribute="status">
 
@@ -126,7 +127,7 @@
 
 							<div>
 								<p>Reported on:</p>
-								<form:input path="reportedOn" placeholder="MM/DD/YYYY"
+								<form:input path="reportedOn" type="date" placeholder="MM/DD/YYYY"
 									value="${reported}" />
 							</div>
 
@@ -140,7 +141,7 @@
 
 								<p>Inspected on:</p>
 
-								<form:input path="inspectedOn" placeholder="MM/DD/YYYY"
+								<form:input path="inspectedOn" type="date" placeholder="MM/DD/YYYY"
 									value="${inspected}" />
 							</div>
 
@@ -151,7 +152,7 @@
 
 							<div>
 								<p>Repaired on:</p>
-								<form:input path="repairedOn" placeholder="MM/DD/YYYY"
+								<form:input path="repairedOn" type="date" placeholder="MM/DD/YYYY"
 									value="${repaired}" />
 							</div>
 							<div>
@@ -165,6 +166,8 @@
 								<button class="btn btn-primary" type="submit">Submit</button>
 							</div>
 						</form:form>
+						</li>
+						</ul>
 					</div>
 				</c:if>
 			</div>

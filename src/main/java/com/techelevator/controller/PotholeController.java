@@ -13,9 +13,11 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
+import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
+import org.springframework.util.Assert;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
@@ -27,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
@@ -39,13 +43,17 @@ public class PotholeController {
 	@Autowired
 	PotholeDAO potholeDao;
 	
+<<<<<<< HEAD
+=======
 	@Autowired
 	ServletContext servletContext;
 	
 	
+>>>>>>> d8ec8228ae5bc4cc6fd21bc2551f656f8e30ca13
 	@GetMapping("/")
-	public String mapPage(ModelMap map) {
-		map.addAttribute("potholes", potholeDao.getAll());
+	public String mapPage(ModelMap map) throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		map.addAttribute("potholes", mapper.writeValueAsString(potholeDao.getAll()));
 		map.addAttribute("status", new Status());
 
 		return "potholeMap";
@@ -98,13 +106,20 @@ public class PotholeController {
 	
 
 	@PostMapping("/delete")
-	public String DeletePothole(HttpServletRequest req, HttpSession session) {
+	public String DeletePothole(HttpServletRequest req, HttpSession session) throws IOException {
 		String potholeId = req.getParameter("potholeId");
 		long longPotholeId = Long.parseLong(potholeId);
 		if (session.getAttribute("currentUser") != null
 				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
 			potholeDao.delete(longPotholeId);
 
+			String imagePath = getServerContextPath() + File.separator + longPotholeId;
+			FileUtils.touch(new File(imagePath));
+			 
+		    FileUtils.forceDelete(FileUtils.getFile(imagePath));
+		 
+		    
+			
 			return "redirect:/";
 		} else {
 			return "redirect:/login";

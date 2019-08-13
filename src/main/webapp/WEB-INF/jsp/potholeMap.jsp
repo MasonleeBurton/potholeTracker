@@ -6,13 +6,11 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
-<c:set var="columbusLatitude" value="39.9612" />
-<c:set var="columbusLongitude" value="-82.9988" />
-
 <div id="map-canvas"></div>
 
 <script
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
+<<<<<<< HEAD
 <script>
 let map;
 let infowindow;
@@ -111,8 +109,11 @@ function initialize() {
   }
   </c:forEach>
 }
+=======
+>>>>>>> a67eec207e709aefac0bcbb3e271e0766d320708
 
-google.maps.event.addDomListener(window, 'load', initialize);
-</script>
+<c:url var="potholeMapJs" value="/js/potholeMap.js" />
+<script>window.potholes = ${potholes}</script>
+<script src="${potholeMapJs}"></script>
 
 <c:import url="/WEB-INF/jsp/footer.jsp" />
