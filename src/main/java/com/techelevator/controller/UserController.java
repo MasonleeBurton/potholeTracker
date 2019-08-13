@@ -1,6 +1,7 @@
 package com.techelevator.controller;
 
 import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpSession;
 import javax.validation.Valid;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -42,22 +43,42 @@ public class UserController {
 			flash.addFlashAttribute(BindingResult.MODEL_KEY_PREFIX + "user", result);
 			return "redirect:/";
 		}
-		if (employeeCode.equals(EMPLOYEE_CODE)) {
-			user.setRole("employee");
-		} else {
+		
 			user.setRole("user");
-		}
+	
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
 	}
 	
 	@RequestMapping(path="/updateRole", method=RequestMethod.POST)
-	public String updateRole(HttpServletRequest req) {
+	public String updateRole(HttpServletRequest req, HttpSession session) {
+		
+		if (session.getAttribute("currentUser") != null
+				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
+			
+			
 		String userName = req.getParameter("userName");
 		String role = req.getParameter("role");
 		userDAO.updateRole(userName, role);
 		
 		return "redirect:/admin";
+		}
+		else {
+			return "redirect:/login";
+		}
 	}
 	
+	@RequestMapping("/admin")
+	public String admin(HttpSession session) {
+		
+		if (session.getAttribute("currentUser") != null
+				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
+		return "admin";
+	}
+	
+	else {
+		return "redirect:/login";
+	}
+	
+}
 }

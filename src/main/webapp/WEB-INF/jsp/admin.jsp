@@ -7,7 +7,10 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <c:url value="/updateRole" var="updateRoleURL" />
-<h2>Admin</h2>
+<h2 class="my-3 text-center">Admin</h2>
+
+<h4>Update User Role</h4>
+<div class="adminForm">
 <form action="${updateRoleURL}" method="POST">
 
 	<label for="userName">User Name:</label>
@@ -21,5 +24,5 @@
 	<input type="submit" value="Submit">
 
 </form>
-
+</div>
 <c:import url="/WEB-INF/jsp/footer.jsp" />

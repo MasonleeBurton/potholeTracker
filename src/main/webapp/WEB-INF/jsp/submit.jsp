@@ -5,9 +5,9 @@
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
 <c:url value="/submit" var="submitURL" />
-
-<div class="form wrap">
-	<h2>Submit Pothole</h2>
+<h2 class="my-3 text-center">Submit Pothole</h2>
+<div class="form">
+	
 
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole"
 		autocomplete="off" enctype="multipart/form-data">
