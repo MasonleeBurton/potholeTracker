@@ -6,7 +6,7 @@
 
 <c:url value="/submit" var="submitURL" />
 
-<div class="form">
+<div class="form wrap">
 	<h2>Submit Pothole</h2>
 
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole"

@@ -108,51 +108,52 @@
 					</div>
 					<!-- Hidden Menu -->
 					<div id="hiddenMenu${pothole.id}" class="displayHidden">
-						<p>Options</p>
-
+						<ul class="list-group list-group-flush">
+					<li class="list-group-item">
+					
 						<c:url value="/update" var="updateURL">
 							<c:param name="potholeId" value="${pothole.id}"></c:param>
 						</c:url>
-
+						
 						<form:form action="${updateURL}" method="POST"
 							modelAttribute="status">
 
 
-							<fmt:parseDate value="${ pothole.status.reportedOn }"
+							<%-- <fmt:parseDate value="${ pothole.status.reportedOn }"
 								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
 							<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
-								value="${ parsedDateTime }" />
+								value="${ parsedDateTime }" /> --%>
 
 
 							<div>
 								<p>Reported on:</p>
-								<form:input path="reportedOn" placeholder="MM/DD/YYYY"
-									value="${reported}" />
+								<form:input path="reportedOn" type="date" placeholder="MM/DD/YYYY"
+									value="${ pothole.status.reportedOn }" />
 							</div>
 
 							<div>
 
 
-								<fmt:parseDate value="${ pothole.status.inspectedOn }"
+								<%-- <fmt:parseDate value="${ pothole.status.inspectedOn }"
 									pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
 								<fmt:formatDate pattern="MM/dd/yyyy" var="inspected"
-									value="${ parsedDateTime }" />
+									value="${ parsedDateTime }" /> --%>
 
 								<p>Inspected on:</p>
 
-								<form:input path="inspectedOn" placeholder="MM/DD/YYYY"
-									value="${inspected}" />
+								<form:input path="inspectedOn" type="date" placeholder="MM/DD/YYYY"
+									value="${ pothole.status.inspectedOn }" />
 							</div>
 
-							<fmt:parseDate value="${ pothole.status.repairedOn }"
+							<%-- <fmt:parseDate value="${ pothole.status.repairedOn }"
 								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
 							<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
-								value="${ parsedDateTime }" />
+								value="${ parsedDateTime }" /> --%>
 
 							<div>
 								<p>Repaired on:</p>
-								<form:input path="repairedOn" placeholder="MM/DD/YYYY"
-									value="${repaired}" />
+								<form:input path="repairedOn" type="date" placeholder="MM/DD/YYYY"
+									value="${ pothole.status.repairedOn }" />
 							</div>
 							<div>
 								<p>Rank:</p>
@@ -165,6 +166,8 @@
 								<button class="btn btn-primary" type="submit">Submit</button>
 							</div>
 						</form:form>
+						</li>
+						</ul>
 					</div>
 				</c:if>
 			</div>
