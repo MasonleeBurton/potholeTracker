@@ -101,7 +101,13 @@ width: 100vh;
 }
 
 .potholeImg object {
-	position: relative;
+	display: block;
+	margin: 0 auto 10px;
+	width: 300px;
+  height: 150px;
+  border: 1px solid black;
+  object-fit: cover;
+	/* position: relative;
   float: left;
   display: block;
   width: 150px;
@@ -119,6 +125,6 @@ width: 100vh;
     width: 100%;
     height: 100%;
     content: '';
-    background: red url('http://placehold.it/200x200')
+    background: red url('http://placehold.it/200x200') */
 }
 

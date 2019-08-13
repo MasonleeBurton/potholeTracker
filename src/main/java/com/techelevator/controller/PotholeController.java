@@ -158,7 +158,7 @@ public class PotholeController {
 	}
 
 	@GetMapping("/submit")
-	public String showSurveyResult(ModelMap map, HttpSession session) {
+	public String submitPothole(ModelMap map, HttpSession session) {
 		if (session.getAttribute("currentUser") != null) {
 
 			if (!map.containsAttribute("pothole")) {
@@ -186,6 +186,7 @@ public class PotholeController {
 
 			if (file.isEmpty()) {
 				map.addAttribute("message", "File Object empty");
+				
 			} else {
 				createImage(file, imageName);
 			}

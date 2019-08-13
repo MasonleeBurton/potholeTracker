@@ -56,9 +56,9 @@
 						<div class="bold">Description:</div> <c:out
 							value="${pothole.description}" />
 
-						<div class="bold">Size:</div> <c:out value="${pothole.size}" />
+						<div><span class="bold">Size:</span> <c:out value="${pothole.size}" /> </div>
 
-						<div class="bold">Created On:</div> <c:out value="${created}" />
+						<div ><span class="bold">Created On:</span> <c:out value="${created}" /> </div>
 						<div class="longlatBoxed">
 							<div class="latHeaders ">
 								<span class="bold">Latitude:</span>
@@ -69,20 +69,20 @@
 								<c:out value="${pothole.longitude}" />
 							</div>
 						</div> <c:if test="${not empty reported}">
-							<div class="bold">Reported On:</div>
-							<c:out value="${reported}" />
+							<div><span class="bold">Reported On:</span>
+							<c:out value="${reported}" /></div>
 						</c:if> <c:if test="${not empty inspected}">
 
-							<div class="bold">Inspected On:</div>
-							<c:out value="${inspected}" />
+							<div><span class="bold">Inspected On:</span>
+							<c:out value="${inspected}" /></div>
 						</c:if> <c:if test="${not empty repaired}">
 
-							<div class="bold">Repaired On:</div>
-							<c:out value="${repaired}" />
+							<div><span class="bold">Repaired On:</span>
+							<c:out value="${repaired}" /></div>
 						</c:if> <c:if test="${not empty pothole.status.rank}">
 
-							<div class="bold">Severity:</div>
-							<c:out value="${pothole.status.rank}" />
+							<div><span class="bold">Severity:</span>
+							<c:out value="${pothole.status.rank}" /></div>
 						</c:if>
 					</li>
 
