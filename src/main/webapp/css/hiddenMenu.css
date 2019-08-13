@@ -6,3 +6,16 @@
 .displayHidden {
 	display: none;
 }
+
+.hiddenStyling div {
+	display: flex;
+	flex-direction: column;
+}
+
+.hiddenStyling p {
+	margin-bottom: 0px!important;
+}
+
+.hiddenStyling button {
+	margin-top: 10px;
+}

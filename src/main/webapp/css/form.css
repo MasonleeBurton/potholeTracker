@@ -13,11 +13,11 @@
 }
 
 .form {
+	
 	margin: 10px 0px 15px 0px;
 	display: flex;
 	flex-direction: column;
-	width: 800px;
-	padding: 15px 0px 15px 50px;
+	padding: 15px 0px 15px 45px;
 }
 
 

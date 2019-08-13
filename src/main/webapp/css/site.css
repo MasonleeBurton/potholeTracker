@@ -1,3 +1,5 @@
+
+
 .bold {
 	font-weight: bold;
 }
@@ -77,23 +79,23 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 }
 
 @media (max-width: 992px) {
-	.container {
-		padding: 0;
-		margin: 0;
-		max-width: 100%;
-	}
+.container {
+padding: 0;
+margin: 0;
+max-width: 100%;
+}
 }
 
 .container {
-	width: 100%;
+width: 100%;
 }
 .map-container {
-	display: flex;
-	justify-content: center;
+display: flex;
+justify-content: center;
 }
 #map-canvas {
-	height: 80vh;
-	width: 100vh;
+height: 80vh;
+width: 100vh;
 }
 
 .potholeImg object {
