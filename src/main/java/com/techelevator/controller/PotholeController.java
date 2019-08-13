@@ -58,7 +58,7 @@ public class PotholeController {
 	@PostMapping("/submitMap")
 	public String processSurveyMapForm(@RequestParam("file") MultipartFile file, ModelMap map, HttpSession session, @RequestParam String size,
 			@RequestParam String description, @RequestParam String addressLine1, @RequestParam String addressLine2, @RequestParam String city,
-			@RequestParam String state, @RequestParam int zipCode
+			@RequestParam String state, @RequestParam int zip, @RequestParam String latitude, @RequestParam String longitude
 			) {		
 		if (session.getAttribute("currentUser") != null) {
 			
@@ -67,12 +67,14 @@ public class PotholeController {
 			address.setAddressLine2(addressLine2);
 			address.setCity(city);
 			address.setState(state);
-			address.setZipCode(zipCode);
+			address.setZipCode(zip);
 			
 			Pothole pothole = new Pothole();
 			pothole.setSize(size);
 			pothole.setDescription(description);
 			pothole.setAddress(address);
+			pothole.setLatitude(latitude);
+			pothole.setLongitude(longitude);
 			
 			potholeDao.create(pothole);
 
