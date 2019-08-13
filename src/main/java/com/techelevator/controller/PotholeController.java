@@ -43,13 +43,9 @@ public class PotholeController {
 	@Autowired
 	PotholeDAO potholeDao;
 	
-<<<<<<< HEAD
-=======
 	@Autowired
 	ServletContext servletContext;
 	
-	
->>>>>>> d8ec8228ae5bc4cc6fd21bc2551f656f8e30ca13
 	@GetMapping("/")
 	public String mapPage(ModelMap map) throws JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
