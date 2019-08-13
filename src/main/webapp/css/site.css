@@ -93,3 +93,35 @@ html, body, .container {
 	height: 80%;
 	width: 100%;
 }
+
+.potholeImg object {
+	position: relative;
+  float: left;
+  display: block;
+  width: 150px;
+  height: 150px;
+  margin-right: 20px;
+  border: 1px solid black;
+  object-fit: cover;
+
+
+  &::after {
+    position: absolute;
+    top: 0;
+    left: 0;
+    display: block;
+    width: 100%;
+    height: 100%;
+    content: '';
+    background: red url('http://placehold.it/200x200')
+}
+
+/* .wrap {
+  min-height: 100%;
+  height: auto;
+  Negative indent footer by its height
+  margin: 0 auto -60px;
+  Pad bottom by footer height
+  padding: 0 0 60px;
+}
+ */

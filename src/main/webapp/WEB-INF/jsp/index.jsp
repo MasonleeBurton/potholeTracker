@@ -37,6 +37,15 @@
 
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
+					<div class="potholeImg">
+					
+					<c:url var="imageURL" value="/image/${pothole.id}"/>
+					<c:url var="defaultURL" value="/img/default.jpg"/>
+					<object data="${imageURL}" type="image/jpeg">
+					<img src="${defaultURL}">
+					</object>
+					
+						</div>
 						<div class="card-text bold">Address:</div> <c:out
 							value="${pothole.address.addressLine1}" />, <c:if
 							test="${not empty pothole.address.addressLine2}">

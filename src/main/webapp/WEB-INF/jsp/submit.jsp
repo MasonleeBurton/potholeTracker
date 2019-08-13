@@ -6,11 +6,11 @@
 
 <c:url value="/submit" var="submitURL" />
 
-<div class="form">
+<div class="form wrap">
 	<h2>Submit Pothole</h2>
 
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole"
-		autocomplete="off">
+		autocomplete="off" enctype="multipart/form-data">
 
 
 		<div class="form-element">
@@ -114,6 +114,16 @@
 
 			<form:input type="number" id="zipCode" path="address.zipCode"
 				required="required" autocomplete="off" min="0" />
+
+		</div>
+		
+		<div class="form-element">
+
+			<p>
+				<label class="form-label" for="file">Upload Picture of Pothole</label>
+			</p>
+
+			<input type="file" name="file" >
 
 		</div>
 
