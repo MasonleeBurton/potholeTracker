@@ -50,4 +50,10 @@ public class AuthenticationController {
 		session.invalidate();
 		return "redirect:/";
 	}
+	
+	@RequestMapping("/admin")
+	public String admin() {
+		
+		return "admin";
+	}
 }
