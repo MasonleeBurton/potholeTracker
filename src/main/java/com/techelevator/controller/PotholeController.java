@@ -29,6 +29,8 @@ import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.ResponseBody;
 import org.springframework.web.multipart.MultipartFile;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
@@ -41,13 +43,17 @@ public class PotholeController {
 	@Autowired
 	PotholeDAO potholeDao;
 	
+<<<<<<< HEAD
+=======
 	@Autowired
 	ServletContext servletContext;
 	
 	
+>>>>>>> d8ec8228ae5bc4cc6fd21bc2551f656f8e30ca13
 	@GetMapping("/")
-	public String mapPage(ModelMap map) {
-		map.addAttribute("potholes", potholeDao.getAll());
+	public String mapPage(ModelMap map) throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		map.addAttribute("potholes", mapper.writeValueAsString(potholeDao.getAll()));
 		map.addAttribute("status", new Status());
 
 		return "potholeMap";
