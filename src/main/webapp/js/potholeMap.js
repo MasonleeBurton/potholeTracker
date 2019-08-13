@@ -4,10 +4,11 @@ const columbusLongitude = -82.9988;
 let map;
 let infowindow;
 let potholeContent;
+let currentMarker;
 
 function getFormContent(marker) {
 	return `
-      <form action = "/submitMap" method="POST">
+      <form action = "submitMap" method="POST" enctype="multipart/form-data">
          <table cellspacing = "2" cellpadding = "2" border = "1">
             <tr>
                <td align = "right">What size is the pothole?</td>
@@ -44,11 +45,11 @@ function getFormContent(marker) {
 		 </tr>
 		 <tr>
 		 <td align = "right"></td>
-		 <td><input type = "text" name = "latitude" value = "${marker.position.lat}" hidden /></td>
+		 <td><input type = "text" name = "latitude" value = "${marker.position.lat()}" hidden /></td>
 	  </tr>
 	  <tr>
 	  <td align = "right"></td>
-	  <td><input type = "text" name = "longitude" value = "${marker.position.lng}" hidden /></td>
+	  <td><input type = "text" name = "longitude" value = "${marker.position.lng()}" hidden /></td>
    </tr>
 		 <tr>
 		 <td align = "right">Upload Picture of Pothole</td>
@@ -75,17 +76,20 @@ function formatDate(date) {
 }
 
 function displayForm(location) {
-	var marker = new google.maps.Marker({
-		position: location,
-		map: map
-	});
 	if (infowindow) {
 		infowindow.close();
 	}
-	infowindow = new google.maps.InfoWindow({
-		content: getFormContent(marker)
+	if (currentMarker) {
+		currentMarker.setMap(null);
+	}
+	currentMarker = new google.maps.Marker({
+		position: location,
+		map: map
 	});
-	infowindow.open(map, marker);
+	infowindow = new google.maps.InfoWindow({
+		content: getFormContent(currentMarker)
+	});
+	infowindow.open(map, currentMarker);
 }
 
 function initialize() {
