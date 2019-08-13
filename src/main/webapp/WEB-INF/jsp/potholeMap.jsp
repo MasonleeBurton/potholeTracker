@@ -12,7 +12,7 @@
 	src="https://maps.googleapis.com/maps/api/js?key=AIzaSyANsplbu_wQ2HF2Fp29fD_X0LA_xczXkgc"></script>
 
 <c:url var="potholeMapJs" value="/js/potholeMap.js" />
-<script>window.potholes = ${potholes}
+<script>window.potholes = ${potholes};
 window.states = ${states}
 </script>
 <script src="${potholeMapJs}"></script>
