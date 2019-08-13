@@ -4,9 +4,10 @@ const columbusLongitude = -82.9988;
 let map;
 let infowindow;
 let potholeContent;
+
 function getFormContent(marker) {
-	return `<body>
-      <form action = "/submitMapForm" method="GET">
+	return `
+      <form action = "/submitMap" method="POST">
          <table cellspacing = "2" cellpadding = "2" border = "1">
             <tr>
                <td align = "right">What size is the pothole?</td>
@@ -58,9 +59,9 @@ function getFormContent(marker) {
                <td><input type = "submit" value = "Submit" id = "submit"/></td>
             </tr>
           </table>
-      </form>
-   </body> `;
+      </form>`;
 }
+
 function formatStates(states) {
 	let listOfStates = "";
 	for (i = 0; i < states.length; i++) {

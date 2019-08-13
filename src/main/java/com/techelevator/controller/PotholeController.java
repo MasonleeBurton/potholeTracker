@@ -14,7 +14,6 @@ import javax.validation.Valid;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -56,7 +55,7 @@ public class PotholeController {
 		return "potholeMap";
 	}
 	
-	@GetMapping("/submitMapForm")
+	@PostMapping("/submitMap")
 	public String processSurveyMapForm(@RequestParam("file") MultipartFile file, ModelMap map, HttpSession session, @RequestParam String size,
 			@RequestParam String description, @RequestParam String addressLine1, @RequestParam String addressLine2, @RequestParam String city,
 			@RequestParam String state, @RequestParam int zipCode
