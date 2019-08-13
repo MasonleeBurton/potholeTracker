@@ -48,11 +48,11 @@ const formContent =  `<body>
       </form>
    </body> `;
 function formatStates(states){
-let states = "";	
+let listOfStates = "";	
 for(i = 0; i < states.length; i++){
-states += `<option value = "${i+1}">${states[i]}</option>`
+	listOfStates += `<option value = "${i+1}">${states[i]}</option>`
 }
-return states;
+return listOfStates;
 }
 
 function formatDate(date) {
