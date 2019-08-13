@@ -68,6 +68,10 @@
 				<li class="nav-item"><a class="nav-link" href="${potholeListHref}">Pothole List</a></li>
 				<c:url var="submitPotholePageHref" value="/submit" />
 				<li class="nav-item"><a class="nav-link" href="${submitPotholePageHref}">Submit Pothole</a></li>
+				<c:if test="${currentUser.role == 'employee'}">
+				<c:url var="adminURL" value="/admin" />
+				<li class="nav-item"><a class="nav-link" href="${adminURL}">Admin</a></li>
+				</c:if>
 			</ul>
 			<ul class="navbar-nav ml-auto">
 				<c:choose>

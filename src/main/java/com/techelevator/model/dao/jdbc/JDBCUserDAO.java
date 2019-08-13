@@ -33,6 +33,8 @@ public class JDBCUserDAO implements UserDAO {
 		jdbcTemplate.update("INSERT INTO app_user(user_name, password, salt, role) VALUES (?, ?, ?, ?)",
 				userName, hashedPassword, saltString, role);
 	}
+	
+
 
 	@Override
 	public boolean searchForUsernameAndPassword(String userName, String password) {
@@ -54,6 +56,11 @@ public class JDBCUserDAO implements UserDAO {
 	@Override
 	public void updatePassword(String userName, String password) {
 		jdbcTemplate.update("UPDATE app_user SET password = ? WHERE user_name = ?", password, userName);
+	}
+	
+	@Override
+	public void updateRole(String userName, String role) {
+		jdbcTemplate.update("UPDATE app_user SET role = ? WHERE user_name = ?", role, userName);
 	}
 
 	@Override
