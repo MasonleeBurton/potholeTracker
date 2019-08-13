@@ -12,9 +12,9 @@ function getFormContent(marker) {
          <table cellspacing = "2" cellpadding = "2" border = "1">
             <tr>
                <td align = "right">What size is the pothole?</td>
-               <td><input type = "radio" value = "Small" name = "size"/>Small
-               <input type = "radio" value = "Medium" name = "size"/> Medium
-               <input type = "radio" value = "Large" name = "size"/> Large </td>
+               <td><input type = "radio" value = "Small" name = "size" required/>Small
+               <input type = "radio" value = "Medium" name = "size" required/> Medium
+               <input type = "radio" value = "Large" name = "size" required/> Large </td>
             </tr>
             <tr>
                <td align = "right">Please describe the location of the pothole</td>
@@ -22,7 +22,7 @@ function getFormContent(marker) {
             </tr>
 			<tr>
                <td align = "right">Address Line 1</td>
-               <td><input type = "text" name = "addressLine1"/></td>
+               <td><input type = "text" name = "addressLine1" required/></td>
             </tr>
 			<tr>
                <td align = "right">Address Line 2</td>
@@ -30,18 +30,18 @@ function getFormContent(marker) {
             </tr>
 			<tr>
                <td align = "right">City</td>
-               <td><input type = "text" name = "city"/></td>
+               <td><input type = "text" name = "city" required/></td>
             </tr>
                <td align = "right">State</td>
                <td>
-				  <select name = "state">
+				  <select name = "state" required>
 				  ${formatStates(window.states)}
                   </select>
                </td>
 			</tr>
 			<tr>
 			<td align = "right">Zip Code</td>
-			<td><input type = "text" name = "zip" /></td>
+			<td><input type = "number" name = "zip" required/></td>
 		 </tr>
 		 <tr>
 		 <td align = "right"></td>
