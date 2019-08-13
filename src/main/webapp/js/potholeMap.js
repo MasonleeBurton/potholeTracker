@@ -4,7 +4,70 @@ const columbusLongitude = -82.9988;
 let map;
 let infowindow;
 let potholeContent;
-const formContent = `<h1>Hello</h1>`;
+function getFormContent(marker) {
+	return `<body>
+      <form action = "/submitMapForm" method="GET">
+         <table cellspacing = "2" cellpadding = "2" border = "1">
+            <tr>
+               <td align = "right">What size is the pothole?</td>
+               <td><input type = "radio" value = "Small" name = "size"/>Small
+               <input type = "radio" value = "Medium" name = "size"/> Medium
+               <input type = "radio" value = "Large" name = "size"/> Large </td>
+            </tr>
+            <tr>
+               <td align = "right">Please describe the location of the pothole</td>
+               <td><input type = "textarea" name = "description" rows="5" /></td>
+            </tr>
+			<tr>
+               <td align = "right">Address Line 1</td>
+               <td><input type = "text" name = "addressLine1"/></td>
+            </tr>
+			<tr>
+               <td align = "right">Address Line 2</td>
+               <td><input type = "text" name = "addressLine2"/></td>
+            </tr>
+			<tr>
+               <td align = "right">City</td>
+               <td><input type = "text" name = "city"/></td>
+            </tr>
+               <td align = "right">State</td>
+               <td>
+				  <select name = "state">
+				  ${formatStates(window.states)}
+                  </select>
+               </td>
+			</tr>
+			<tr>
+			<td align = "right">Zip Code</td>
+			<td><input type = "text" name = "zip" /></td>
+		 </tr>
+		 <tr>
+		 <td align = "right"></td>
+		 <td><input type = "text" name = "latitude" value = "${marker.position.lat}" hidden /></td>
+	  </tr>
+	  <tr>
+	  <td align = "right"></td>
+	  <td><input type = "text" name = "longitude" value = "${marker.position.lng}" hidden /></td>
+   </tr>
+		 <tr>
+		 <td align = "right">Upload Picture of Pothole</td>
+		 <td><input type = "file" name = "file" /></td>
+	  </tr>
+            <tr>
+               <td align = "right"></td>
+               <td><input type = "submit" value = "Submit" id = "submit"/></td>
+            </tr>
+          </table>
+      </form>
+   </body> `;
+}
+function formatStates(states) {
+	let listOfStates = "";
+	for (i = 0; i < states.length; i++) {
+		listOfStates += `<option value = "${i + 1}">${states[i]}</option>`
+	}
+	return listOfStates;
+}
 
 function formatDate(date) {
 	return `${date.monthValue}/${date.dayOfMonth}/${date.year}`;
@@ -19,7 +82,7 @@ function displayForm(location) {
 		infowindow.close();
 	}
 	infowindow = new google.maps.InfoWindow({
-		content: formContent
+		content: getFormContent(marker)
 	});
 	infowindow.open(map, marker);
 }
