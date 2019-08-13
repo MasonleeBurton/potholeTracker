@@ -14,6 +14,7 @@ import javax.validation.Valid;
 
 import org.apache.commons.io.FileUtils;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.jdbc.support.rowset.SqlRowSet;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.ModelMap;
 import org.springframework.validation.BindingResult;
@@ -29,6 +30,7 @@ import org.springframework.web.multipart.MultipartFile;
 
 import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
+import com.techelevator.model.Address;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
@@ -43,21 +45,58 @@ public class PotholeController {
 
 	@Autowired
 	ServletContext servletContext;
-
+	
 	@GetMapping("/")
 	public String mapPage(ModelMap map) throws JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		map.addAttribute("potholes", mapper.writeValueAsString(potholeDao.getAll()));
 		map.addAttribute("status", new Status());
+		map.addAttribute("states", mapper.writeValueAsString(StateList.getStateCodes()));
 
 		return "potholeMap";
+	}
+	
+	@GetMapping("/submitMapForm")
+	public String processSurveyMapForm(@RequestParam("file") MultipartFile file, ModelMap map, HttpSession session, @RequestParam String size,
+			@RequestParam String description, @RequestParam String addressLine1, @RequestParam String addressLine2, @RequestParam String city,
+			@RequestParam String state, @RequestParam int zipCode
+			) {		
+		if (session.getAttribute("currentUser") != null) {
+			
+			Address address = new Address();
+			address.setAddressLine1(addressLine1);
+			address.setAddressLine2(addressLine2);
+			address.setCity(city);
+			address.setState(state);
+			address.setZipCode(zipCode);
+			
+			Pothole pothole = new Pothole();
+			pothole.setSize(size);
+			pothole.setDescription(description);
+			pothole.setAddress(address);
+			
+			potholeDao.create(pothole);
+
+			File imagePath = getImageFilePath();
+			String imageName = imagePath + File.separator + pothole.getId();
+
+			if (file.isEmpty()) {
+				map.addAttribute("message", "File Object empty");
+			} else {
+				createImage(file, imageName);
+			}
+			map.addAttribute("message", "uploaded to: " + imageName);
+
+			return "redirect:/";
+		} else {
+			return "redirect:/login";
+		}
 	}
 
 	@GetMapping("/list")
 	public String listPage(ModelMap map) {
 		map.addAttribute("potholes", potholeDao.getAll());
 		map.addAttribute("status", new Status());
-		map.put("states", StateList.getStateCodes());
 
 		String imagePath = getServerContextPath() + File.separator;
 
@@ -156,7 +195,7 @@ public class PotholeController {
 			return "redirect:/login";
 		}
 	}
-
+	
 	private File getImageFilePath() {
 		String serverPath = getServerContextPath();
 		File filePath = new File(serverPath);
@@ -184,4 +223,5 @@ public class PotholeController {
 			e.printStackTrace();
 		}
 	}
+
 }
