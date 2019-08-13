@@ -1,12 +1,8 @@
-
-
 		</div>
-		
-		<footer class="static-bottom">
+
+		<footer>
+
 			Copyright 2019 Isaac, Miranda, Mason, and Scott
 		</footer>
-
-		
-
 	</body>
 </html>

@@ -107,8 +107,9 @@
 						</form>
 					</div>
 					<!-- Hidden Menu -->
-					<div id="hiddenMenu${pothole.id}" class="displayHidden">
-						<ul class="list-group list-group-flush">
+					<div id="hiddenMenu${pothole.id}" class="displayHidden hiddenStyling">
+					
+					<ul class="list-group list-group-flush">
 					<li class="list-group-item">
 					
 						<c:url value="/update" var="updateURL">
