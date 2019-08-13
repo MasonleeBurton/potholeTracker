@@ -119,12 +119,6 @@
 							modelAttribute="status">
 
 
-							<%-- <fmt:parseDate value="${ pothole.status.reportedOn }"
-								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
-							<fmt:formatDate pattern="MM/dd/yyyy" var="reported"
-								value="${ parsedDateTime }" /> --%>
-
-
 							<div>
 								<p>Reported on:</p>
 								<form:input path="reportedOn" type="date" placeholder="MM/DD/YYYY"
@@ -145,10 +139,6 @@
 									value="${ pothole.status.inspectedOn }" />
 							</div>
 
-							<%-- <fmt:parseDate value="${ pothole.status.repairedOn }"
-								pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
-							<fmt:formatDate pattern="MM/dd/yyyy" var="repaired"
-								value="${ parsedDateTime }" /> --%>
 
 							<div>
 								<p>Repaired on:</p>
