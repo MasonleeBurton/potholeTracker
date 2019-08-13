@@ -57,6 +57,7 @@ public class PotholeController {
 	public String listPage(ModelMap map) {
 		map.addAttribute("potholes", potholeDao.getAll());
 		map.addAttribute("status", new Status());
+		map.put("states", StateList.getStateCodes());
 
 		String imagePath = getServerContextPath() + File.separator;
 
