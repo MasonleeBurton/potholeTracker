@@ -13,6 +13,8 @@ import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
+import com.fasterxml.jackson.core.JsonProcessingException;
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
@@ -25,10 +27,10 @@ public class PotholeController {
 	@Autowired
 	PotholeDAO potholeDao;
 	
-	
 	@GetMapping("/")
-	public String mapPage(ModelMap map) {
-		map.addAttribute("potholes", potholeDao.getAll());
+	public String mapPage(ModelMap map) throws JsonProcessingException {
+		ObjectMapper mapper = new ObjectMapper();
+		map.addAttribute("potholes", mapper.writeValueAsString(potholeDao.getAll()));
 		map.addAttribute("status", new Status());
 
 		return "potholeMap";
