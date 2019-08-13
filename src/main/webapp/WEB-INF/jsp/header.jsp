@@ -90,4 +90,4 @@
 			</ul> 
 		</div>
 	</nav>
-	<div class="Container Container-expand container-dark pl-5">
+	<div class="Container">

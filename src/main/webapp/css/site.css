@@ -116,6 +116,15 @@ html, body, .container {
     background: red url('http://placehold.it/200x200')
 }
 
+/* .Container {
+	padding: 25px!important;
+} */
+
+.reportedOnStyle {
+	padding: 10px!important;
+	background-color: red;
+}
+
 /* .wrap {
   min-height: 100%;
   height: auto;
