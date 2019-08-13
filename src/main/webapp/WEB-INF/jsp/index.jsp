@@ -37,14 +37,12 @@
 
 				<ul class="list-group list-group-flush">
 					<li class="list-group-item">
-					<div class="potholeImg">
-					
-					<c:url var="imageURL" value="/image/${pothole.id}"/>
-					<c:url var="defaultURL" value="/img/default.jpg"/>
-					<object data="${imageURL}" type="image/jpeg">
-					<img src="${defaultURL}">
-					</object>
-					
+						<div class="potholeImg">
+							<c:url var="imageURL" value="/image/${pothole.id}" />
+							<c:url var="defaultURL" value="/img/default.jpg" />
+							<object data="${imageURL}" type="image/jpeg">
+								<img src="${defaultURL}">
+							</object>
 						</div>
 						<div class="card-text bold">Address:</div> <c:out
 							value="${pothole.address.addressLine1}" />, <c:if
@@ -107,57 +105,57 @@
 						</form>
 					</div>
 					<!-- Hidden Menu -->
-					<div id="hiddenMenu${pothole.id}" class="displayHidden hiddenStyling">
-					
-					<ul class="list-group list-group-flush">
-					<li class="list-group-item">
-					
-						<c:url value="/update" var="updateURL">
-							<c:param name="potholeId" value="${pothole.id}"></c:param>
-						</c:url>
-						
-						<form:form action="${updateURL}" method="POST"
-							modelAttribute="status">
+					<div id="hiddenMenu${pothole.id}"
+						class="displayHidden hiddenStyling">
+
+						<ul class="list-group list-group-flush">
+							<li class="list-group-item"><c:url value="/update"
+									var="updateURL">
+									<c:param name="potholeId" value="${pothole.id}"></c:param>
+								</c:url> <form:form action="${updateURL}" method="POST"
+									modelAttribute="status">
 
 
-							<div>
-								<p>Reported on:</p>
-								<form:input path="reportedOn" type="date" placeholder="MM/DD/YYYY"
-									value="${ pothole.status.reportedOn }" />
-							</div>
+									<div>
+										<p>Reported on:</p>
+										<form:input path="reportedOn" type="date"
+											placeholder="MM/DD/YYYY"
+											value="${ pothole.status.reportedOn }" />
+									</div>
 
-							<div>
+									<div>
 
 
-								<%-- <fmt:parseDate value="${ pothole.status.inspectedOn }"
+										<%-- <fmt:parseDate value="${ pothole.status.inspectedOn }"
 									pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
 								<fmt:formatDate pattern="MM/dd/yyyy" var="inspected"
 									value="${ parsedDateTime }" /> --%>
 
-								<p>Inspected on:</p>
+										<p>Inspected on:</p>
 
-								<form:input path="inspectedOn" type="date" placeholder="MM/DD/YYYY"
-									value="${ pothole.status.inspectedOn }" />
-							</div>
+										<form:input path="inspectedOn" type="date"
+											placeholder="MM/DD/YYYY"
+											value="${ pothole.status.inspectedOn }" />
+									</div>
 
 
-							<div>
-								<p>Repaired on:</p>
-								<form:input path="repairedOn" type="date" placeholder="MM/DD/YYYY"
-									value="${ pothole.status.repairedOn }" />
-							</div>
-							<div>
-								<p>Rank:</p>
-								<form:select path="rank">
-									<option value="Low">Low</option>
-									<option value="Medium">Medium</option>
-									<option value="High">High</option>
-									<option value="Immediate">Immediate</option>
-								</form:select>
-								<button class="btn btn-primary" type="submit">Submit</button>
-							</div>
-						</form:form>
-						</li>
+									<div>
+										<p>Repaired on:</p>
+										<form:input path="repairedOn" type="date"
+											placeholder="MM/DD/YYYY"
+											value="${ pothole.status.repairedOn }" />
+									</div>
+									<div>
+										<p>Rank:</p>
+										<form:select path="rank">
+											<option value="Low">Low</option>
+											<option value="Medium">Medium</option>
+											<option value="High">High</option>
+											<option value="Immediate">Immediate</option>
+										</form:select>
+										<button class="btn btn-primary" type="submit">Submit</button>
+									</div>
+								</form:form></li>
 						</ul>
 					</div>
 				</c:if>
