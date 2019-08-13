@@ -56,6 +56,9 @@ public class Pothole {
 	}
 
 	public String getLongitude() {
+		if (longitude.length() > 8) {
+		return longitude.substring(0, 8);
+		}
 		return longitude;
 	}
 
@@ -64,6 +67,9 @@ public class Pothole {
 	}
 
 	public String getLatitude() {
+		if (latitude.length() > 8) {
+		return latitude.substring(0, 8);
+		}
 		return latitude;
 	}
 
