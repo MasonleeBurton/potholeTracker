@@ -90,7 +90,7 @@ public class PotholeController {
 			}
 
 			potholeDao.updateStatus(status, potholeId);
-			return "redirect:/";
+			return "redirect:/list";
 		} else {
 			return "redirect:/login";
 		}
@@ -110,7 +110,7 @@ public class PotholeController {
 
 			FileUtils.forceDelete(FileUtils.getFile(imagePath));
 
-			return "redirect:/";
+			return "redirect:/list";
 		} else {
 			return "redirect:/login";
 		}
