@@ -20,7 +20,7 @@ import com.techelevator.model.dao.UserDAO;
 @Controller
 public class UserController {
 
-	private static final Object EMPLOYEE_CODE = "annieareyouok";
+	
 	private UserDAO userDAO;
 
 	@Autowired
