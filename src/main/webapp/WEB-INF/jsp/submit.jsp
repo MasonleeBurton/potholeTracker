@@ -123,7 +123,7 @@
 				<label class="form-label" for="file">Upload Picture of Pothole</label>
 			</p>
 
-			<input type="file" name="file" >
+			<input type="file" name="file" accept="image/*">
 
 		</div>
 

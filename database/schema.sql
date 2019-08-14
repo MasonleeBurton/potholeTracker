@@ -46,6 +46,7 @@ CREATE TABLE pothole (
   created_on date NOT NULL,
   latitude varchar (255) NOT NULL,
   longitude varchar (255) NOT NULL,
+  has_image boolean,
   status_id int NOT NULL REFERENCES status (status_id) ON DELETE CASCADE,
 
  CONSTRAINT fk_pothole_address_id foreign key (address_id) references address(address_id),

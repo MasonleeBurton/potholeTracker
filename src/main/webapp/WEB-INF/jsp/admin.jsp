@@ -11,6 +11,8 @@
 
 <h4>Update User Role</h4>
 <div class="adminForm">
+
+
 <form action="${updateRoleURL}" method="POST">
 
 	<label for="userName">User Name:</label>
@@ -24,5 +26,8 @@
 	<input type="submit" value="Submit">
 
 </form>
+
+<h4><c:out value="${message}"/></h4>
 </div>
+
 <c:import url="/WEB-INF/jsp/footer.jsp" />

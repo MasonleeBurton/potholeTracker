@@ -60,6 +60,7 @@ public class JDBCUserDAO implements UserDAO {
 	
 	@Override
 	public void updateRole(String userName, String role) {
+		
 		jdbcTemplate.update("UPDATE app_user SET role = ? WHERE user_name = ?", role, userName);
 	}
 

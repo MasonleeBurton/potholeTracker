@@ -51,7 +51,7 @@ public class UserController {
 	}
 	
 	@RequestMapping(path="/updateRole", method=RequestMethod.POST)
-	public String updateRole(HttpServletRequest req, HttpSession session) {
+	public String updateRole(HttpServletRequest req, HttpSession session, RedirectAttributes redirectAttributes) {
 		
 		if (session.getAttribute("currentUser") != null
 				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
@@ -59,7 +59,18 @@ public class UserController {
 			
 		String userName = req.getParameter("userName");
 		String role = req.getParameter("role");
-		userDAO.updateRole(userName, role);
+		
+		Object user = userDAO.getUserByUserName(userName.toUpperCase());
+		
+		System.out.println(user);
+		
+		if (user != null) {
+			userDAO.updateRole(userName, role);
+			redirectAttributes.addFlashAttribute("message", userName + " is now a " + role + ".");
+		}
+		else {
+			redirectAttributes.addFlashAttribute("message", "User doesn't exist.");
+		}
 		
 		return "redirect:/admin";
 		}
