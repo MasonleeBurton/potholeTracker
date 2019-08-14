@@ -9,16 +9,16 @@ let currentMarker;
 function getFormContent(marker) {
 	return `
       <form action = "submitMap" method="POST" enctype="multipart/form-data">
-         <table cellspacing = "2" cellpadding = "2" border = "1">
+         <table cellspacing = "2" cellpadding = "2">
             <tr>
-               <td align = "right">What size is the pothole?</td>
+               <td align = "right">Size</td>
                <td><input type = "radio" value = "Small" name = "size" required/>Small
                <input type = "radio" value = "Medium" name = "size" required/> Medium
                <input type = "radio" value = "Large" name = "size" required/> Large </td>
             </tr>
             <tr>
-               <td align = "right">Please describe the location of the pothole</td>
-               <td><input type = "textarea" name = "description" rows="5" /></td>
+               <td align = "right">Describe Location</td>
+               <td><input type = "textarea" name = "description" /></td>
             </tr>
 			<tr>
                <td align = "right">Address Line 1</td>
@@ -52,7 +52,7 @@ function getFormContent(marker) {
 	  <td><input type = "text" name = "longitude" value = "${marker.position.lng()}" hidden /></td>
    </tr>
 		 <tr>
-		 <td align = "right">Upload Picture of Pothole</td>
+		 <td align = "right">Upload Picture</td>
 		 <td><input type = "file" name = "file" /></td>
 	  </tr>
             <tr>
@@ -121,7 +121,9 @@ function initialize() {
 					infowindow.close();
 				}
 
-				potholeContent = `<div class="card-text bold">Address:</div> ${pothole.address.addressLine1}, 
+				potholeContent = ` 
+				<img class="mapImage" src = /capstone/image/${pothole.id}>
+				<div class="card-text bold">Address:</div> ${pothole.address.addressLine1}, 
 					${pothole.address.addressLine2 != null ? pothole.address.addressLine2 : ''}
 					<br> ${pothole.address.city}, ${pothole.address.state}
 					${pothole.address.zipCode}
