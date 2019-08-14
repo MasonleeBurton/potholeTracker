@@ -76,6 +76,13 @@ public class PotholeController {
 			pothole.setLatitude(latitude);
 			pothole.setLongitude(longitude);
 			
+			if (file.isEmpty()) {
+				pothole.setHasImage(false);
+			}
+			else {
+				pothole.setHasImage(true);
+			}
+			
 			potholeDao.create(pothole);
 
 			File imagePath = getImageFilePath();
