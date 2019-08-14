@@ -4,13 +4,6 @@
 <html>
 <head>
 <title>Pothole Tracker</title>
-<c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
-<c:url var="siteCss" value="/css/site.css" />
-<c:url var="headerCss" value="/css/header.css" />
-<c:url var="footerCss" value="/css/footer.css" />
-<c:url var="formCss" value="/css/form.css" />
-<c:url var="menuCss" value="/css/hiddenMenu.css" />
-
 <c:url var="jQueryJs" value="/js/jquery.min.js" />
 <c:url var="jqValidateJs" value="/js/jquery.validate.min.js" />
 <c:url var="jqvAddMethJs" value="/js/additional-methods.min.js" />
@@ -18,6 +11,13 @@
 <c:url var="popperJs" value="/js/popper.min.js" />
 <c:url var="bootstrapJs" value="/js/bootstrap.min.js" />
 <c:url var="adminJs" value="/js/adminMenu.js" />
+
+<c:url var="bootstrapCss" value="/css/bootstrap.min.css" />
+<c:url var="siteCss" value="/css/site.css" />
+<c:url var="headerCss" value="/css/header.css" />
+<c:url var="footerCss" value="/css/footer.css" />
+<c:url var="formCss" value="/css/form.css" />
+<c:url var="menuCss" value="/css/hiddenMenu.css" />
 
 <link rel="stylesheet" type="text/css" href="${bootstrapCss}">
 <link rel="stylesheet" type="text/css" href="${siteCss}">
