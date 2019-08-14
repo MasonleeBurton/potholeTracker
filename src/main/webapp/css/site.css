@@ -49,33 +49,24 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .card-columns {
 	column-count: 1;
-} 
+}
 
- @media screen and  ( min-width : 411px) {
+@media screen and ( min-width : 411px) {
 	.card-columns {
 		column-count: 1;
 	}
-}  
+}
 
 @media screen and ( min-width : 768px) {
 	.card-columns {
 		column-count: 2;
 	}
-
-@media screen and ( min-width : 992px) {
-	.card-columns {
-		column-count: 3;
+	@media screen and ( min-width : 992px) {
+		.card-columns {
+			column-count: 3;
+		}
 	}
-} 
-
-
-
-
-
-
 }
-
-
 
 .right {
 	display: flex;
@@ -116,10 +107,20 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	width: 100vh;
 }
 
-
-
-.mapImage{
-	max-height: 100px;
-
+.potholeImg img {
+	display: block;
+	margin: 0 auto 10px;
+	width: 95%;
+	height: 95%;
+	border: 2px solid black;
+	object-fit: cover;
 }
 
+.mapImage {
+	max-width: 210px !important;
+}
+
+.gm-style-iw-c {
+	word-wrap: break-word !important;
+	max-width: 250px !important;
+}
