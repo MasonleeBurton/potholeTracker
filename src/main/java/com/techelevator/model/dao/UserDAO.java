@@ -16,5 +16,7 @@ public interface UserDAO {
 
 	public void updateRole(String userName, String role);
 
+	Object getUserById(Long userId);
+
 
 }

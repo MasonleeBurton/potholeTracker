@@ -34,13 +34,18 @@ import com.techelevator.model.Pothole;
 import com.techelevator.model.StateList;
 import com.techelevator.model.Status;
 import com.techelevator.model.User;
+import com.techelevator.model.EmailSender;
 import com.techelevator.model.dao.PotholeDAO;
+import com.techelevator.model.dao.UserDAO;
 
 @Controller
 public class PotholeController {
 
 	@Autowired
 	PotholeDAO potholeDao;
+	
+	@Autowired
+	UserDAO userDao;
 
 	@Autowired
 	ServletContext servletContext;
@@ -136,6 +141,17 @@ public class PotholeController {
 				&& ((User) session.getAttribute("currentUser")).getRole().equals("employee")) {
 			if (result.hasErrors()) {
 				return "/";
+			}
+			
+			if (status.getRepairedOn() != null) {
+			Pothole pothole = potholeDao.getPotholeById(potholeId);
+			long userId = pothole.getUserId();
+			User user = (User) userDao.getUserById(userId);
+			String emailAddress = user.getUserName();
+			
+			EmailSender emailSender = new EmailSender();
+			emailSender.sendEmail(emailAddress);
+			
 			}
 			
 			potholeDao.updateStatus(status, potholeId);

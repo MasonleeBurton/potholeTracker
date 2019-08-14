@@ -8,14 +8,14 @@ import org.simplejavamail.springsupport.SimpleJavaMailSpringSupport;
 import org.springframework.beans.factory.annotation.Autowired;
 
 
-public class email {
+public class EmailSender {
 
-public void sendEmail(){	
+public void sendEmail(String userEmail){	
 	
 
 Email email = EmailBuilder.startingBlank()
-    .from("potholetracker", "potholetracker1@gmail.com")
-    .to("userName", "ihatepotholes@hotmail.com")
+    .from("potholetracker1", "potholetracker1@gmail.com")
+    .to("userName", userEmail)
     .withSubject("The pothole you reported has been repaired!")
     .withPlainText("We are happy to inform you that the pot hole you reported has been repaired. Happy speeding!!!")
     .buildEmail();
