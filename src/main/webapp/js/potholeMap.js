@@ -18,7 +18,7 @@ function getFormContent(marker) {
             </tr>
             <tr>
                <td align = "right">Describe Location</td>
-               <td><input style="max-width: 250px;" type = "text" name = "description" /></td>
+               <td><input type = "text" name = "description" /></td>
             </tr>
 			<tr>
                <td align = "right">Address Line 1</td>
