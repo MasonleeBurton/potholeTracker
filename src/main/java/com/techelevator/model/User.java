@@ -3,7 +3,11 @@ package com.techelevator.model;
 import javax.validation.constraints.Pattern;
 import javax.validation.constraints.Size;
 
+import org.hibernate.validator.constraints.Email;
+
 public class User {
+	
+	@Email
 	private String userName;
 	
 	@Size(min=7, message="Password too short, must be at least 10")

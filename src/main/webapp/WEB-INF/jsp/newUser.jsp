@@ -11,6 +11,7 @@
 			
 			rules : {
 				userName : {
+					email : true,
 					required : true
 				},
 				password : {
@@ -44,8 +45,8 @@
 		<div class="col-sm-4"></div>
 		<div class="col-sm-4">
 			<div class="form-group">
-				<label for="userName">User Name: </label>
-				<input type="text" id="userName" name="userName" placeHolder="User Name" class="form-control" />
+				<label for="userName">Email: </label>
+				<input type="text" id="userName" name="userName" placeHolder="Email" class="form-control" />
 			</div>
 			<div class="form-group">
 				<label for="password">Password: </label>
