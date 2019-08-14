@@ -75,7 +75,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
 		Status status1 = new Status();
 		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
-		dao.create(pothole1);
+		dao.create(pothole1, 1);
 		// Database with one pothole returns same pothole
 		Assert.assertEquals("one pothole in db should return one pothole", 1, dao.getAll().size());
 		Assert.assertEquals("one pothole in db returns same pothole", pothole1.getId(), dao.getAll().get(0).getId());
@@ -84,7 +84,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Address address2 = createAddress(99999, "fake city 2", "524 fake st", "Ohio");
 		Status status2 = new Status();
 		Pothole pothole2 = createPothole("medium", "pothole", "23.2", "23.1", address2, status2);
-		dao.create(pothole2);
+		dao.create(pothole2, 2);
 		// Database with two potholes returns two potholes
 		Assert.assertEquals("two potholes in db should return two potholes", 2, dao.getAll().size());
 	}
@@ -106,7 +106,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
 		Status status1 = new Status();
 		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
-		dao.create(pothole1);
+		dao.create(pothole1, 2);
 		// Create new status to replace existing one with
 		pothole1.getStatus().setInspectedOn(LocalDate.now().toString());
 		pothole1.getStatus().setRepairedOn(LocalDate.now().toString());
@@ -126,7 +126,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 		Address address1 = createAddress(43200, "fake city", "123 fake st", "Ohio");
 		Status status1 = new Status();
 		Pothole pothole1 = createPothole("small", "pothole", "23.2", "23.1", address1, status1);
-		dao.create(pothole1);
+		dao.create(pothole1, 1);
 		dao.delete(pothole1.getId());
 		// Pothole should no longer be in the database
 		Pothole result = dao.getPotholeById(pothole1.getId());
