@@ -46,7 +46,7 @@
 				<label class="form-label" for="description">Please describe the location of the pothole</label>
 			</p>
 			<div>
-				<form:textarea class="textarea" path="description" rows="5" />
+				<form:textarea maxlength="254" class="textarea" path="description" rows="5" />
 			</div>
 		</div>
 

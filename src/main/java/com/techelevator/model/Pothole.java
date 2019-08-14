@@ -22,6 +22,7 @@ public class Pothole {
 	@NotBlank(message = "Must have a latitude.")
 	private String latitude;
 	private boolean hasImage;
+	private long userId;
 
 	public boolean isHasImage() {
 		return hasImage;
@@ -94,5 +95,13 @@ public class Pothole {
 	
 	public void setStatus(Status status) {
 		this.status = status;
+	}
+
+	public long getUserId() {
+		return userId;
+	}
+
+	public void setUserId(long userId) {
+		this.userId = userId;
 	}
 }

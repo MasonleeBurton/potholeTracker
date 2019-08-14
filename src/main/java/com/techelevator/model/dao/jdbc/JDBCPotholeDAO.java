@@ -120,6 +120,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		p.setAddress(mapRowToAddress(results));
 		p.setStatus(mapRowToStatus(results));
 		p.setHasImage(results.getBoolean("has_image"));
+		p.setUserId(results.getLong("user_id"));
 
 		return p;
 	}
