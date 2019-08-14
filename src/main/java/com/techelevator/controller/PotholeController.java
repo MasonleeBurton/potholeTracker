@@ -83,8 +83,9 @@ public class PotholeController {
 				pothole.setHasImage(true);
 			}
 			
-			potholeDao.create(pothole);
-
+			User user = (User) session.getAttribute("currentUser");
+			potholeDao.create(pothole, user.getUserId());
+			
 			File imagePath = getImageFilePath();
 			String imageName = imagePath + File.separator + pothole.getId();
 
@@ -192,7 +193,9 @@ public class PotholeController {
 			else {
 				pothole.setHasImage(true);
 			}
-			potholeDao.create(pothole);
+			
+			User user = (User) session.getAttribute("currentUser");
+			potholeDao.create(pothole, user.getUserId());
 
 			File imagePath = getImageFilePath();
 			String imageName = imagePath + File.separator + pothole.getId();

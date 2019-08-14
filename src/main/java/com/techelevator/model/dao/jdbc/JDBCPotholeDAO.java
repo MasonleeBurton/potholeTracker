@@ -64,17 +64,17 @@ public class JDBCPotholeDAO implements PotholeDAO {
 	}
 
 	@Override
-	public void create(Pothole pothole) {
+	public void create(Pothole pothole, long userId) {
 		createAddress(pothole.getAddress());
 		pothole.setStatus(new Status());
 		createStatus(pothole.getStatus());
 
-		String potholeSql = "INSERT INTO pothole (id, address_id, status_id, created_on, description, latitude, longitude, size, has_image) "
-				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
+		String potholeSql = "INSERT INTO pothole (id, address_id, status_id, created_on, description, latitude, longitude, size, has_image, user_id) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
 
 		SqlRowSet potholeResults = jdbcTemplate.queryForRowSet(potholeSql, pothole.getAddress().getId(),
 				pothole.getStatus().getId(), LocalDateTime.now(), pothole.getDescription(), pothole.getLatitude(),
-				pothole.getLongitude(), pothole.getSize(), pothole.isHasImage());
+				pothole.getLongitude(), pothole.getSize(), pothole.isHasImage(), userId);
 		potholeResults.next();
 		pothole.setId(potholeResults.getLong("id"));
 	}

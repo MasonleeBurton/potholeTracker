@@ -49,19 +49,33 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 
 .card-columns {
 	column-count: 1;
-}
+} 
 
-@media ( min-width : 768px) {
+ @media screen and  ( min-width : 411px) {
+	.card-columns {
+		column-count: 1;
+	}
+}  
+
+@media screen and ( min-width : 768px) {
 	.card-columns {
 		column-count: 2;
 	}
-}
 
-@media ( min-width : 992px) {
+@media screen and ( min-width : 992px) {
 	.card-columns {
 		column-count: 3;
 	}
+} 
+
+
+
+
+
+
 }
+
+
 
 .right {
 	display: flex;
@@ -80,33 +94,38 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	padding: 10px;
 }
 
-@media (max-width: 992px) {
-.container {
-padding: 0;
-margin: 0;
-max-width: 100%;
-}
+@media ( max-width : 992px) {
+	.container {
+		padding: 0;
+		margin: 0;
+		max-width: 100%;
+	}
 }
 
 .container {
-width: 100%;
+	width: 100%;
 }
+
 .map-container {
-display: flex;
-justify-content: center;
-}
-#map-canvas {
-height: 80vh;
-width: 100vh;
+	display: flex;
+	justify-content: center;
 }
 
-.potholeImg object {
+#map-canvas {
+	height: 80vh;
+	width: 100vh;
+}
+
+.potholeImg img {
 	display: block;
 	margin: 0 auto 10px;
-	width: 300px;
-  height: 150px;
-  border: 1px solid black;
-  object-fit: cover;
+
+	width: 95%;
+	height: 95%;
+	border: 2px solid black;
+	object-fit: cover;
+	
+
 	/* position: relative;
   float: left;
   display: block;
@@ -128,3 +147,7 @@ width: 100vh;
     background: red url('http://placehold.it/200x200') */
 }
 
+.mapImage{
+	max-height: 100px;
+
+}
