@@ -3,7 +3,7 @@ const columbusLongitude = -82.9988;
 
 let map;
 let infowindow;
-let potholeContent;
+let potholeContent = "";
 let currentMarker;
 
 function getFormContent(marker) {
@@ -120,15 +120,19 @@ function initialize() {
 				if (infowindow) {
 					infowindow.close();
 				}
-
-				potholeContent = ` 
-				<img class="mapImage" src = /capstone/image/${pothole.id}>
-				<div class="card-text bold">Address:</div> ${pothole.address.addressLine1}, 
+				
+				potholeContent = "";
+			
+				if(pothole.hasImage == true){
+				potholeContent += `<img class="mapImage" src = '/capstone/image/${pothole.id}'>`;
+				}
+				potholeContent +=
+				`
+				 <div class="card-text bold">Address:</div> ${pothole.address.addressLine1}, 
 					${pothole.address.addressLine2 != null ? pothole.address.addressLine2 : ''}
 					<br> ${pothole.address.city}, ${pothole.address.state}
 					${pothole.address.zipCode}
-					<div class="bold">Size:</div> ${pothole.size}
-					`;
+					<div class="bold">Size:</div> ${pothole.size}`;
 				if (pothole.description != null && pothole.description.length > 0) {
 					potholeContent += `<div class="bold">Description:</div> ${pothole.description}`;
 				}
