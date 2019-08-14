@@ -3,6 +3,8 @@
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
 <%@ taglib prefix="form" uri="http://www.springframework.org/tags/form"%>
 <%@ taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib uri = "http://java.sun.com/jsp/jstl/functions" prefix = "fn" %>
+
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 
@@ -62,11 +64,11 @@
 						<div class="longlatBoxed">
 							<div class="latHeaders ">
 								<span class="bold">Latitude:</span>
-								<c:out value="${pothole.latitude}" />
+								<c:out value="${fn:substring(pothole.latitude, 0, 8)}" />
 							</div>
 							<div class="longHeaders ">
 								<span class="bold">Longitude:</span>
-								<c:out value="${pothole.longitude}" />
+								<c:out value="${fn:substring(pothole.longitude, 0, 8)}" />
 							</div>
 						</div> <c:if test="${not empty reported}">
 							<div><span class="bold">Reported On:</span>

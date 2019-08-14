@@ -21,6 +21,15 @@ public class Pothole {
 	private String longitude;
 	@NotBlank(message = "Must have a latitude.")
 	private String latitude;
+	private boolean hasImage;
+
+	public boolean isHasImage() {
+		return hasImage;
+	}
+
+	public void setHasImage(boolean hasImage) {
+		this.hasImage = hasImage;
+	}
 
 	// getters and setters
 	public Address getAddress() {
@@ -56,9 +65,6 @@ public class Pothole {
 	}
 
 	public String getLongitude() {
-		if (longitude.length() > 8) {
-		return longitude.substring(0, 8);
-		}
 		return longitude;
 	}
 
@@ -67,9 +73,6 @@ public class Pothole {
 	}
 
 	public String getLatitude() {
-		if (latitude.length() > 8) {
-		return latitude.substring(0, 8);
-		}
 		return latitude;
 	}
 

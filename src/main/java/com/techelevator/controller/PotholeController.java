@@ -179,6 +179,12 @@ public class PotholeController {
 			if (result.hasErrors()) {
 				return "submit";
 			}
+			if (file.isEmpty()) {
+				pothole.setHasImage(false);
+			}
+			else {
+				pothole.setHasImage(true);
+			}
 			potholeDao.create(pothole);
 
 			File imagePath = getImageFilePath();

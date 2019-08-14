@@ -69,12 +69,12 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		pothole.setStatus(new Status());
 		createStatus(pothole.getStatus());
 
-		String potholeSql = "INSERT INTO pothole (id, address_id, status_id, created_on, description, latitude, longitude, size) "
-				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
+		String potholeSql = "INSERT INTO pothole (id, address_id, status_id, created_on, description, latitude, longitude, size, has_image) "
+				+ "VALUES (DEFAULT, ?, ?, ?, ?, ?, ?, ?, ?) " + "RETURNING id";
 
 		SqlRowSet potholeResults = jdbcTemplate.queryForRowSet(potholeSql, pothole.getAddress().getId(),
 				pothole.getStatus().getId(), LocalDateTime.now(), pothole.getDescription(), pothole.getLatitude(),
-				pothole.getLongitude(), pothole.getSize());
+				pothole.getLongitude(), pothole.getSize(), pothole.isHasImage());
 		potholeResults.next();
 		pothole.setId(potholeResults.getLong("id"));
 	}
@@ -119,6 +119,7 @@ public class JDBCPotholeDAO implements PotholeDAO {
 		p.setSize(results.getString("size"));
 		p.setAddress(mapRowToAddress(results));
 		p.setStatus(mapRowToStatus(results));
+		p.setHasImage(results.getBoolean("has_image"));
 
 		return p;
 	}
