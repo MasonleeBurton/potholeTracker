@@ -136,7 +136,7 @@ public class PotholeController {
 			if (result.hasErrors()) {
 				return "/";
 			}
-
+			
 			potholeDao.updateStatus(status, potholeId);
 			return "redirect:/list";
 		} else {
