@@ -87,7 +87,8 @@ function displayForm(location) {
 		map: map
 	});
 	infowindow = new google.maps.InfoWindow({
-		content: getFormContent(currentMarker)
+		content: '<div class="scrollFix">'+getFormContent(currentMarker)+'</div>',
+		maxWidth: 320
 	});
 	infowindow.open(map, currentMarker);
 }

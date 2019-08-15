@@ -120,7 +120,8 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	max-width: 210px !important;
 }
 
-.gm-style-iw-c {
-	word-wrap: break-word !important;
-	max-width: 250px !important;
+.scrollFix {
+    line-height: 1.35;
+    overflow: hidden;
+    white-space: nowrap;
 }
