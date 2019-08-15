@@ -7,7 +7,8 @@
 <c:url value="/submit" var="submitURL" />
 <h2 class="my-3 text-center">Submit Pothole</h2>
 <div class="form">
-	
+	<p>Please submit a pothole for repair! The more accurate the information, the faster we can get the pothole fixed.</p>
+	<br>
 
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole"
 		autocomplete="off" enctype="multipart/form-data">
@@ -49,7 +50,8 @@
 				<form:textarea maxlength="254" class="textarea" path="description" rows="5" />
 			</div>
 		</div>
-
+		
+		<div class="sideElements">
 		<div class="form-element">
 			<p>
 				<label for="latitude">Latitude <span>*</span></label>
@@ -64,6 +66,7 @@
 			</p>
 			<form:input path="longitude" required="required" autocomplete="off" />
 		</div>
+		</div>
 
 		<div class="form-element">
 
@@ -72,7 +75,7 @@
 					Line 1 <span>*</span>
 				</label>
 			</p>
-			<form:input path="address.addressLine1" required="required"
+			<form:input size="40" path="address.addressLine1" required="required"
 				autocomplete="off" />
 		</div>
 		<div class="form-element">
@@ -81,8 +84,9 @@
 				<label class="form-label" for="address.addressLine2">Address
 					Line 2</label>
 			</p>
-			<form:input path="address.addressLine2" autocomplete="off" />
+			<form:input size="40" path="address.addressLine2" autocomplete="off" />
 		</div>
+		
 		<div class="form-element">
 
 			<p>

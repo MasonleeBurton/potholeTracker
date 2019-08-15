@@ -2,22 +2,28 @@
 	color: red;
 }
 
-
-
 .form p {
 	margin: 0px;
 	display: block;
 	font-weight: bold;
 }
 
+.form-label {
+		font-family: 'PT Serif', serif;
+}
+
 .form {
 	
-	margin: 0px 0px 15px 0px;
+	
 	display: flex;
 	flex-direction: column;
-	padding: 15px 0px 15px 45px;
+	padding: 25px 0px 15px 45px;
 	background-color: #b2b2d1;
+/* 	border-style: solid;
+	border-width: 1px;
+	border-color: black; */
 	border-radius: 3px;
+	width: 95%;
 }
 
 
@@ -38,4 +44,10 @@
 
 .radioBlock {
 	margin: 0 1.81em 0 0;
+}
+
+.sideElements {
+	display: flex;
+	justify-content: space-between;
+	width: 50%;
 }
