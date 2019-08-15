@@ -6,6 +6,15 @@
 
 <c:import url="/WEB-INF/jsp/header.jsp" />
 <h2 class="my-3 text-center">Map</h2>
+<c:choose>
+<c:when test="${not empty currentUser }">
+<p class="text-center">Click the red markers to see a pothole. Click anywhere on the map
+	to add a pothole.</p>
+</c:when>
+<c:otherwise>
+<p class="text-center">Click the red markers to see a pothole. Log-in to add a pothole.</p>
+</c:otherwise>
+</c:choose>
 <div class="map-container">
 <div id="map-canvas"></div>
 </div>

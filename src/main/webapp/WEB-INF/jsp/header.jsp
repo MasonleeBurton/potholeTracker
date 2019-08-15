@@ -54,11 +54,7 @@
 <body>
 
 	<nav class="navbar navbar-expand navbar-dark pl-5">
-		<%-- <a class="navbar-brand" href="#"> <c:url var="homePageHref"
-				value="/" /> <c:url var="imgSrc" value="/img/ohioPothole.jpg" /><a
-			href="${homePageHref}"><img src="${imgSrc}" class="img-fluid"
-				style="height: 50px;" /></a>
-		</a> --%>
+		
 		<a class="navbar-brand" href="#"> 
 		<c:url var="homePageHref" value="/" /> 
 		<c:url var="imgSrc" value="/img/pothole_icon.svg" />
