@@ -24,7 +24,7 @@
 		});
 	});
 </script>
-
+<p class="error pt-2">${incorrectInfo}</p>
 <div class="row login">
 	<div class="col-sm-4"></div>
 	<div class="col-sm-4">

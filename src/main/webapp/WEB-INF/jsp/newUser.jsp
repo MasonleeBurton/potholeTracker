@@ -37,7 +37,7 @@
 		});
 	});
 </script>
-
+<p class="error pt-2">${emailUsed}</p>
 <c:url var="formAction" value="/users" />
 <form method="POST" action="${formAction}">
 <input type="hidden" name="CSRF_TOKEN" value="${CSRF_TOKEN}"/>
@@ -56,12 +56,6 @@
 				<label for="confirmPassword">Confirm Password: </label>
 				<input type="password" id="confirmPassword" name="confirmPassword" placeHolder="Re-Type Password" class="form-control" />	
 			</div>
-			
-			<!-- <div class="form-group">
-				<label for="employeeCode">Employee Code (Optional): </label>
-				<input type="employeeCode" id="employeeCode" name="employeeCode" placeHolder="Employee Code" class="form-control" />	
-			</div> -->
-			
 			<button type="submit" class="btn btn-primary">Create User</button>
 		</div>
 		<div class="col-sm-4"></div>
