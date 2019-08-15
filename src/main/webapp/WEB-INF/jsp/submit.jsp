@@ -7,8 +7,7 @@
 <c:url value="/submit" var="submitURL" />
 <h2 class="my-3 text-center">Submit Pothole</h2>
 <div class="form">
-	<p>Please submit a pothole for repair! The more accurate the information, the faster we can get the pothole fixed.</p>
-	<br>
+	
 
 	<form:form action="${submitURL}" method="POST" modelAttribute="pothole"
 		autocomplete="off" enctype="multipart/form-data">
@@ -16,10 +15,8 @@
 
 		<div class="form-element">
 
-			<p>
-				<label for="size">What size is the pothole? <span>*</span>
-				</label>
-			</p>
+			<h4>What size is the pothole? <span>*</span>
+				</h4>
 
 
 			<div id=radioBlock>
@@ -43,9 +40,7 @@
 
 		<div class="form-element">
 
-			<p>
-				<label class="form-label" for="description">Please describe the location of the pothole</label>
-			</p>
+			<h4>Please describe the location of the pothole:</h4>
 			<div>
 				<form:textarea maxlength="254" class="textarea" path="description" rows="5" />
 			</div>

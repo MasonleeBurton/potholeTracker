@@ -130,11 +130,6 @@
 									<div>
 
 
-										<%-- <fmt:parseDate value="${ pothole.status.inspectedOn }"
-									pattern="yyyy-MM-dd" var="parsedDateTime" type="both" />
-								<fmt:formatDate pattern="MM/dd/yyyy" var="inspected"
-									value="${ parsedDateTime }" /> --%>
-
 										<p>Inspected on:</p>
 
 										<form:input path="inspectedOn" type="date"
