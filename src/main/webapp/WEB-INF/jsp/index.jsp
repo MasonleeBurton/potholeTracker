@@ -62,7 +62,7 @@
 
 						<div><span class="bold">Size:</span> <c:out value="${pothole.size}" /> </div>
 
-						<div ><span class="bold">Created On:</span> <c:out value="${created}" /> </div>
+						<div><span class="bold">Created On:</span> <c:out value="${created}" /> </div>
 						<div class="longlatBoxed">
 							<div class="latHeaders ">
 								<span class="bold">Latitude:</span>
