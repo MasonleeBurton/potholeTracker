@@ -100,10 +100,11 @@ function initialize() {
 	};
 	map = new google.maps.Map(document.getElementById('map-canvas'),
 		mapOptions);
-
-	google.maps.event.addListener(map, 'click', function (event) {
-		displayForm(event.latLng);
-	});
+	if (window.user != null && (window.user.role == "user" || window.user.role == "employee")) {
+		google.maps.event.addListener(map, 'click', function (event) {
+			displayForm(event.latLng);
+		});
+	}
 
 	window.potholes.forEach(pothole => {
 		try {
@@ -116,7 +117,6 @@ function initialize() {
 				position: potholePosition,
 				map: map
 			});
-
 			marker.addListener('click', function () {
 				if (infowindow) {
 					infowindow.close();

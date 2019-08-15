@@ -51,11 +51,12 @@ public class PotholeController {
 	ServletContext servletContext;
 	
 	@GetMapping("/")
-	public String mapPage(ModelMap map) throws JsonProcessingException {
+	public String mapPage(ModelMap map, HttpSession session) throws JsonProcessingException {
 		ObjectMapper mapper = new ObjectMapper();
 		map.addAttribute("potholes", mapper.writeValueAsString(potholeDao.getAll()));
 		map.addAttribute("status", new Status());
 		map.addAttribute("states", mapper.writeValueAsString(StateList.getStateCodes()));
+		map.addAttribute("user", mapper.writeValueAsString(session.getAttribute("currentUser")));
 
 		return "potholeMap";
 	}

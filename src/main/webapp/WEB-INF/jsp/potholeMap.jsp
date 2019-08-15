@@ -24,6 +24,7 @@
 <c:url var="potholeMapJs" value="/js/potholeMap.js" />
 <script>window.potholes = ${potholes}
 window.states = ${states}
+window.user = ${user}
 </script>
 <script src="${potholeMapJs}"></script>
 
