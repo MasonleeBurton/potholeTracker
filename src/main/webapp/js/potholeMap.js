@@ -135,7 +135,7 @@ function initialize() {
 					${pothole.address.zipCode}
 					<div class="bold">Size:</div> ${pothole.size}`;
 				if (pothole.description != null && pothole.description.length > 0) {
-					potholeContent += `<div class="bold">Description:</div> <p class="desc">${pothole.description}</p>`;
+					potholeContent += `<div class="bold">Description:</div> <div class="desc">${pothole.description}</div>`;
 				}
 				potholeContent += `<div class="bold">Created On:</div> ${formatDate(pothole.createdOn)}`;
 				potholeContent += pothole.status.reportedOn != null ? `<div class="bold">Reported On:</div>${formatDate(pothole.status.reportedOn)}` : '';
