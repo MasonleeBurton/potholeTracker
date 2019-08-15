@@ -36,6 +36,7 @@
 <script src="${bootstrapJs}"></script>
 <script src="${adminJs}"></script>
 
+<link href="https://fonts.googleapis.com/css?family=PT+Serif|Poppins&display=swap" rel="stylesheet">
 <script type="text/javascript">
 	$(document).ready(function() {
 		$("time.timeago").timeago();
@@ -61,7 +62,7 @@
 		<a href="${homePageHref}">
 		<img src="${imgSrc}" 
 			class="img-fluid logo"
-				style="height: 50px;" /></a>
+				style="height: 70px;" /></a>
 		</a> 
 
 		<div class="collapse navbar-collapse" id="navbarSupportedContent">

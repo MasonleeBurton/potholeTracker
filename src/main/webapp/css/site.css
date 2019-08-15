@@ -1,6 +1,20 @@
-body {
-	background-color: #f0f0f5;
+h2 {
+	font-family: 'Poppins', sans-serif;
 }
+
+p {
+	font-family: 'PT Serif', serif;
+}
+
+span {
+	font-family: 'PT Serif', serif;
+}
+
+label {
+	font-family: 'PT Serif', serif;
+}
+
+
 
 .adminForm {
 	padding-bottom: 25px;
