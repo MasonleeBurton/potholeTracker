@@ -29,7 +29,7 @@ public class JDBCPotholeDAOIntegrationTest extends DAOIntegrationTest {
 	private PotholeDAO dao;
 	private UserDAO userDAO;
 	private JdbcTemplate jdbcTemplate;
-	private PasswordHasher hashMaster;
+	private PasswordHasher hashMaster = new PasswordHasher();
 	private static SingleConnectionDataSource dataSource;
 
 	/*
