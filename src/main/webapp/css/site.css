@@ -1,3 +1,7 @@
+body {
+	background-color: #f0f0f5;
+}
+
 .adminForm {
 	padding-bottom: 25px;
 }
@@ -7,7 +11,7 @@
 }
 
 .card, .card .list-group-item {
-	background-color: lightgray;
+	background-color: #b2b2d1;
 }
 
 .longlatBoxed {
@@ -61,13 +65,15 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 	.card-columns {
 		column-count: 2;
 	}
-	@media screen and ( min-width : 992px) {
-		.card-columns {
-			column-count: 3;
-		}
+}
+
+@media screen and ( min-width : 992px) {
+	.card-columns {
+		column-count: 3;
 	}
 }
 
+}
 .right {
 	display: flex;
 	justify-content: flex-end;
@@ -105,6 +111,15 @@ input[type=number]::-webkit-inner-spin-button, input[type=number]::-webkit-outer
 #map-canvas {
 	height: 80vh;
 	width: 100vh;
+	
+}
+
+@media ( min-width : 992px) {
+	#map-canvas {
+		border-style: solid;
+		border-width: 5px;
+		border-color: #212529;
+	}
 }
 
 .potholeImg img {
