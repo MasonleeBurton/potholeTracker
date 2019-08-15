@@ -11,7 +11,6 @@ import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.servlet.mvc.support.RedirectAttributes;
 
 import com.techelevator.model.User;
@@ -45,7 +44,12 @@ public class UserController {
 		}
 		
 			user.setRole("user");
-	
+		
+		if (userDAO.getUserByUserName(user.getUserName()) != null) {
+			flash.addFlashAttribute("emailUsed", "That email is already in use");
+			return "redirect:/users/new";
+		}
+			
 		userDAO.saveUser(user.getUserName(), user.getPassword(), user.getRole());
 		return "redirect:/login";
 	}
